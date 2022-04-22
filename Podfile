@@ -9,5 +9,7 @@ target 'AnimeFav' do
     pod 'RealmSwift'
     pod 'Cosmos', '~> 23.0'
     pod 'youtube-ios-player-helper'
+    pod 'SnapKit', '~> 5.6.0'
+    pod 'Moya', '~> 15.0'
 
 end
