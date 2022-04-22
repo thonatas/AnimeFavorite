@@ -33,7 +33,9 @@ class AnimeListViewController: UIViewController {
     }()
     
     private lazy var segmentedControl: UISegmentedControl = {
-        let segmentedControl = UISegmentedControl()
+        let segmentedControl = UISegmentedControl(items: ["by Members", "by Score", "by Rating"])
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         return segmentedControl
     }()
     
@@ -50,11 +52,8 @@ class AnimeListViewController: UIViewController {
     }
     
     // MARK: - Actions
-    func reloadData(_ sender: UIBarButtonItem) {
-        tableView.reloadData()
-    }
-    
-    func indexChanged(_ sender: UISegmentedControl) {
+    @objc
+    private func segmentedControlValueChanged() {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             animeNetwork.fetchAnimeList(by: "members")
