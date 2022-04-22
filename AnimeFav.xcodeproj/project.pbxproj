@@ -113,6 +113,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1801EDD52812F5A6005F0E59 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1815F8F125B8BF12007F0B22 /* AppDelegate.swift */,
+				1815F8F325B8BF12007F0B22 /* SceneDelegate.swift */,
+				1815F94425B90A84007F0B22 /* Constants.swift */,
+				1815F8FA25B8BF13007F0B22 /* Assets.xcassets */,
+				1815F8FC25B8BF13007F0B22 /* LaunchScreen.storyboard */,
+				1815F8FF25B8BF13007F0B22 /* Info.plist */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		180EE47525CEE5BC005E6D65 /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,15 +160,13 @@
 		1815F8F025B8BF12007F0B22 /* AnimeFav */ = {
 			isa = PBXGroup;
 			children = (
-				1815F8F125B8BF12007F0B22 /* AppDelegate.swift */,
-				1815F8F325B8BF12007F0B22 /* SceneDelegate.swift */,
-				1815F94425B90A84007F0B22 /* Constants.swift */,
+				1801EDD52812F5A6005F0E59 /* Common */,
 				1815F92425B8BF33007F0B22 /* Models */,
+				18DA3C4B2812F67100546362 /* Networking */,
+				18DA3C4C2812F67B00546362 /* Repository */,
+				18DA3C4A2812F65F00546362 /* ViewModels */,
 				1815F92525B8BF39007F0B22 /* Views */,
-				1815F92625B8BF40007F0B22 /* Controllers */,
-				1815F8FA25B8BF13007F0B22 /* Assets.xcassets */,
-				1815F8FC25B8BF13007F0B22 /* LaunchScreen.storyboard */,
-				1815F8FF25B8BF13007F0B22 /* Info.plist */,
+				1815F92625B8BF40007F0B22 /* Scenes */,
 				180EE47525CEE5BC005E6D65 /* Screenshots */,
 			);
 			path = AnimeFav;
@@ -164,9 +175,7 @@
 		1815F92425B8BF33007F0B22 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1815F93925B8CF37007F0B22 /* AnimeManager.swift */,
 				1815F93425B8C2FB007F0B22 /* AnimeData.swift */,
-				185CC8E025C6450600F120F8 /* AnimeRepository.swift */,
 				1815F93E25B8CF41007F0B22 /* Anime.swift */,
 			);
 			path = Models;
@@ -183,7 +192,7 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		1815F92625B8BF40007F0B22 /* Controllers */ = {
+		1815F92625B8BF40007F0B22 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				1815F8F525B8BF12007F0B22 /* AnimeListViewController.swift */,
@@ -191,7 +200,30 @@
 				189E51CD25BE4C850017E67F /* FavoriteViewController.swift */,
 				18C1615D25BF636500ACC018 /* TrailerViewController.swift */,
 			);
-			path = Controllers;
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		18DA3C4A2812F65F00546362 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		18DA3C4B2812F67100546362 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1815F93925B8CF37007F0B22 /* AnimeManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		18DA3C4C2812F67B00546362 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				185CC8E025C6450600F120F8 /* AnimeRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		E5B156D6123F4E0DCFE285C7 /* Pods */ = {
@@ -498,7 +530,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -553,7 +585,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -569,15 +601,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BJFSMC5J9X;
-				INFOPLIST_FILE = AnimeFav/Info.plist;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "$(SRCROOT)/AnimeFav/Common/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.thonatas.AnimeFav;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -589,15 +622,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BJFSMC5J9X;
-				INFOPLIST_FILE = AnimeFav/Info.plist;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "$(SRCROOT)/AnimeFav/Common/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.thonatas.AnimeFav;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
