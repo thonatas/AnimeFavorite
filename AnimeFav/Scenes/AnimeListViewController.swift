@@ -4,13 +4,38 @@
 import UIKit
 import Kingfisher
 import RealmSwift
+import SnapKit
 
 class AnimeListViewController: UIViewController {
     
     // MARK: - Attributes
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Top Anime List"
+        label.font = UIFont.systemFont(ofSize: 23, weight: .semibold)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.showsVerticalScrollIndicator = false
+        tableView.register(UINib(nibName: K.animeListCellNibName, bundle: nil), forCellReuseIdentifier: K.animeListReusableCell)
+        return tableView
+    }()
+    
+    private lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.delegate = self
+        return searchBar
+    }()
+    
+    private lazy var segmentedControl: UISegmentedControl = {
+        let segmentedControl = UISegmentedControl()
+        return segmentedControl
+    }()
     
     var animeNetwork = AnimeManager()
     var animes: [Anime] = []
@@ -18,23 +43,18 @@ class AnimeListViewController: UIViewController {
     // MARK: - View Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
         animeNetwork.delegate = self
         animeNetwork.fetchAnimeList(by: "members")
-        searchBar.delegate = self
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(UINib(nibName: K.animeListCellNibName, bundle: nil), forCellReuseIdentifier: K.animeListReusableCell)
-        
-        //print(Realm.Configuration.defaultConfiguration.fileURL)
+        self.setupView()
     }
     
     // MARK: - Actions
-    @IBAction func reloadData(_ sender: UIBarButtonItem) {
+    func reloadData(_ sender: UIBarButtonItem) {
         tableView.reloadData()
     }
     
-    @IBAction func indexChanged(_ sender: UISegmentedControl) {
-                
+    func indexChanged(_ sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             animeNetwork.fetchAnimeList(by: "members")
@@ -45,15 +65,47 @@ class AnimeListViewController: UIViewController {
         default:
             break
         }
-
         tableView.reloadData()
     }
+}
+
+// MARK: - Layout
+extension AnimeListViewController: CodeView {
+    func buildViewHierarchy() {
+        self.view.addSubview(titleLabel)
+        self.view.addSubview(segmentedControl)
+        self.view.addSubview(searchBar)
+        self.view.addSubview(tableView)
+    }
     
+    func buildConstraints() {
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
+            make.leading.trailing.equalToSuperview().inset(10)
+        }
+        
+        segmentedControl.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.leading.trailing.equalToSuperview().inset(10)
+            make.height.equalTo(30)
+        }
+        
+        searchBar.snp.makeConstraints { make in
+            make.top.equalTo(segmentedControl.snp.bottom).offset(10)
+            make.leading.trailing.equalToSuperview().inset(10)
+            make.height.equalTo(60)
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(searchBar.snp.bottom).offset(15)
+            make.bottom.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(10)
+        }
+    }
 }
 
 // MARK: - Table View Data Source
 extension AnimeListViewController: UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return animes.count
     }
@@ -63,19 +115,15 @@ extension AnimeListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.animeListReusableCell, for: indexPath) as! AnimeListTableViewCell
 
         anime.getImageCache(uiImageView: cell.imageAnime)
-        
         cell.label.text = anime.title
-        
         return cell
     }
-
 }
 
 // MARK: - Table View Delegate
 extension AnimeListViewController: UITableViewDelegate {
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: K.segueListToDetails, sender: self)
+        //performSegue(withIdentifier: K.segueListToDetails, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -90,17 +138,14 @@ extension AnimeListViewController: UITableViewDelegate {
 
 // MARK: - Search Bar Delegate
 extension AnimeListViewController: UISearchBarDelegate {
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let animeSearch = searchBar.text!
         animeNetwork.fetchAnimeSearch(for: animeSearch)
         
         DispatchQueue.main.async {
             searchBar.resignFirstResponder()
+            self.tableView.reloadData()
         }
-        
-        tableView.reloadData()
-
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
