@@ -8,174 +8,370 @@
 import UIKit
 import Kingfisher
 import Cosmos
-//import RealmSwift
+import RealmSwift
 
 class AnimeDetailsViewController: UIViewController {
-    // MARK: - Outlets
-    @IBOutlet weak var labelAnimeTitle: UILabel!
-    @IBOutlet weak var imageAnime: UIImageView!
-    @IBOutlet weak var labelSynopsis: UILabel!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var labelAnimeType: UILabel!
-    @IBOutlet weak var labelAnimeSource: UILabel!
-    @IBOutlet weak var labelAnimeEpisodes: UILabel!
-    @IBOutlet weak var labelAnimeRank: UILabel!
-    @IBOutlet weak var labelAnimeScore: UILabel!
-    @IBOutlet weak var labelAnimeStatus: UILabel!
-    @IBOutlet weak var buttonWatchTrailler: UIButton!
-    @IBOutlet weak var viewUserFunctions: UIView!
-    @IBOutlet weak var labelUserEpisodes: UILabel!
-    @IBOutlet weak var buttonFavorite: UIButton!
-    @IBOutlet weak var rateFiveStar: CosmosView!
-    @IBOutlet weak var viewUserEpi: UIView!
-    @IBOutlet weak var viewStarred: UIView!
-    @IBOutlet weak var stepperEpisodes: UIStepper!
+    // MARK: - Views
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Favorites"
+        label.font = UIFont.systemFont(ofSize: 27, weight: .semibold)
+        label.textAlignment = .left
+        return label
+    }()
+    
+    private let animeImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.cornerRadius = 5.0
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(systemName: "heart.fill")
+        return imageView
+    }()
+    
+    private let animeTypeView: AnimeInfoView = {
+        let animeInfoView = AnimeInfoView()
+        animeInfoView.title = "TIPO"
+        animeInfoView.descriptionText = "?"
+        return animeInfoView
+    }()
+    
+    private let animeSourceView: AnimeInfoView = {
+        let animeInfoView = AnimeInfoView()
+        animeInfoView.title = "ORIGEM"
+        animeInfoView.descriptionText = "?"
+        return animeInfoView
+    }()
+    
+    private let animeEpisodesView: AnimeInfoView = {
+        let animeInfoView = AnimeInfoView()
+        animeInfoView.title = "EPISÓDIOS"
+        animeInfoView.descriptionText = "?"
+        return animeInfoView
+    }()
+    
+    private let animeRankView: AnimeInfoView = {
+        let animeInfoView = AnimeInfoView()
+        animeInfoView.title = "RANK"
+        animeInfoView.descriptionText = "#?"
+        return animeInfoView
+    }()
+    
+    private let animeScoreView: AnimeInfoView = {
+        let animeInfoView = AnimeInfoView()
+        animeInfoView.title = "SCORE"
+        animeInfoView.descriptionText = "0.0"
+        return animeInfoView
+    }()
+    
+    private let animeStatusView: AnimeInfoView = {
+        let animeInfoView = AnimeInfoView()
+        animeInfoView.title = "STATUS"
+        animeInfoView.descriptionText = "?"
+        return animeInfoView
+    }()
+    
+    private let animeGradeView: AnimeInfoView = {
+        let animeInfoView = AnimeInfoView()
+        animeInfoView.title = "NOTA"
+        return animeInfoView
+    }()
+    
+    private let animeFavoriteView: AnimeInfoView = {
+        let animeInfoView = AnimeInfoView()
+        animeInfoView.title = "FAVORITO"
+        return animeInfoView
+    }()
+    
+    private lazy var trailerButton: UIButton = {
+        let button = UIButton()
+        let playImage = UIImage(systemName: "play.rectangle")?.withRenderingMode(.alwaysOriginal)
+        button.setImage(playImage?.withTintColor(.systemBlue), for: .normal)
+        button.setImage(playImage?.withTintColor(.systemGray), for: .normal)
+        button.setTitle(" Trailer", for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.setTitleColor(.systemGray, for: .disabled)
+        button.isEnabled = false
+        button.addTarget(self, action: #selector(trailerButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var favoriteImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(systemName: "heart")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(favoriteImageViewTapped))
+        imageView.addGestureRecognizer(tap)
+        imageView.isUserInteractionEnabled = true
+        return imageView
+    }()
+    
+    private let episodesTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Qual episódio parei?"
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private let episodesDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "?"
+        label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        label.textAlignment = .right
+        return label
+    }()
+    
+    private lazy var episodesStepper: UIStepper = {
+        let stepper = UIStepper()
+        stepper.stepValue = 1
+        stepper.addTarget(self, action: #selector(episodesStepperValueChanged(_:)), for: .valueChanged)
+        return stepper
+    }()
+    
+    private let sinopsysTextView: UITextView = {
+        let textView = UITextView()
+        textView.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        return textView
+    }()
+    
+    private lazy var fiveStarsCosmosView = CosmosView()
     
     // MARK: - Attributes
     var animeId: Int?
-    var animeManager = AnimeManager()
-    var animeRepo = AnimeRepository()
-    var anime: Anime?
-    var userEpisodes: Int?
-    var animeTrailer: String?
+    private var animeManager = AnimeManager()
+    private var animeRepo = AnimeRepository()
+    private var anime: Anime?
+    private var userEpisodes: Int?
+    private var animeTrailer: String?
+    private var isFavorite: Bool = false {
+        didSet {
+            guard let animeSafe = anime else { return }
+            animeSafe.isFavorite = isFavorite
+            isFavorite ? animeRepo.addFavorite(animeSafe) : animeRepo.removeFavorite(id: animeSafe.id)
+            favoriteImageView.image = UIImage(systemName: isFavorite ? "heart.fill" : "heart")
+        }
+    }
     
     // MARK: - View Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         animeManager.delegate = self
-        
         guard let id = animeId else { return }
-        animeManager.fetchAnimeDetails(byId: id)
-        
+        animeManager.fetchAnimeDetails(byId: 1)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        renderButtonWatch()
-        updateRatingCosmos()
+        self.view.backgroundColor = .white
+        self.setupView()
     }
-    
+}
+
+// MARK: - Functions
+extension AnimeDetailsViewController {
     // MARK: - Actions
-    @IBAction func buttonFavoritePressed(_ sender: UIButton) {
-        
-        let imageButton = sender.currentImage
-        guard let animeSafe = anime else { return }
-        
-        
-        if imageButton == UIImage(systemName: "heart") {
-            buttonFavorite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            animeSafe.isFavorite = true
-            
-            animeRepo.addFavorite(animeSafe)
-            
-            viewUserEpi.isHidden = false
-            viewStarred.isHidden = false
-        
-        } else {
-            buttonFavorite.setImage(UIImage(systemName: "heart"), for: .normal)
-            animeSafe.isFavorite = false
-            
-            animeRepo.removeFavorite(id: animeSafe.id)
-            
-            viewUserEpi.isHidden = true
-            viewStarred.isHidden = true
-        }
-        
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeFavorites"), object: nil)
-        
+    @objc
+    private func favoriteImageViewTapped() {
+        print(#function)
+        isFavorite.toggle()
     }
     
-    @IBAction func stepperUserEpisodes(_ sender: UIStepper) {
+    @objc
+    private func episodesStepperValueChanged(_ sender: UIStepper) {
         userEpisodes = Int(sender.value)
-        labelUserEpisodes.text = String(userEpisodes ?? 1)
-        anime?.userEpisodes = labelUserEpisodes.text ?? "1"
-        
+        episodesDescriptionLabel.text = String(userEpisodes ?? 1)
+        anime?.userEpisodes = episodesDescriptionLabel.text ?? "1"
         if let animeSafe = anime {
             animeRepo.updateUserEpisodes(animeSafe, userEpisodes: animeSafe.userEpisodes)
         }
-        
     }
     
-    @IBAction func buttonTrailerPressed(_ sender: UIButton) {
-        
-        self.performSegue(withIdentifier: K.segueToTrailer, sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.segueToTrailer {
-            
-            let destinationVC = segue.destination as! TrailerViewController
-            
-            if let trailer = animeTrailer {
-                destinationVC.animeTrailer = trailer
-            }
-        }
+    @objc
+    private func trailerButtonTapped() {
+        print(#function)
     }
     
     // MARK: - Methods
     func updateAnimeDetails(_ anime: Anime?) {
-        labelAnimeTitle.text = anime?.title ?? "Sem Título Encontrado"
-        
-        anime?.getImageCache(uiImageView: imageAnime)
-        
-        labelAnimeType.text = anime?.type ?? "-"
-        labelAnimeSource.text = anime?.source ?? "-"
-        labelAnimeRank.text = anime?.rankString
-        labelAnimeScore.text = "\(anime?.score ?? 0.0)"
-        labelAnimeStatus.text = anime?.status
-        labelSynopsis.text = anime?.synopsis ?? "Sem Sinopse"
+        titleLabel.text = anime?.title ?? "Sem Título Encontrado"
+        anime?.getImageCache(uiImageView: animeImageView)
+        animeTypeView.descriptionText = anime?.type ?? "-"
+        animeSourceView.descriptionText = anime?.source ?? "-"
+        animeRankView.descriptionText = anime?.rankString
+        animeScoreView.descriptionText = "\(anime?.score ?? 0.0)"
+        animeStatusView.descriptionText = anime?.status
+        sinopsysTextView.text = anime?.synopsis ?? "Sem Sinopse"
         animeTrailer = anime?.trailerUrl ?? ""
         
         if let episodes = anime?.episodes {
-            labelAnimeEpisodes.text = "\(episodes)"
+            animeEpisodesView.descriptionText = "\(episodes)"
         } else {
-            labelAnimeEpisodes.text = "?"
+            animeEpisodesView.descriptionText = "?"
         }
         
         if let idSafe = anime?.id {
             let isFavorite = animeRepo.isFavorited(id: idSafe)
-            
             if isFavorite {
-                buttonFavorite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                viewUserEpi.isHidden = false
-                viewStarred.isHidden = false
-                
-                labelUserEpisodes.text = animeRepo.getAnimeFavoriteUserEpisodes(id: idSafe)
-                if let valueUserEpisodes = Double(labelUserEpisodes.text ?? "1.0") {
-                    stepperEpisodes.value = valueUserEpisodes
-                }
-                
+                //favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                //viewUserEpi.isHidden = false
+                //viewStarred.isHidden = false
+                //labelUserEpisodes.text = animeRepo.getAnimeFavoriteUserEpisodes(id: idSafe)
+//                if let valueUserEpisodes = Double(labelUserEpisodes.text ?? "1.0") {
+//                    episodesStepper.value = valueUserEpisodes
+//                }
                 let evaluation = animeRepo.getAnimeFavoriteEvaluation(id: idSafe)
-               
                 if let evaluationDouble = Double(evaluation) {
-                    print("evaluation ===== \(evaluationDouble)")
-                    rateFiveStar.rating = evaluationDouble
+                    fiveStarsCosmosView.rating = evaluationDouble
                 }
-                
                 anime?.isFavorite = true
-                
             } else {
-                buttonFavorite.setImage(UIImage(systemName: "heart"), for: .normal)
-                viewUserEpi.isHidden = true
-                viewStarred.isHidden = true
+                //favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                //viewUserEpi.isHidden = true
+                //viewStarred.isHidden = true
                 anime?.isFavorite = false
             }
         }
-
-    }
-    
-    func renderButtonWatch() {
-        buttonWatchTrailler.layer.cornerRadius = 5
-        buttonWatchTrailler.layer.borderWidth = 1
-        buttonWatchTrailler.layer.borderColor = CGColor(red: 24.0/255.0, green: 119.0/255.0, blue: 1.0, alpha: 1.0)
     }
     
     func updateRatingCosmos() {
-        rateFiveStar.didFinishTouchingCosmos = { rating in
-            if let animeSafe = self.anime {
-                let ratingString = String(describing: rating)
-                self.animeRepo.updateUserEvaluation(animeSafe, userEvaluation: ratingString)
-            }
+//        rateFiveStar.didFinishTouchingCosmos = { rating in
+//            if let animeSafe = self.anime {
+//                let ratingString = String(describing: rating)
+//                self.animeRepo.updateUserEvaluation(animeSafe, userEvaluation: ratingString)
+//            }
+//        }
+    }
+}
+
+// MARK: - Layout
+extension AnimeDetailsViewController: CodeView {
+    func buildViewHierarchy() {
+        self.view.addSubview(titleLabel)
+        self.view.addSubview(animeImageView)
+        self.view.addSubview(animeTypeView)
+        self.view.addSubview(animeSourceView)
+        self.view.addSubview(animeEpisodesView)
+        self.view.addSubview(animeRankView)
+        self.view.addSubview(animeScoreView)
+        self.view.addSubview(animeStatusView)
+        self.view.addSubview(trailerButton)
+        self.view.addSubview(episodesTitleLabel)
+        self.view.addSubview(episodesDescriptionLabel)
+        self.view.addSubview(episodesStepper)
+        self.view.addSubview(animeFavoriteView)
+        self.view.addSubview(animeGradeView)
+        self.view.addSubview(favoriteImageView)
+        self.view.addSubview(fiveStarsCosmosView)
+        self.view.addSubview(sinopsysTextView)
+    }
+    
+    func buildConstraints() {
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(50)
+        }
+        
+        animeImageView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(10)
+            make.width.equalToSuperview().multipliedBy(0.45)
+            make.height.equalTo(animeImageView.snp.width).multipliedBy(1.5)
+        }
+        
+        animeTypeView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(20)
+            make.leading.equalTo(animeImageView.snp.trailing).offset(10)
+            make.width.equalTo(self.view.snp.width).multipliedBy(0.25)
+        }
+        
+        animeSourceView.snp.makeConstraints { make in
+            make.top.equalTo(animeTypeView.snp.bottom).offset(5)
+            make.leading.equalTo(animeImageView.snp.trailing).offset(10)
+            make.width.equalTo(self.animeTypeView.snp.width)
+        }
+        
+        animeEpisodesView.snp.makeConstraints { make in
+            make.top.equalTo(animeSourceView.snp.bottom).offset(5)
+            make.leading.equalTo(animeImageView.snp.trailing).offset(10)
+            make.width.equalTo(self.animeTypeView.snp.width)
+        }
+        
+        animeRankView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(20)
+            make.leading.equalTo(animeTypeView.snp.trailing).offset(5)
+            make.trailing.equalToSuperview().inset(10)
+            make.width.equalTo(self.animeTypeView.snp.width)
+        }
+        
+        animeScoreView.snp.makeConstraints { make in
+            make.top.equalTo(animeRankView.snp.bottom).offset(5)
+            make.leading.equalTo(animeSourceView.snp.trailing).offset(5)
+            make.trailing.equalToSuperview().inset(10)
+            make.width.equalTo(self.animeTypeView.snp.width)
+        }
+        
+        animeStatusView.snp.makeConstraints { make in
+            make.top.equalTo(animeScoreView.snp.bottom).offset(5)
+            make.leading.equalTo(animeEpisodesView.snp.trailing).offset(5)
+            make.trailing.equalToSuperview().inset(10)
+            make.width.equalTo(self.animeTypeView.snp.width)
+        }
+        
+        trailerButton.snp.makeConstraints { make in
+            make.leading.equalTo(animeImageView.snp.trailing).offset(5)
+            make.trailing.equalToSuperview().inset(10)
+            make.height.equalTo(25)
+        }
+        
+        episodesTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(trailerButton.snp.bottom).offset(15)
+            make.leading.equalTo(animeImageView.snp.trailing).offset(10)
+            make.trailing.equalTo(animeStatusView.snp.trailing)
+        }
+        
+        episodesStepper.snp.makeConstraints { make in
+            make.top.equalTo(episodesTitleLabel.snp.bottom).offset(5)
+            make.leading.equalTo(episodesTitleLabel.snp.centerX).offset(-15)
+            make.trailing.greaterThanOrEqualToSuperview().inset(10)
+            make.bottom.equalTo(animeImageView.snp.bottom)
+        }
+        
+        episodesDescriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(episodesTitleLabel.snp.bottom).offset(5)
+            make.leading.equalTo(episodesTitleLabel.snp.leading)
+            make.trailing.equalTo(episodesStepper.snp.leading).offset(-20)
+            make.bottom.equalTo(animeImageView.snp.bottom)
+        }
+        
+        animeFavoriteView.snp.makeConstraints { make in
+            make.top.equalTo(animeImageView.snp.bottom).offset(25)
+            make.leading.equalToSuperview().offset(10)
+            make.trailing.equalTo(self.view.snp.centerX)
+        }
+        
+        animeGradeView.snp.makeConstraints { make in
+            make.top.equalTo(episodesStepper.snp.bottom).offset(25)
+            make.leading.equalTo(self.view.snp.centerX)
+            make.trailing.equalToSuperview().inset(10)
+        }
+        
+        favoriteImageView.snp.makeConstraints { make in
+            make.top.equalTo(animeFavoriteView.snp.bottom).offset(5)
+            make.centerX.equalTo(animeFavoriteView.snp.centerX)
+            make.size.equalTo(35)
+        }
+        
+        fiveStarsCosmosView.snp.makeConstraints { make in
+            make.top.equalTo(animeGradeView.snp.bottom).offset(15)
+            make.centerX.equalTo(animeGradeView.snp.centerX)
+        }
+        
+        sinopsysTextView.snp.makeConstraints { make in
+            make.top.equalTo(animeImageView.snp.bottom).offset(110)
+            make.leading.trailing.equalToSuperview().inset(15)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(20)
         }
     }
 }
@@ -183,7 +379,6 @@ class AnimeDetailsViewController: UIViewController {
 // MARK: - Anime Manager Delegate
 extension AnimeDetailsViewController: AnimeManagerDelegate {
     func getInformtationAnime(_ animeNetwork: AnimeManager, animes: [Anime]) {
-        
         DispatchQueue.main.async {
             self.anime = animes.first
             self.updateAnimeDetails(self.anime)
@@ -193,6 +388,4 @@ extension AnimeDetailsViewController: AnimeManagerDelegate {
     func didFailWithError(error: Error) {
         print(error.localizedDescription)
     }
-    
-    
 }

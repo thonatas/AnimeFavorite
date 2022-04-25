@@ -33,7 +33,8 @@ class FavoriteViewController: UIViewController {
         animes = animeRepo.getFavoriteList()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: NSNotification.Name(rawValue: "changeFavorites"), object: nil)
-
+        
+        self.setupView()
     }
     
     @objc func refresh() {
@@ -57,7 +58,7 @@ extension FavoriteViewController: CodeView {
         }
         
         favoriteCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.top).offset(20)
+            make.top.equalTo(titleLabel.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(10)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }

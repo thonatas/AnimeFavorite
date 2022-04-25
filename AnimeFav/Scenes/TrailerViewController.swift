@@ -9,8 +9,20 @@ import UIKit
 import youtube_ios_player_helper
 
 class TrailerViewController: UIViewController {
+    // MARK: - Views
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Trailer"
+        label.font = UIFont.systemFont(ofSize: 27, weight: .semibold)
+        label.textAlignment = .left
+        return label
+    }()
     
-    @IBOutlet weak var playerView: YTPlayerView!
+    private lazy var playerView: YTPlayerView = {
+        let playerView = YTPlayerView()
+        playerView.delegate = self
+        return playerView
+    }()
     
     var animeTrailer: String?
     
@@ -18,13 +30,12 @@ class TrailerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        playerView.delegate = self
-        
         if let trailer = animeTrailer,
            let videoId = getVideoID(from: trailer) {
             playerView.load(withVideoId: videoId, playerVars: ["playsinline": "1"])
         }
-
+        
+        self.setupView()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -53,8 +64,31 @@ class TrailerViewController: UIViewController {
     
 }
 
-extension TrailerViewController: YTPlayerViewDelegate {
+// MARK: - Layout
+extension TrailerViewController: CodeView {
+    func buildViewHierarchy() {
+        self.view.addSubview(titleLabel)
+        self.view.addSubview(playerView)
+    }
     
+    func buildConstraints() {
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(100)
+        }
+        
+        playerView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(20)
+            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
+            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(496)
+        }
+    }
+}
+
+// MARK: - YTPlayerView Delegate
+extension TrailerViewController: YTPlayerViewDelegate {
     func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
         switch state {
         case .buffering:
