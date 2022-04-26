@@ -7,12 +7,11 @@
 
 import Foundation
 
-struct AnimeResults: Codable {
-    var results: [AnimeData]
+struct AnimesListResponse: Codable {
+    var results: [AnimeResponse]
 }
 
-struct AnimeData {
-    
+struct AnimeResponse {
     var id: Int
     var imageUrl: String
     var title: String
@@ -24,10 +23,9 @@ struct AnimeData {
     var trailerUrl: String?
     var source: String?
     var rank: Int?
-
 }
 
-extension AnimeData: Codable {
+extension AnimeResponse: Codable {
     enum CodingKeys: String, CodingKey {
         case id = "mal_id"
         case imageUrl = "image_url"

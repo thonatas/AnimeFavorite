@@ -19,8 +19,8 @@
 		1815F8FE25B8BF13007F0B22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1815F8FC25B8BF13007F0B22 /* LaunchScreen.storyboard */; };
 		1815F92F25B8C22D007F0B22 /* AnimeListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815F92D25B8C22D007F0B22 /* AnimeListTableViewCell.swift */; };
 		1815F93025B8C22D007F0B22 /* AnimeListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1815F92E25B8C22D007F0B22 /* AnimeListTableViewCell.xib */; };
-		1815F93525B8C2FB007F0B22 /* AnimeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815F93425B8C2FB007F0B22 /* AnimeData.swift */; };
-		1815F93A25B8CF37007F0B22 /* AnimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815F93925B8CF37007F0B22 /* AnimeManager.swift */; };
+		1815F93525B8C2FB007F0B22 /* AnimeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815F93425B8C2FB007F0B22 /* AnimeResponse.swift */; };
+		1815F93A25B8CF37007F0B22 /* AnimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815F93925B8CF37007F0B22 /* AnimeService.swift */; };
 		1815F93F25B8CF41007F0B22 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815F93E25B8CF41007F0B22 /* Anime.swift */; };
 		1815F94525B90A84007F0B22 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815F94425B90A84007F0B22 /* Constants.swift */; };
 		185CC8E125C6450600F120F8 /* AnimeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185CC8E025C6450600F120F8 /* AnimeRepository.swift */; };
@@ -28,6 +28,11 @@
 		189E51CE25BE4C850017E67F /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E51CD25BE4C850017E67F /* FavoriteViewController.swift */; };
 		18B16CC025BC7B93001C8816 /* AnimeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B16CBF25BC7B93001C8816 /* AnimeDetailsViewController.swift */; };
 		18C1615E25BF636500ACC018 /* TrailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1615D25BF636500ACC018 /* TrailerViewController.swift */; };
+		18C25D12281759BA00FF3B88 /* AnimeDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C25D11281759BA00FF3B88 /* AnimeDetailsViewModel.swift */; };
+		18C25D1428175F0000FF3B88 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C25D1328175F0000FF3B88 /* FavoriteViewModel.swift */; };
+		18C25D162817635400FF3B88 /* AnimeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C25D152817635400FF3B88 /* AnimeListViewModel.swift */; };
+		18C25D192817659E00FF3B88 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C25D182817659E00FF3B88 /* Category.swift */; };
+		18C25D1B28177AA100FF3B88 /* AnimeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C25D1A28177AA100FF3B88 /* AnimeAPI.swift */; };
 		18DA3C4F2812FA8400546362 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA3C4E2812FA8400546362 /* CodeView.swift */; };
 		18DA3C512813674700546362 /* AnimeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA3C502813674700546362 /* AnimeInfoView.swift */; };
 		9CEE57F5E1C13C7FAD9DAD8E /* Pods_AnimeFav.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAD8CEA360D7F92D21D689C /* Pods_AnimeFav.framework */; };
@@ -67,8 +72,8 @@
 		1815F90F25B8BF13007F0B22 /* AnimeFavUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimeFavUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1815F92D25B8C22D007F0B22 /* AnimeListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListTableViewCell.swift; sourceTree = "<group>"; };
 		1815F92E25B8C22D007F0B22 /* AnimeListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimeListTableViewCell.xib; sourceTree = "<group>"; };
-		1815F93425B8C2FB007F0B22 /* AnimeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeData.swift; sourceTree = "<group>"; };
-		1815F93925B8CF37007F0B22 /* AnimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeManager.swift; sourceTree = "<group>"; };
+		1815F93425B8C2FB007F0B22 /* AnimeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeResponse.swift; sourceTree = "<group>"; };
+		1815F93925B8CF37007F0B22 /* AnimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeService.swift; sourceTree = "<group>"; };
 		1815F93E25B8CF41007F0B22 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
 		1815F94425B90A84007F0B22 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		185CC8E025C6450600F120F8 /* AnimeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeRepository.swift; sourceTree = "<group>"; };
@@ -76,6 +81,11 @@
 		189E51CD25BE4C850017E67F /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		18B16CBF25BC7B93001C8816 /* AnimeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailsViewController.swift; sourceTree = "<group>"; };
 		18C1615D25BF636500ACC018 /* TrailerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewController.swift; sourceTree = "<group>"; };
+		18C25D11281759BA00FF3B88 /* AnimeDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailsViewModel.swift; sourceTree = "<group>"; };
+		18C25D1328175F0000FF3B88 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
+		18C25D152817635400FF3B88 /* AnimeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListViewModel.swift; sourceTree = "<group>"; };
+		18C25D182817659E00FF3B88 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		18C25D1A28177AA100FF3B88 /* AnimeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeAPI.swift; sourceTree = "<group>"; };
 		18DA3C4E2812FA8400546362 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		18DA3C502813674700546362 /* AnimeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeInfoView.swift; sourceTree = "<group>"; };
 		88CE29EF86FCD18460A830C3 /* Pods-AnimeFav.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeFav.release.xcconfig"; path = "Target Support Files/Pods-AnimeFav/Pods-AnimeFav.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				1801EDD52812F5A6005F0E59 /* Common */,
+				18C25D172817658200FF3B88 /* Enum */,
 				1815F92425B8BF33007F0B22 /* Models */,
 				18DA3C4B2812F67100546362 /* Networking */,
 				18DA3C4C2812F67B00546362 /* Repository */,
@@ -180,7 +191,7 @@
 		1815F92425B8BF33007F0B22 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1815F93425B8C2FB007F0B22 /* AnimeData.swift */,
+				1815F93425B8C2FB007F0B22 /* AnimeResponse.swift */,
 				1815F93E25B8CF41007F0B22 /* Anime.swift */,
 			);
 			path = Models;
@@ -209,9 +220,20 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
+		18C25D172817658200FF3B88 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				18C25D182817659E00FF3B88 /* Category.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		18DA3C4A2812F65F00546362 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				18C25D11281759BA00FF3B88 /* AnimeDetailsViewModel.swift */,
+				18C25D1328175F0000FF3B88 /* FavoriteViewModel.swift */,
+				18C25D152817635400FF3B88 /* AnimeListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -219,7 +241,8 @@
 		18DA3C4B2812F67100546362 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				1815F93925B8CF37007F0B22 /* AnimeManager.swift */,
+				1815F93925B8CF37007F0B22 /* AnimeService.swift */,
+				18C25D1A28177AA100FF3B88 /* AnimeAPI.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -430,16 +453,21 @@
 			files = (
 				189E51CE25BE4C850017E67F /* FavoriteViewController.swift in Sources */,
 				1815F92F25B8C22D007F0B22 /* AnimeListTableViewCell.swift in Sources */,
+				18C25D192817659E00FF3B88 /* Category.swift in Sources */,
+				18C25D12281759BA00FF3B88 /* AnimeDetailsViewModel.swift in Sources */,
 				1815F8F625B8BF12007F0B22 /* AnimeListViewController.swift in Sources */,
+				18C25D1B28177AA100FF3B88 /* AnimeAPI.swift in Sources */,
 				185CC8E125C6450600F120F8 /* AnimeRepository.swift in Sources */,
 				1815F93F25B8CF41007F0B22 /* Anime.swift in Sources */,
 				1815F8F225B8BF12007F0B22 /* AppDelegate.swift in Sources */,
+				18C25D162817635400FF3B88 /* AnimeListViewModel.swift in Sources */,
 				18DA3C512813674700546362 /* AnimeInfoView.swift in Sources */,
 				189E51C925BE4BD30017E67F /* FavoriteCollectionViewCell.swift in Sources */,
-				1815F93A25B8CF37007F0B22 /* AnimeManager.swift in Sources */,
+				1815F93A25B8CF37007F0B22 /* AnimeService.swift in Sources */,
 				18C1615E25BF636500ACC018 /* TrailerViewController.swift in Sources */,
-				1815F93525B8C2FB007F0B22 /* AnimeData.swift in Sources */,
+				1815F93525B8C2FB007F0B22 /* AnimeResponse.swift in Sources */,
 				1815F8F425B8BF12007F0B22 /* SceneDelegate.swift in Sources */,
+				18C25D1428175F0000FF3B88 /* FavoriteViewModel.swift in Sources */,
 				1815F94525B90A84007F0B22 /* Constants.swift in Sources */,
 				18B16CC025BC7B93001C8816 /* AnimeDetailsViewController.swift in Sources */,
 				18DA3C4F2812FA8400546362 /* CodeView.swift in Sources */,
