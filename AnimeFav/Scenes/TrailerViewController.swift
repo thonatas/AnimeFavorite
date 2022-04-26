@@ -20,12 +20,10 @@ class TrailerViewController: UIViewController {
     
     private lazy var playerView: YTPlayerView = {
         let playerView = YTPlayerView()
-        playerView.delegate = self
         return playerView
     }()
     
     var animeTrailer: String?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,28 +80,6 @@ extension TrailerViewController: CodeView {
             make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
             make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(496)
-        }
-    }
-}
-
-// MARK: - YTPlayerView Delegate
-extension TrailerViewController: YTPlayerViewDelegate {
-    func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
-        switch state {
-        case .buffering:
-            print("Buffering")
-        case .ended:
-            print("Ended")
-        case .paused:
-            print("Paused")
-        case .playing:
-            print("Playing")
-        case .unknown:
-            print("Unknown")
-        case .unstarted:
-            print("Unstarted")
-        default:
-            break
         }
     }
 }
