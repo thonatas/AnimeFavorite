@@ -11,5 +11,6 @@ target 'AnimeFav' do
     pod 'youtube-ios-player-helper'
     pod 'SnapKit', '~> 5.6.0'
     pod 'Moya', '~> 15.0'
+    pod 'Bagel', '~>  1.4.0'
 
 end
