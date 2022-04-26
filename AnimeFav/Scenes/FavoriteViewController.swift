@@ -18,10 +18,11 @@ class FavoriteViewController: UIViewController {
     }()
     
     private lazy var favoriteCollectionView: UICollectionView = {
-        let layout = UICollectionViewLayout()
+        let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.register(FavoriteCollectionViewCell.self, forCellWithReuseIdentifier: FavoriteCollectionViewCell.identifier)
         return collectionView
     }()
     
@@ -43,8 +44,11 @@ class FavoriteViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.viewModel?.delegate = self
-        self.viewModel?.getFavoriteAnimesList()
         self.setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.viewModel?.getFavoriteAnimesList()
     }
     
     // MARK: - Function
@@ -83,7 +87,7 @@ extension FavoriteViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.favoriteReusableCell, for: indexPath) as? FavoriteCollectionViewCell,
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteCollectionViewCell.identifier, for: indexPath) as? FavoriteCollectionViewCell,
               let anime = viewModel?.animes[indexPath.item] else { return UICollectionViewCell() }
         
         cell.setupCell(with: anime)
@@ -99,6 +103,26 @@ extension FavoriteViewController: UICollectionViewDelegate {
         let viewController = AnimeDetailsViewController(viewModel: viewModel)
         viewController.modalPresentationStyle = .fullScreen
         self.present(viewController, animated: true)
+    }
+}
+
+//MARK: - CollectionView Flow Layout Delegates
+extension FavoriteViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (self.view.frame.width/2) - 24
+        return CGSize(width: width, height: 250)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 8.0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 8.0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 8, left: 8, bottom: 0, right: 8)
     }
 }
 
