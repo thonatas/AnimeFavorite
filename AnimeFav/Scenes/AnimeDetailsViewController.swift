@@ -16,7 +16,7 @@ class AnimeDetailsViewController: UIViewController {
         let label = UILabel()
         label.text = "Favorites"
         label.font = UIFont.systemFont(ofSize: 27, weight: .semibold)
-        label.textAlignment = .left
+        label.textAlignment = .center
         return label
     }()
     

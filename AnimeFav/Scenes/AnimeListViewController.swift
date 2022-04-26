@@ -8,14 +8,6 @@ import SnapKit
 
 class AnimeListViewController: UIViewController {
     // MARK: - Views
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Top Anime List"
-        label.font = UIFont.systemFont(ofSize: 23, weight: .semibold)
-        label.textAlignment = .center
-        return label
-    }()
-    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
@@ -57,6 +49,7 @@ class AnimeListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        self.title = "Top Anime List"
         self.viewModel?.delegate = self
         self.setupView()
     }
@@ -71,20 +64,14 @@ class AnimeListViewController: UIViewController {
 // MARK: - Layout
 extension AnimeListViewController: CodeView {
     func buildViewHierarchy() {
-        self.view.addSubview(titleLabel)
         self.view.addSubview(segmentedControl)
         self.view.addSubview(searchBar)
         self.view.addSubview(tableView)
     }
     
     func buildConstraints() {
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
-            make.leading.trailing.equalToSuperview().inset(10)
-        }
-        
         segmentedControl.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
             make.leading.trailing.equalToSuperview().inset(10)
             make.height.equalTo(30)
         }
@@ -161,7 +148,6 @@ extension AnimeListViewController: AnimeListViewModelDelegate {
     func didAnimeSelected(_ anime: Anime) {
         let viewModel = AnimeDetailsViewModel(anime: anime)
         let viewController = AnimeDetailsViewController(viewModel: viewModel)
-        //viewController.modalPresentationStyle = .fullScreen
         self.present(viewController, animated: true)
     }
 }

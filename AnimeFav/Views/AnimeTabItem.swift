@@ -16,11 +16,11 @@ enum AnimeTabItem: String, CaseIterable {
         case .favorites:
             let viewModel = FavoriteViewModel()
             let controller = FavoriteViewController(viewModel: viewModel)
-            return controller
+            return UINavigationController(rootViewController: controller)
         case .animeList:
             let viewModel = AnimeListViewModel()
             let controller = AnimeListViewController(viewModel: viewModel)
-            return controller
+            return UINavigationController(rootViewController: controller)
         }
     }
     

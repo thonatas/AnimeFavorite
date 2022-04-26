@@ -9,14 +9,6 @@ import UIKit
 
 class FavoriteViewController: UIViewController {
     // MARK: - Views
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Favorites"
-        label.font = UIFont.systemFont(ofSize: 27, weight: .semibold)
-        label.textAlignment = .left
-        return label
-    }()
-    
     private lazy var favoriteCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -43,6 +35,7 @@ class FavoriteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        self.title = "Favorites"
         self.viewModel?.delegate = self
         self.setupView()
     }
@@ -61,19 +54,12 @@ class FavoriteViewController: UIViewController {
 // MARK: - Layout
 extension FavoriteViewController: CodeView {
     func buildViewHierarchy() {
-        self.view.addSubview(titleLabel)
         self.view.addSubview(favoriteCollectionView)
     }
     
     func buildConstraints() {
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(50)
-        }
-        
         favoriteCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(20)
+            make.top.equalToSuperview().offset(20)
             make.leading.trailing.equalToSuperview().inset(10)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
@@ -101,7 +87,6 @@ extension FavoriteViewController: UICollectionViewDelegate {
         guard let anime = viewModel?.animes[indexPath.item] else { return }
         let viewModel = AnimeDetailsViewModel(anime: anime)
         let viewController = AnimeDetailsViewController(viewModel: viewModel)
-        viewController.modalPresentationStyle = .fullScreen
         self.present(viewController, animated: true)
     }
 }
