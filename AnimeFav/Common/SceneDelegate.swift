@@ -14,8 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let viewModel = AnimeListViewModel()
-        window.rootViewController = AnimeListViewController(viewModel: viewModel)
+        window.rootViewController = AnimeTabBarController()
         window.makeKeyAndVisible()
         self.window = window
     }
