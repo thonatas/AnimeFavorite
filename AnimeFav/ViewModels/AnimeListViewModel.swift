@@ -10,6 +10,7 @@ import Foundation
 protocol AnimeListViewModelDelegate: AnyObject {
     func didGetAnimeList()
     func didGetAnimeListWithError(_ error: String)
+    func didAnimeSelected(_ anime: Anime)
 }
 
 class AnimeListViewModel {
@@ -32,11 +33,28 @@ class AnimeListViewModel {
         animeService.getList(by: category) { result in
             switch result {
             case .success(let response):
-                self.animes = response.map { Anime(fromData: $0) }
+                self.animes = response.results.map { Anime(fromData: $0) }
                 self.delegate?.didGetAnimeList()
             case .failure(let error):
                 self.delegate?.didGetAnimeListWithError(error.localizedDescription)
             }
         }
+    }
+    
+    func search(anime: String) {
+        animeService.search(anime: anime) { result in
+            switch result {
+            case .success(let response):
+                self.animes = response.results.map { Anime(fromData: $0) }
+                self.delegate?.didGetAnimeList()
+            case .failure(let error):
+                self.delegate?.didGetAnimeListWithError(error.localizedDescription)
+            }
+        }
+    }
+    
+    func selectAnime(_ indexPath: IndexPath) {
+        guard indexPath.row < animes.count  else { return }
+        self.delegate?.didAnimeSelected(animes[indexPath.row])
     }
 }

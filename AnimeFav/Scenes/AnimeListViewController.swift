@@ -65,7 +65,6 @@ class AnimeListViewController: UIViewController {
     @objc
     private func segmentedControlValueChanged() {
         viewModel?.getList(index: segmentedControl.selectedSegmentIndex)
-        tableView.reloadData()
     }
 }
 
@@ -122,7 +121,7 @@ extension AnimeListViewController: UITableViewDataSource {
 // MARK: - Table View Delegate
 extension AnimeListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //performSegue(withIdentifier: K.segueListToDetails, sender: self)
+        self.viewModel?.selectAnime(indexPath)
     }
 }
 
@@ -130,21 +129,18 @@ extension AnimeListViewController: UITableViewDelegate {
 // MARK: - Search Bar Delegate
 extension AnimeListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let animeSearch = searchBar.text!
-        //animeNetwork.fetchAnimeSearch(for: animeSearch)
-        
-        DispatchQueue.main.async {
-            searchBar.resignFirstResponder()
-            self.tableView.reloadData()
-        }
+        searchAnime(searchBar.text)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text?.count == 0 {
-            //animeNetwork.fetchAnimeList(by: "members")
-            DispatchQueue.main.async {
-                searchBar.resignFirstResponder()
-            }
+        searchAnime(searchBar.text)
+    }
+    
+    private func searchAnime(_ anime: String?) {
+        if let anime = anime, anime.count >= 3 {
+            self.viewModel?.search(anime: anime)
+        } else {
+            self.viewModel?.getList()
         }
     }
 }
@@ -153,7 +149,6 @@ extension AnimeListViewController: UISearchBarDelegate {
 extension AnimeListViewController: AnimeListViewModelDelegate {
     func didGetAnimeList() {
         DispatchQueue.main.async {
-            self.searchBar.resignFirstResponder()
             self.tableView.reloadData()
         }
     }
@@ -161,6 +156,13 @@ extension AnimeListViewController: AnimeListViewModelDelegate {
     func didGetAnimeListWithError(_ error: String) {
         print(#function)
         print(error)
+    }
+    
+    func didAnimeSelected(_ anime: Anime) {
+        let viewModel = AnimeDetailsViewModel(anime: anime)
+        let viewController = AnimeDetailsViewController(viewModel: viewModel)
+        viewController.modalPresentationStyle = .fullScreen
+        self.present(viewController, animated: true)
     }
 }
 

@@ -30,12 +30,12 @@ class Anime: Object {
         self.init()
         
         id = animeData.id
-        title = animeData.title
+        title = animeData.title ?? ""
         episodes = animeData.episodes ?? 0
         score = animeData.score
-        synopsis = animeData.synopsis
-        imageUrl = animeData.imageUrl
-        type = animeData.type
+        synopsis = animeData.synopsis ?? ""
+        imageUrl = animeData.imageUrl ?? ""
+        type = animeData.type ?? ""
         trailerUrl = animeData.trailerUrl ?? ""
         rank = animeData.rank ?? 0
         airing = animeData.airing ?? false

@@ -13,12 +13,12 @@ struct AnimesListResponse: Codable {
 
 struct AnimeResponse {
     var id: Int
-    var imageUrl: String
-    var title: String
+    var imageUrl: String?
+    var title: String?
     var episodes: Int?
     var score: Double
-    var type: String
-    var synopsis: String
+    var type: String?
+    var synopsis: String?
     var airing: Bool?
     var trailerUrl: String?
     var source: String?

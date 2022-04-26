@@ -10,8 +10,8 @@ import UIKit.UIImage
 import Moya
 
 protocol AnimeServiceProtocol {
-    func search(anime: String, _ completion: @escaping(Swift.Result<[AnimeResponse], Error>) -> Void)
-    func getList(by category: Category, _ completion: @escaping(Swift.Result<[AnimeResponse], Error>) -> Void)
+    func search(anime: String, _ completion: @escaping(Swift.Result<AnimesListResponse, Error>) -> Void)
+    func getList(by category: Category, _ completion: @escaping(Swift.Result<AnimesListResponse, Error>) -> Void)
     func getDetails(by id: Int, _ completion: @escaping(Swift.Result<AnimeResponse, Error>) -> Void)
 }
 
@@ -20,12 +20,12 @@ class AnimeService: AnimeServiceProtocol {
     private var provider = MoyaProvider<AnimeAPI>()
     
     // MARK: - Functions
-    func search(anime: String, _ completion: @escaping(Swift.Result<[AnimeResponse], Error>) -> Void) {
+    func search(anime: String, _ completion: @escaping(Swift.Result<AnimesListResponse, Error>) -> Void) {
         provider.request(.search(anime: anime)) { result in
             switch result {
             case .success(let moyaResponse):
                 do {
-                    let moyaResponse = try JSONDecoder().decode([AnimeResponse].self, from: moyaResponse.data)
+                    let moyaResponse = try JSONDecoder().decode(AnimesListResponse.self, from: moyaResponse.data)
                     completion(.success(moyaResponse))
                 } catch {
                     completion(.failure(error))
@@ -36,12 +36,12 @@ class AnimeService: AnimeServiceProtocol {
         }
     }
     
-    func getList(by category: Category, _ completion: @escaping(Swift.Result<[AnimeResponse], Error>) -> Void) {
+    func getList(by category: Category, _ completion: @escaping(Swift.Result<AnimesListResponse, Error>) -> Void) {
         provider.request(.getList(category: category)) { result in
             switch result {
             case .success(let moyaResponse):
                 do {
-                    let moyaResponse = try JSONDecoder().decode([AnimeResponse].self, from: moyaResponse.data)
+                    let moyaResponse = try JSONDecoder().decode(AnimesListResponse.self, from: moyaResponse.data)
                     completion(.success(moyaResponse))
                 } catch {
                     completion(.failure(error))

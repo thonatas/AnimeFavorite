@@ -21,10 +21,8 @@ extension AnimeAPI: TargetType {
     
     var path: String {
         switch self {
-        case .search(let anime):
-            return "/search/anime?q=\(anime)&limit=3"
-        case .getList(let category):
-            return "/search/anime?q=&order_by=\(category.rawValue)&sort=desc&page=1"
+        case .search, .getList:
+            return "/search/anime"
         case .getDetails(let id):
             return "/anime/\(id)"
         }
@@ -39,7 +37,20 @@ extension AnimeAPI: TargetType {
     }
     
     var task: Task {
-        return .requestPlain
+        switch self {
+        case .search(let anime):
+            let parameters = ["q" : anime,
+                              "limit" : "3"]
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+        case .getList(let category):
+            let parameters = ["q" : "",
+                              "order_by" : category.rawValue,
+                              "sort" : "desc",
+                              "page" : "1"]
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+        case .getDetails:
+            return .requestPlain
+        }
     }
     
     var headers: [String : String]? {

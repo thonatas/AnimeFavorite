@@ -8,7 +8,7 @@
 import Foundation
 
 enum Category: String, CaseIterable {
-    case members = "membros"
+    case members = "members"
     case score = "score"
-    case type = "tipo"
+    case type = "type"
 }
