@@ -25,7 +25,7 @@ class AnimeDetailsViewController: UIViewController {
         imageView.layer.cornerRadius = 5.0
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(systemName: "heart.fill")
+        imageView.image = UIImage(systemName: "arrow.2.circlepath.circle")
         return imageView
     }()
     
@@ -87,11 +87,10 @@ class AnimeDetailsViewController: UIViewController {
         let button = UIButton()
         let playImage = UIImage(systemName: "play.rectangle")?.withRenderingMode(.alwaysOriginal)
         button.setImage(playImage?.withTintColor(.systemBlue), for: .normal)
-        button.setImage(playImage?.withTintColor(.systemGray), for: .normal)
+        button.setImage(playImage?.withTintColor(.systemGray), for: .disabled)
         button.setTitle(" Trailer", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
         button.setTitleColor(.systemGray, for: .disabled)
-        button.isEnabled = false
         button.addTarget(self, action: #selector(trailerButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -138,23 +137,27 @@ class AnimeDetailsViewController: UIViewController {
     private lazy var fiveStarsCosmosView: CosmosView = {
         let cosmoView = CosmosView()
         cosmoView.settings.disablePanGestures = true
+        cosmoView.settings.filledColor = .systemGray
+        cosmoView.settings.emptyBorderColor = .systemGray
+        cosmoView.settings.filledBorderColor = .systemGray
+        cosmoView.isUserInteractionEnabled = false
         let tap = UITapGestureRecognizer(target: self, action: #selector(updateRatingCosmos))
         cosmoView.addGestureRecognizer(tap)
         return cosmoView
     }()
     
     // MARK: - Attributes
-    var animeId: Int?
-    
-    private var userEpisodes: Int?
     private var animeTrailer: String?
     private var viewModel: AnimeDetailsViewModel?
     private var isFavorite: Bool = false {
         didSet {
-            //guard let animeSafe = anime else { return }
-            //animeSafe.isFavorite = isFavorite
-            //isFavorite ? animeRepo.addFavorite(animeSafe) : animeRepo.removeFavorite(id: animeSafe.id)
             favoriteImageView.image = UIImage(systemName: isFavorite ? "heart.fill" : "heart")
+            fiveStarsCosmosView.isUserInteractionEnabled = isFavorite
+            fiveStarsCosmosView.settings.filledColor = isFavorite ? .systemOrange : .systemGray
+            fiveStarsCosmosView.settings.emptyBorderColor = isFavorite ? .systemOrange : .systemGray
+            fiveStarsCosmosView.settings.filledBorderColor = isFavorite ? .systemOrange : .systemGray
+            viewModel?.setFavoriteAnime(isFavorite)
+            self.loadViewIfNeeded()
         }
     }
     
@@ -173,6 +176,7 @@ class AnimeDetailsViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.viewModel?.delegate = self
+        self.isFavorite = viewModel?.anime.isFavorite ?? false
         self.setupView()
     }
 }
@@ -187,12 +191,9 @@ extension AnimeDetailsViewController {
     
     @objc
     private func episodesStepperValueChanged(_ sender: UIStepper) {
-        userEpisodes = Int(sender.value)
-        episodesDescriptionLabel.text = String(userEpisodes ?? 1)
-//        anime?.userEpisodes = episodesDescriptionLabel.text ?? "1"
-//        if let animeSafe = anime {
-//            animeRepo.updateUserEpisodes(animeSafe, userEpisodes: animeSafe.userEpisodes)
-//        }
+        let userEpisodes = Int(sender.value)
+        episodesDescriptionLabel.text = "\(userEpisodes)"
+        viewModel?.updateUserEpisodes(userEpisodes)
     }
     
     @objc
@@ -204,8 +205,6 @@ extension AnimeDetailsViewController {
     private func updateRatingCosmos() {
         fiveStarsCosmosView.settings.disablePanGestures = true
         fiveStarsCosmosView.didFinishTouchingCosmos = { rating in
-            print(#function)
-            print(rating)
 //            if let animeSafe = self.anime {
 //                let ratingString = String(describing: rating)
 //                self.animeRepo.updateUserEvaluation(animeSafe, userEvaluation: ratingString)
@@ -215,23 +214,6 @@ extension AnimeDetailsViewController {
     
     // MARK: - Methods
     func updateAnimeDetails(_ anime: Anime?) {
-        titleLabel.text = anime?.title ?? "Sem Título Encontrado"
-        anime?.getImageCache(uiImageView: animeImageView)
-        animeTypeView.descriptionText = anime?.type ?? "-"
-        animeSourceView.descriptionText = anime?.source ?? "-"
-        animeRankView.descriptionText = anime?.rankString
-        animeScoreView.descriptionText = "\(anime?.score ?? 0.0)"
-        animeStatusView.descriptionText = anime?.status
-        sinopsysTextView.text = anime?.synopsis ?? "Sem Sinopse"
-        animeTrailer = anime?.trailerUrl ?? ""
-        
-        if let episodes = anime?.episodes {
-            animeEpisodesView.descriptionText = "\(episodes)"
-        } else {
-            animeEpisodesView.descriptionText = "?"
-        }
-        
-        if let idSafe = anime?.id {
 //            let isFavorite = animeRepo.isFavorited(id: idSafe)
 //            if isFavorite {
                 //labelUserEpisodes.text = animeRepo.getAnimeFavoriteUserEpisodes(id: idSafe)
@@ -246,7 +228,6 @@ extension AnimeDetailsViewController {
 //            } else {
 //                anime?.isFavorite = false
 //            }
-        }
     }
 }
 
@@ -379,6 +360,20 @@ extension AnimeDetailsViewController: CodeView {
             make.leading.trailing.equalToSuperview().inset(15)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(20)
         }
+    }
+    
+    func setupCustomConfiguration() {
+        titleLabel.text = viewModel?.anime.title
+        viewModel?.anime.getImageCache(uiImageView: animeImageView)
+        animeTypeView.descriptionText = viewModel?.anime.type ?? "-"
+        animeSourceView.descriptionText = viewModel?.anime.source ?? "-"
+        animeRankView.descriptionText = viewModel?.anime.rankString
+        animeScoreView.descriptionText = "\(viewModel?.anime.score ?? 0.0)"
+        animeStatusView.descriptionText = viewModel?.anime.status
+        sinopsysTextView.text = viewModel?.anime.synopsis ?? "Sem Sinopse"
+        animeEpisodesView.descriptionText = "\(viewModel?.anime.episodes ?? 0)"
+        animeTrailer = viewModel?.anime.trailerUrl
+        trailerButton.isEnabled = animeTrailer != nil
     }
 }
 

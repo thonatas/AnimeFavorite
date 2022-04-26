@@ -59,7 +59,7 @@ class Anime: Object {
         return "#\(rank)"
     }
     
-    func getImageCache(uiImageView: UIImageView!) {
+    func getImageCache(uiImageView: UIImageView) {
         let image = imageUrl
         let url = URL(string: image)
         
