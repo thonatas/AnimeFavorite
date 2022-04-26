@@ -115,7 +115,7 @@ class AnimeDetailsViewController: UIViewController {
     
     private let episodesDescriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "?"
+        label.text = "1"
         label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         label.textAlignment = .right
         return label
@@ -151,13 +151,13 @@ class AnimeDetailsViewController: UIViewController {
     private var viewModel: AnimeDetailsViewModel?
     private var isFavorite: Bool = false {
         didSet {
-            favoriteImageView.image = UIImage(systemName: isFavorite ? "heart.fill" : "heart")
-            fiveStarsCosmosView.isUserInteractionEnabled = isFavorite
-            fiveStarsCosmosView.settings.filledColor = isFavorite ? .systemOrange : .systemGray
-            fiveStarsCosmosView.settings.emptyBorderColor = isFavorite ? .systemOrange : .systemGray
-            fiveStarsCosmosView.settings.filledBorderColor = isFavorite ? .systemOrange : .systemGray
-            viewModel?.setFavoriteAnime(isFavorite)
-            self.loadViewIfNeeded()
+            self.updateViews(isFavorite)
+        }
+    }
+    private var episodes: String? {
+        didSet {
+            episodesDescriptionLabel.text = episodes ?? "1"
+            episodesStepper.value = Double(episodes ?? "1") ?? 1.0
         }
     }
     
@@ -175,7 +175,6 @@ class AnimeDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        self.viewModel?.delegate = self
         self.isFavorite = viewModel?.anime.isFavorite ?? false
         self.setupView()
     }
@@ -205,29 +204,23 @@ extension AnimeDetailsViewController {
     private func updateRatingCosmos() {
         fiveStarsCosmosView.settings.disablePanGestures = true
         fiveStarsCosmosView.didFinishTouchingCosmos = { rating in
-//            if let animeSafe = self.anime {
-//                let ratingString = String(describing: rating)
-//                self.animeRepo.updateUserEvaluation(animeSafe, userEvaluation: ratingString)
-//            }
+            self.viewModel?.updateUserEvaluation(rating)
         }
     }
     
-    // MARK: - Methods
-    func updateAnimeDetails(_ anime: Anime?) {
-//            let isFavorite = animeRepo.isFavorited(id: idSafe)
-//            if isFavorite {
-                //labelUserEpisodes.text = animeRepo.getAnimeFavoriteUserEpisodes(id: idSafe)
-//                if let valueUserEpisodes = Double(labelUserEpisodes.text ?? "1.0") {
-//                    episodesStepper.value = valueUserEpisodes
-//                }
-//                let evaluation = animeRepo.getAnimeFavoriteEvaluation(id: idSafe)
-//                if let evaluationDouble = Double(evaluation) {
-//                    fiveStarsCosmosView.rating = evaluationDouble
-//                }
-//                anime?.isFavorite = true
-//            } else {
-//                anime?.isFavorite = false
-//            }
+    private func updateViews(_ isFavorite: Bool) {
+        favoriteImageView.image = UIImage(systemName: isFavorite ? "heart.fill" : "heart")
+        fiveStarsCosmosView.isUserInteractionEnabled = isFavorite
+        fiveStarsCosmosView.settings.filledColor = isFavorite ? .systemOrange : .systemGray
+        fiveStarsCosmosView.settings.emptyBorderColor = isFavorite ? .systemOrange : .systemGray
+        fiveStarsCosmosView.settings.filledBorderColor = isFavorite ? .systemOrange : .systemGray
+        viewModel?.setFavoriteAnime(isFavorite)
+        episodesStepper.isUserInteractionEnabled = isFavorite
+        if !isFavorite {
+            episodes = nil
+        }
+        
+        self.loadViewIfNeeded()
     }
 }
 
@@ -374,10 +367,7 @@ extension AnimeDetailsViewController: CodeView {
         animeEpisodesView.descriptionText = "\(viewModel?.anime.episodes ?? 0)"
         animeTrailer = viewModel?.anime.trailerUrl
         trailerButton.isEnabled = animeTrailer != nil
+        fiveStarsCosmosView.rating = Double(self.viewModel?.anime.userEvaluation ?? "0.0") ?? 0.0
+        episodes = self.viewModel?.anime.userEpisodes
     }
-}
-
-// MARK: - View Model Delegates
-extension AnimeDetailsViewController: AnimeDetailsViewModelDelegate {
-    
 }

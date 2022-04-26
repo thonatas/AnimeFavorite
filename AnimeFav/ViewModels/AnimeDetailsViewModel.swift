@@ -7,16 +7,11 @@
 
 import Foundation
 
-protocol AnimeDetailsViewModelDelegate: AnyObject {
-    
-}
-
 class AnimeDetailsViewModel {
     // MARK: - Constants and Variables
     private var animeManager = AnimeService()
     private var animeRepo = AnimeRepository()
     let anime: Anime
-    weak var delegate: AnimeDetailsViewModelDelegate?
     
     // MARK: - Initializers
     init(anime: Anime) {
@@ -29,9 +24,11 @@ class AnimeDetailsViewModel {
         isFavorite ? animeRepo.addFavorite(anime) : animeRepo.removeFavorite(anime)
     }
 
-    func updateUserEpisodes(_ userEpisodes: Int) {
-        let episodes = "\(userEpisodes)"
-        anime.isFavorite = true
-        animeRepo.updateUserEpisodes(anime, userEpisodes: episodes)
+    func updateUserEpisodes(_ episodes: Int) {
+        animeRepo.updateUserEpisodes(anime, userEpisodes: "\(episodes)")
+    }
+    
+    func updateUserEvaluation(_ evaluation: Double) {
+        animeRepo.updateUserEvaluation(anime, userEvaluation: "\(evaluation)")
     }
 }

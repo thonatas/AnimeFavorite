@@ -43,46 +43,20 @@ class AnimeRepository {
         }
     }
     
-    func updateFavorite(_ favorite: Anime, userEpisodes: String, evaluation: String) {
+    func updateUserEpisodes(_ favorite: Anime, userEpisodes: String) {
         removeFavorite(favorite)
-        print("remove id \(favorite.id)")
         favorite.isFavorite = true
         favorite.userEpisodes = userEpisodes
-        favorite.userEvaluation = evaluation
         addFavorite(favorite)
-        print("add favorite \(favorite.title)")
-        
-    }
-    
-    func updateUserEpisodes(_ favorite: Anime, userEpisodes: String) {
-        try! realm.write {
-            realm.create(Anime.self, value: ["id": favorite.id, "userEpisodes" : userEpisodes], update: .modified)
-        }
     }
     
     func updateUserEvaluation(_ favorite: Anime, userEvaluation: String) {
-        try! realm.write {
-            realm.create(Anime.self, value: ["id": favorite.id, "userEvaluation" : userEvaluation], update: .modified)
-        }
+        removeFavorite(favorite)
+        favorite.isFavorite = true
+        favorite.userEvaluation = userEvaluation
+        addFavorite(favorite)
     }
-    
-    func isFavorited(_ anime: Anime) -> Bool {
-        let favorite = realm.objects(Anime.self).filter("id == \(anime.id)")
-        return favorite.count > 0
-    }
-    
-    func getAnimeFavoriteUserEpisodes(_ anime: Anime) -> String {
-        let favorite = realm.objects(Anime.self).filter("id == \(anime.id)")
-        let userEpisodes = favorite.first?.userEpisodes ?? "100"
-        return userEpisodes
-    }
-    
-    func getAnimeFavoriteEvaluation(_ anime: Anime) -> String {
-        let favorite = realm.objects(Anime.self).filter("id == \(anime.id)")
-        let evaluation = favorite.first?.userEvaluation ?? "3.0"
-        return evaluation
-    }
-    
+  
     func getAnime(_ anime: Anime) -> Anime {
         let animeDAO = self.getFavoriteList().filter { $0.id == anime.id }.first
         guard let animeDAO = animeDAO else { return anime }
