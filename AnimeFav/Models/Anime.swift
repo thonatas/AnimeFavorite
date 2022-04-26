@@ -26,7 +26,7 @@ class Anime: Object {
     @objc dynamic var userEpisodes: String = "1"
     @objc dynamic var userEvaluation: String = "3.0"
     
-    convenience init(fromData animeData: AnimeData) {
+    convenience init(fromData animeData: AnimeResponse) {
         self.init()
         
         id = animeData.id
