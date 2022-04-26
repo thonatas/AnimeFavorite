@@ -18,27 +18,38 @@ class FavoriteViewController: UIViewController {
     }()
     
     private lazy var favoriteCollectionView: UICollectionView = {
-        let collectionView = UICollectionView()
+        let layout = UICollectionViewLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
         return collectionView
     }()
     
-    var cellSelected = 0
-    var animeRepo = AnimeRepository()
-    var animes: [Anime] = []
+    // MARK: - Constants and Variables
+    private var viewModel: FavoriteViewModel?
     
+    // MARK: - Initializers
+    init(viewModel: FavoriteViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Life Cycle View
     override func viewDidLoad() {
         super.viewDidLoad()
-        animes = animeRepo.getFavoriteList()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: NSNotification.Name(rawValue: "changeFavorites"), object: nil)
-        
+        self.view.backgroundColor = .white
+        self.viewModel?.delegate = self
+        self.viewModel?.getFavoriteAnimesList()
         self.setupView()
     }
     
-    @objc func refresh() {
-        animes = animeRepo.getFavoriteList()
+    // MARK: - Function
+    private func refresh() {
+        self.viewModel?.getFavoriteAnimesList()
         favoriteCollectionView.reloadData()
     }
 }
@@ -68,33 +79,34 @@ extension FavoriteViewController: CodeView {
 // MARK: - Collection Data Source
 extension FavoriteViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return animes.count
+        return viewModel?.animes.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.favoriteReusableCell, for: indexPath) as? FavoriteCollectionViewCell,
+              let anime = viewModel?.animes[indexPath.item] else { return UICollectionViewCell() }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.favoriteReusableCell, for: indexPath) as! FavoriteCollectionViewCell
-        let anime = animes[indexPath.row]
-        
-        cell.renderCell(anime: anime)
-        
+        cell.setupCell(with: anime)
         return cell
     }
 }
 
 // MARK: - Collection Delegate
 extension FavoriteViewController: UICollectionViewDelegate {
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        cellSelected = indexPath.item
-        //performSegue(withIdentifier: K.segueFavoriteToDetails, sender:self)
+        guard let anime = viewModel?.animes[indexPath.item] else { return }
+        let viewModel = AnimeDetailsViewModel(anime: anime)
+        let viewController = AnimeDetailsViewController(viewModel: viewModel)
+        viewController.modalPresentationStyle = .fullScreen
+        self.present(viewController, animated: true)
     }
+}
 
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.segueFavoriteToDetails {
-            let destinationVC = segue.destination as! AnimeDetailsViewController
-            destinationVC.animeId = animes[cellSelected].id
+// MARK: - View Model Delegate
+extension FavoriteViewController: FavoriteViewModelDelegate {
+    func didGetAnimesList() {
+        DispatchQueue.main.async {
+            self.favoriteCollectionView.reloadData()
         }
     }
 }

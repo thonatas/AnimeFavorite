@@ -135,35 +135,44 @@ class AnimeDetailsViewController: UIViewController {
         return textView
     }()
     
-    private lazy var fiveStarsCosmosView = CosmosView()
+    private lazy var fiveStarsCosmosView: CosmosView = {
+        let cosmoView = CosmosView()
+        cosmoView.settings.disablePanGestures = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(updateRatingCosmos))
+        cosmoView.addGestureRecognizer(tap)
+        return cosmoView
+    }()
     
     // MARK: - Attributes
     var animeId: Int?
-    private var animeManager = AnimeManager()
-    private var animeRepo = AnimeRepository()
-    private var anime: Anime?
+    
     private var userEpisodes: Int?
     private var animeTrailer: String?
+    private var viewModel: AnimeDetailsViewModel?
     private var isFavorite: Bool = false {
         didSet {
-            guard let animeSafe = anime else { return }
-            animeSafe.isFavorite = isFavorite
-            isFavorite ? animeRepo.addFavorite(animeSafe) : animeRepo.removeFavorite(id: animeSafe.id)
+            //guard let animeSafe = anime else { return }
+            //animeSafe.isFavorite = isFavorite
+            //isFavorite ? animeRepo.addFavorite(animeSafe) : animeRepo.removeFavorite(id: animeSafe.id)
             favoriteImageView.image = UIImage(systemName: isFavorite ? "heart.fill" : "heart")
         }
     }
     
-    // MARK: - View Cycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        animeManager.delegate = self
-        guard let id = animeId else { return }
-        animeManager.fetchAnimeDetails(byId: 1)
+    // MARK: - Initializers
+    init(viewModel: AnimeDetailsViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - View Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        self.viewModel?.delegate = self
         self.setupView()
     }
 }
@@ -173,7 +182,6 @@ extension AnimeDetailsViewController {
     // MARK: - Actions
     @objc
     private func favoriteImageViewTapped() {
-        print(#function)
         isFavorite.toggle()
     }
     
@@ -181,15 +189,28 @@ extension AnimeDetailsViewController {
     private func episodesStepperValueChanged(_ sender: UIStepper) {
         userEpisodes = Int(sender.value)
         episodesDescriptionLabel.text = String(userEpisodes ?? 1)
-        anime?.userEpisodes = episodesDescriptionLabel.text ?? "1"
-        if let animeSafe = anime {
-            animeRepo.updateUserEpisodes(animeSafe, userEpisodes: animeSafe.userEpisodes)
-        }
+//        anime?.userEpisodes = episodesDescriptionLabel.text ?? "1"
+//        if let animeSafe = anime {
+//            animeRepo.updateUserEpisodes(animeSafe, userEpisodes: animeSafe.userEpisodes)
+//        }
     }
     
     @objc
     private func trailerButtonTapped() {
         print(#function)
+    }
+    
+    @objc
+    private func updateRatingCosmos() {
+        fiveStarsCosmosView.settings.disablePanGestures = true
+        fiveStarsCosmosView.didFinishTouchingCosmos = { rating in
+            print(#function)
+            print(rating)
+//            if let animeSafe = self.anime {
+//                let ratingString = String(describing: rating)
+//                self.animeRepo.updateUserEvaluation(animeSafe, userEvaluation: ratingString)
+//            }
+        }
     }
     
     // MARK: - Methods
@@ -211,36 +232,21 @@ extension AnimeDetailsViewController {
         }
         
         if let idSafe = anime?.id {
-            let isFavorite = animeRepo.isFavorited(id: idSafe)
-            if isFavorite {
-                //favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                //viewUserEpi.isHidden = false
-                //viewStarred.isHidden = false
+//            let isFavorite = animeRepo.isFavorited(id: idSafe)
+//            if isFavorite {
                 //labelUserEpisodes.text = animeRepo.getAnimeFavoriteUserEpisodes(id: idSafe)
 //                if let valueUserEpisodes = Double(labelUserEpisodes.text ?? "1.0") {
 //                    episodesStepper.value = valueUserEpisodes
 //                }
-                let evaluation = animeRepo.getAnimeFavoriteEvaluation(id: idSafe)
-                if let evaluationDouble = Double(evaluation) {
-                    fiveStarsCosmosView.rating = evaluationDouble
-                }
-                anime?.isFavorite = true
-            } else {
-                //favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
-                //viewUserEpi.isHidden = true
-                //viewStarred.isHidden = true
-                anime?.isFavorite = false
-            }
-        }
-    }
-    
-    func updateRatingCosmos() {
-//        rateFiveStar.didFinishTouchingCosmos = { rating in
-//            if let animeSafe = self.anime {
-//                let ratingString = String(describing: rating)
-//                self.animeRepo.updateUserEvaluation(animeSafe, userEvaluation: ratingString)
+//                let evaluation = animeRepo.getAnimeFavoriteEvaluation(id: idSafe)
+//                if let evaluationDouble = Double(evaluation) {
+//                    fiveStarsCosmosView.rating = evaluationDouble
+//                }
+//                anime?.isFavorite = true
+//            } else {
+//                anime?.isFavorite = false
 //            }
-//        }
+        }
     }
 }
 
@@ -376,16 +382,7 @@ extension AnimeDetailsViewController: CodeView {
     }
 }
 
-// MARK: - Anime Manager Delegate
-extension AnimeDetailsViewController: AnimeManagerDelegate {
-    func getInformtationAnime(_ animeNetwork: AnimeManager, animes: [Anime]) {
-        DispatchQueue.main.async {
-            self.anime = animes.first
-            self.updateAnimeDetails(self.anime)
-        }
-    }
+// MARK: - View Model Delegates
+extension AnimeDetailsViewController: AnimeDetailsViewModelDelegate {
     
-    func didFailWithError(error: Error) {
-        print(error.localizedDescription)
-    }
 }

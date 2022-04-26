@@ -7,8 +7,7 @@ import RealmSwift
 import SnapKit
 
 class AnimeListViewController: UIViewController {
-    
-    // MARK: - Attributes
+    // MARK: - Views
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Top Anime List"
@@ -39,31 +38,33 @@ class AnimeListViewController: UIViewController {
         return segmentedControl
     }()
     
-    var animeNetwork = AnimeManager()
+    // MARK: - Constants and Variables
+    private var viewModel: AnimeListViewModel?
+    var animeNetwork = AnimeService()
     var animes: [Anime] = []
+    
+    // MARK: - Initializers
+    init(viewModel: AnimeListViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - View Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        animeNetwork.delegate = self
-        animeNetwork.fetchAnimeList(by: "members")
+        self.viewModel?.delegate = self
         self.setupView()
     }
     
     // MARK: - Actions
     @objc
     private func segmentedControlValueChanged() {
-        switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            animeNetwork.fetchAnimeList(by: "members")
-        case 1:
-            animeNetwork.fetchAnimeList(by: "score")
-        case 2:
-            animeNetwork.fetchAnimeList(by: "type")
-        default:
-            break
-        }
+        viewModel?.getList(index: segmentedControl.selectedSegmentIndex)
         tableView.reloadData()
     }
 }
@@ -106,13 +107,12 @@ extension AnimeListViewController: CodeView {
 // MARK: - Table View Data Source
 extension AnimeListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return animes.count
+        return viewModel?.animes.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let anime = animes[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.animeListReusableCell, for: indexPath) as! AnimeListTableViewCell
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: K.animeListReusableCell, for: indexPath) as? AnimeListTableViewCell,
+              let anime = viewModel?.animes[indexPath.row] else { return UITableViewCell() }
         anime.getImageCache(uiImageView: cell.imageAnime)
         cell.label.text = anime.title
         return cell
@@ -124,14 +124,6 @@ extension AnimeListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //performSegue(withIdentifier: K.segueListToDetails, sender: self)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! AnimeDetailsViewController
-        
-        if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.animeId = animes[indexPath.row].id
-        }
-    }
 }
 
 
@@ -139,7 +131,7 @@ extension AnimeListViewController: UITableViewDelegate {
 extension AnimeListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let animeSearch = searchBar.text!
-        animeNetwork.fetchAnimeSearch(for: animeSearch)
+        //animeNetwork.fetchAnimeSearch(for: animeSearch)
         
         DispatchQueue.main.async {
             searchBar.resignFirstResponder()
@@ -149,7 +141,7 @@ extension AnimeListViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
-            animeNetwork.fetchAnimeList(by: "members")
+            //animeNetwork.fetchAnimeList(by: "members")
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()
             }
@@ -157,17 +149,18 @@ extension AnimeListViewController: UISearchBarDelegate {
     }
 }
 
-// MARK: - Anime Network Delegate
-extension AnimeListViewController: AnimeManagerDelegate {
-    func getInformtationAnime(_ animeNetwork: AnimeManager, animes: [Anime]) {
+// MARK: - View Model Delegates
+extension AnimeListViewController: AnimeListViewModelDelegate {
+    func didGetAnimeList() {
         DispatchQueue.main.async {
-            self.animes = animes
+            self.searchBar.resignFirstResponder()
             self.tableView.reloadData()
         }
     }
     
-    func didFailWithError(error: Error) {
-        print(error.localizedDescription)
+    func didGetAnimeListWithError(_ error: String) {
+        print(#function)
+        print(error)
     }
 }
 
