@@ -29,12 +29,11 @@ class TrailerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = .white
         if let trailer = animeTrailer,
            let videoId = getVideoID(from: trailer) {
             playerView.load(withVideoId: videoId, playerVars: ["playsinline": "1"])
         }
-        
         self.setupView()
     }
     
@@ -75,7 +74,7 @@ extension TrailerViewController: CodeView {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
             make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(100)
+            make.height.equalTo((view.frame.width)/9)
         }
         
         playerView.snp.makeConstraints { make in

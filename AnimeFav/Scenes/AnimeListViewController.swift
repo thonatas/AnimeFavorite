@@ -140,7 +140,7 @@ extension AnimeListViewController: UISearchBarDelegate {
         if let anime = anime, anime.count >= 3 {
             self.viewModel?.search(anime: anime)
         } else {
-            self.viewModel?.getList()
+            self.viewModel?.getList(index: segmentedControl.selectedSegmentIndex)
         }
     }
 }
@@ -161,7 +161,7 @@ extension AnimeListViewController: AnimeListViewModelDelegate {
     func didAnimeSelected(_ anime: Anime) {
         let viewModel = AnimeDetailsViewModel(anime: anime)
         let viewController = AnimeDetailsViewController(viewModel: viewModel)
-        viewController.modalPresentationStyle = .fullScreen
+        //viewController.modalPresentationStyle = .fullScreen
         self.present(viewController, animated: true)
     }
 }

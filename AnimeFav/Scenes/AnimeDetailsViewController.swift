@@ -24,7 +24,7 @@ class AnimeDetailsViewController: UIViewController {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 5.0
         imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage(systemName: "arrow.2.circlepath.circle")
         return imageView
     }()
@@ -175,6 +175,7 @@ class AnimeDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        self.viewModel?.delegate = self
         self.isFavorite = viewModel?.anime.isFavorite ?? false
         self.setupView()
     }
@@ -197,7 +198,11 @@ extension AnimeDetailsViewController {
     
     @objc
     private func trailerButtonTapped() {
-        print(#function)
+        //let viewModel = AnimeDetailsViewModel(anime: anime)
+        let viewController = TrailerViewController()
+        viewController.animeTrailer = animeTrailer
+        //viewController.modalPresentationStyle = .fullScreen
+        self.present(viewController, animated: true)
     }
     
     @objc
@@ -359,15 +364,27 @@ extension AnimeDetailsViewController: CodeView {
         titleLabel.text = viewModel?.anime.title
         viewModel?.anime.getImageCache(uiImageView: animeImageView)
         animeTypeView.descriptionText = viewModel?.anime.type ?? "-"
-        animeSourceView.descriptionText = viewModel?.anime.source ?? "-"
-        animeRankView.descriptionText = viewModel?.anime.rankString
         animeScoreView.descriptionText = "\(viewModel?.anime.score ?? 0.0)"
         animeStatusView.descriptionText = viewModel?.anime.status
-        sinopsysTextView.text = viewModel?.anime.synopsis ?? "Sem Sinopse"
         animeEpisodesView.descriptionText = "\(viewModel?.anime.episodes ?? 0)"
         animeTrailer = viewModel?.anime.trailerUrl
-        trailerButton.isEnabled = animeTrailer != nil
         fiveStarsCosmosView.rating = Double(self.viewModel?.anime.userEvaluation ?? "0.0") ?? 0.0
         episodes = self.viewModel?.anime.userEpisodes
+    }
+}
+
+// MARK: - View Model Delegates
+extension AnimeDetailsViewController: AnimeDetailsViewModelDelegate {
+    func didGetAnimeDetails(_ animeDetails: AnimeResponse) {
+        self.trailerButton.isEnabled = animeDetails.trailerUrl != nil
+        self.animeTrailer = animeDetails.trailerUrl
+        self.sinopsysTextView.text = animeDetails.synopsis ?? "Sem Sinopse"
+        self.animeRankView.descriptionText = "#\(animeDetails.rank ?? 0)"
+        self.animeSourceView.descriptionText = animeDetails.source ?? "-"
+        self.sinopsysTextView.layoutIfNeeded()
+    }
+    
+    func didGetAnimeDetailsWithError(_ error: String) {
+        
     }
 }
