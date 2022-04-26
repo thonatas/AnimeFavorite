@@ -141,10 +141,12 @@ extension AnimeListViewController: AnimeListViewModelDelegate {
     }
     
     func didGetAnimeListWithError(_ error: String) {
-        let alertControler = UIAlertController(title: "Erro!!!", message: error, preferredStyle: .alert)
-        let closeAction = UIAlertAction(title: "Fechar", style: .default)
-        alertControler.addAction(closeAction)
-        self.present(alertControler, animated: true)
+        DispatchQueue.main.async {
+            let alertControler = UIAlertController(title: "Erro!!!", message: error, preferredStyle: .alert)
+            let closeAction = UIAlertAction(title: "Fechar", style: .default)
+            alertControler.addAction(closeAction)
+            self.present(alertControler, animated: true)
+        }
     }
     
     func didAnimeSelected(_ anime: Anime) {
