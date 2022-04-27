@@ -23,6 +23,8 @@
 		1815F93F25B8CF41007F0B22 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815F93E25B8CF41007F0B22 /* Anime.swift */; };
 		1815F94525B90A84007F0B22 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815F94425B90A84007F0B22 /* Constants.swift */; };
 		185CC8E125C6450600F120F8 /* AnimeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185CC8E025C6450600F120F8 /* AnimeRepository.swift */; };
+		1867C5652819776000AF01E4 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C5642819776000AF01E4 /* LaunchScreenViewController.swift */; };
+		1867C567281979ED00AF01E4 /* launchScreenAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 1867C566281979ED00AF01E4 /* launchScreenAnimation.json */; };
 		189E51C925BE4BD30017E67F /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E51C825BE4BD30017E67F /* FavoriteCollectionViewCell.swift */; };
 		189E51CE25BE4C850017E67F /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E51CD25BE4C850017E67F /* FavoriteViewController.swift */; };
 		18AD072E281875CB00279F9A /* AnimeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD072D281875CB00279F9A /* AnimeTabBarController.swift */; };
@@ -79,6 +81,8 @@
 		1815F93E25B8CF41007F0B22 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
 		1815F94425B90A84007F0B22 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		185CC8E025C6450600F120F8 /* AnimeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeRepository.swift; sourceTree = "<group>"; };
+		1867C5642819776000AF01E4 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		1867C566281979ED00AF01E4 /* launchScreenAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = launchScreenAnimation.json; sourceTree = "<group>"; };
 		189E51C825BE4BD30017E67F /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		189E51CD25BE4C850017E67F /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		18AD072D281875CB00279F9A /* AnimeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeTabBarController.swift; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 				18AD072F2818761C00279F9A /* AnimeTabItem.swift */,
 				18AD07362818902B00279F9A /* LoadingView.swift */,
 				18AD07382818904E00279F9A /* loadingAnimation.json */,
+				1867C566281979ED00AF01E4 /* launchScreenAnimation.json */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 				18B16CBF25BC7B93001C8816 /* AnimeDetailsViewController.swift */,
 				189E51CD25BE4C850017E67F /* FavoriteViewController.swift */,
 				18C1615D25BF636500ACC018 /* TrailerViewController.swift */,
+				1867C5642819776000AF01E4 /* LaunchScreenViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -393,6 +399,7 @@
 				1815F8FB25B8BF13007F0B22 /* Assets.xcassets in Resources */,
 				180EE47D25CEE6C4005E6D65 /* Trailer-screen.PNG in Resources */,
 				18AD07392818904E00279F9A /* loadingAnimation.json in Resources */,
+				1867C567281979ED00AF01E4 /* launchScreenAnimation.json in Resources */,
 				180EE48025CEE6C4005E6D65 /* Anime-details.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,6 +477,7 @@
 				1815F93F25B8CF41007F0B22 /* Anime.swift in Sources */,
 				1815F8F225B8BF12007F0B22 /* AppDelegate.swift in Sources */,
 				18C25D162817635400FF3B88 /* AnimeListViewModel.swift in Sources */,
+				1867C5652819776000AF01E4 /* LaunchScreenViewController.swift in Sources */,
 				18DA3C512813674700546362 /* AnimeInfoView.swift in Sources */,
 				18AD07302818761C00279F9A /* AnimeTabItem.swift in Sources */,
 				189E51C925BE4BD30017E67F /* FavoriteCollectionViewCell.swift in Sources */,

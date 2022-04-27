@@ -30,6 +30,8 @@ class AnimeListViewController: UIViewController {
         return segmentedControl
     }()
     
+    private lazy var loadingView = LoadingView()
+    
     // MARK: - Constants and Variables
     private var viewModel: AnimeListViewModel?
     var animeNetwork = AnimeService()
@@ -57,6 +59,7 @@ class AnimeListViewController: UIViewController {
     // MARK: - Actions
     @objc
     private func segmentedControlValueChanged() {
+        self.loadingView.showAnimation(true)
         viewModel?.getList(index: segmentedControl.selectedSegmentIndex)
     }
 }
@@ -137,6 +140,7 @@ extension AnimeListViewController: AnimeListViewModelDelegate {
     func didGetAnimeList() {
         UIView.animate(withDuration: 1.0) {
             self.tableView.reloadData()
+            self.loadingView.showAnimation(false)
         }
     }
     
