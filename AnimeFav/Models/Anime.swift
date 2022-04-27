@@ -26,16 +26,16 @@ class Anime: Object {
     @objc dynamic var userEpisodes: String = "1"
     @objc dynamic var userEvaluation: String = "3.0"
     
-    convenience init(fromData animeData: AnimeData) {
+    convenience init(fromData animeData: AnimeResponse) {
         self.init()
         
         id = animeData.id
-        title = animeData.title
+        title = animeData.title ?? ""
         episodes = animeData.episodes ?? 0
         score = animeData.score
-        synopsis = animeData.synopsis
-        imageUrl = animeData.imageUrl
-        type = animeData.type
+        synopsis = animeData.synopsis ?? ""
+        imageUrl = animeData.imageUrl ?? ""
+        type = animeData.type ?? ""
         trailerUrl = animeData.trailerUrl ?? ""
         rank = animeData.rank ?? 0
         airing = animeData.airing ?? false
@@ -59,7 +59,7 @@ class Anime: Object {
         return "#\(rank)"
     }
     
-    func getImageCache(uiImageView: UIImageView!) {
+    func getImageCache(uiImageView: UIImageView) {
         let image = imageUrl
         let url = URL(string: image)
         
