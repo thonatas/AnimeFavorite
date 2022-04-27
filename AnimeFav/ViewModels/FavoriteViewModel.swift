@@ -8,7 +8,7 @@
 import Foundation
 
 protocol FavoriteViewModelDelegate: AnyObject {
-    func didGetAnimesList()
+    func didGetAnimesList(_ isEmptyList: Bool)
 }
 
 class FavoriteViewModel {
@@ -17,14 +17,9 @@ class FavoriteViewModel {
     var animes: [Anime] = []
     weak var delegate: FavoriteViewModelDelegate?
     
-    // MARK: - Initializers
-    init() {
-        
-    }
-    
     // MARK: - Functions
     func getFavoriteAnimesList() {
         self.animes = animeRepo.getFavoriteList()
-        self.delegate?.didGetAnimesList()
+        self.delegate?.didGetAnimesList(animes.count == 0)
     }
 }

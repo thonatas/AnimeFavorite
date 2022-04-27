@@ -9,6 +9,15 @@ import UIKit
 
 class FavoriteViewController: UIViewController {
     // MARK: - Views
+    private let emptyFavoritesLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Sem Favoritos adicionados :("
+        label.font = UIFont.systemFont(ofSize: 22, weight: .thin)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
+    }()
+    
     private lazy var favoriteCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -55,6 +64,7 @@ class FavoriteViewController: UIViewController {
 extension FavoriteViewController: CodeView {
     func buildViewHierarchy() {
         self.view.addSubview(favoriteCollectionView)
+        self.view.addSubview(emptyFavoritesLabel)
     }
     
     func buildConstraints() {
@@ -62,6 +72,11 @@ extension FavoriteViewController: CodeView {
             make.top.equalToSuperview().offset(20)
             make.leading.trailing.equalToSuperview().inset(10)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
+        
+        emptyFavoritesLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.leading.equalToSuperview().inset(20)
         }
     }
 }
@@ -113,8 +128,10 @@ extension FavoriteViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - View Model Delegate
 extension FavoriteViewController: FavoriteViewModelDelegate {
-    func didGetAnimesList() {
+    func didGetAnimesList(_ isEmptyList: Bool) {
         DispatchQueue.main.async {
+            self.emptyFavoritesLabel.isHidden = !isEmptyList
+            self.emptyFavoritesLabel.layoutIfNeeded()
             self.favoriteCollectionView.reloadData()
         }
     }
