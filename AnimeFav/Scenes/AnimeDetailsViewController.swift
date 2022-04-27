@@ -10,6 +10,10 @@ import Kingfisher
 import Cosmos
 import RealmSwift
 
+protocol AnimeRepositoryProtocol: AnyObject {
+    func didRefreshRepository()
+}
+
 class AnimeDetailsViewController: UIViewController {
     // MARK: - Views
     private let titleLabel: UILabel = {
@@ -162,6 +166,7 @@ class AnimeDetailsViewController: UIViewController {
             episodesStepper.value = Double(episodes ?? "1") ?? 1.0
         }
     }
+    weak var animeRepositoryProtocol: AnimeRepositoryProtocol?
     
     // MARK: - Initializers
     init(viewModel: AnimeDetailsViewModel) {
@@ -194,6 +199,7 @@ extension AnimeDetailsViewController {
     @objc
     private func favoriteImageViewTapped() {
         isFavorite.toggle()
+        animeRepositoryProtocol?.didRefreshRepository()
     }
     
     @objc

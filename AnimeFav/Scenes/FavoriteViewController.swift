@@ -102,6 +102,7 @@ extension FavoriteViewController: UICollectionViewDelegate {
         guard let anime = viewModel?.animes[indexPath.item] else { return }
         let viewModel = AnimeDetailsViewModel(anime: anime)
         let viewController = AnimeDetailsViewController(viewModel: viewModel)
+        viewController.animeRepositoryProtocol = self
         self.present(viewController, animated: true)
     }
 }
@@ -134,6 +135,12 @@ extension FavoriteViewController: FavoriteViewModelDelegate {
             self.emptyFavoritesLabel.layoutIfNeeded()
             self.favoriteCollectionView.reloadData()
         }
+    }
+}
+
+extension FavoriteViewController: AnimeRepositoryProtocol {
+    func didRefreshRepository() {
+        self.viewModel?.getFavoriteAnimesList()
     }
 }
 
