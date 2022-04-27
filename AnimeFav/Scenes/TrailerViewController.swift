@@ -13,6 +13,7 @@ class TrailerViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Trailer"
+        label.textColor = .spaceEEEEEE
         label.font = UIFont.systemFont(ofSize: 27, weight: .semibold)
         label.textAlignment = .left
         return label
@@ -27,7 +28,7 @@ class TrailerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .blue06113C
         if let trailer = animeTrailer,
            let videoId = getVideoID(from: trailer) {
             playerView.load(withVideoId: videoId, playerVars: ["playsinline": "1"])

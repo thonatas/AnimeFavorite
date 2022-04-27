@@ -21,14 +21,20 @@ final class LaunchScreenViewController: UIViewController {
     // MARK: - Life Cycle View
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .blue06113C
         setupView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        var delayTime = 3.0
+        
+        #if DEBUG
+        delayTime = 0.1
+        #endif
+        
         self.showAnimation(true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delayTime) {
             self.showAnimation(false)
             UIApplication.shared.keyWindow?.rootViewController = AnimeTabBarController()
             UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)

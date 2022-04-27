@@ -23,6 +23,7 @@ class FavoriteViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.backgroundColor = .blue06113C
         collectionView.register(FavoriteCollectionViewCell.self, forCellWithReuseIdentifier: FavoriteCollectionViewCell.identifier)
         return collectionView
     }()
@@ -43,7 +44,7 @@ class FavoriteViewController: UIViewController {
     // MARK: - Life Cycle View
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .blue06113C
         self.title = "Favorites"
         self.viewModel?.delegate = self
         self.setupView()
@@ -69,7 +70,7 @@ extension FavoriteViewController: CodeView {
     
     func buildConstraints() {
         favoriteCollectionView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(30)
             make.leading.trailing.equalToSuperview().inset(10)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
@@ -123,7 +124,7 @@ extension FavoriteViewController: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 8, left: 8, bottom: 0, right: 8)
+        return UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
     }
 }
 

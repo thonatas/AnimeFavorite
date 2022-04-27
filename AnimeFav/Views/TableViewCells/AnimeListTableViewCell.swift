@@ -14,6 +14,7 @@ class AnimeListTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        contentView.backgroundColor = .blue06113C
         imageAnime.layer.cornerRadius = 10
     }
 

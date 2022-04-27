@@ -12,7 +12,9 @@ class AnimeListViewController: UIViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.backgroundColor = .blue06113C
         tableView.showsVerticalScrollIndicator = false
+        tableView.separatorColor = .orangeFF8C32
         tableView.register(UINib(nibName: K.animeListCellNibName, bundle: nil), forCellReuseIdentifier: K.animeListReusableCell)
         return tableView
     }()
@@ -20,12 +22,18 @@ class AnimeListViewController: UIViewController {
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.delegate = self
+        searchBar.barTintColor = .blue06113C
+        searchBar.searchTextField.textColor = .grayDDDDDD
+        searchBar.searchTextField.backgroundColor = .orangeFF8C32.withAlphaComponent(0.2)
+        searchBar.searchTextField.leftView?.tintColor = .orangeFF8C32
+        searchBar.searchTextField.rightView?.tintColor = .orangeFF8C32
         return searchBar
     }()
     
     private lazy var segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["by Members", "by Score", "by Rating"])
         segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.backgroundColor = .orangeFF8C32
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         return segmentedControl
     }()
@@ -50,7 +58,7 @@ class AnimeListViewController: UIViewController {
     // MARK: - View Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .blue06113C
         self.title = "Top Anime List"
         self.viewModel?.delegate = self
         self.setupView()

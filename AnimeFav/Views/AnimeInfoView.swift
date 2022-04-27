@@ -13,6 +13,7 @@ class AnimeInfoView: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.textColor = .spaceEEEEEE
         label.font = UIFont.systemFont(ofSize: 15, weight: .light)
         label.textAlignment = .center
         return label
@@ -21,6 +22,7 @@ class AnimeInfoView: UIView {
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.textColor = .spaceEEEEEE
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         label.textAlignment = .center
         return label

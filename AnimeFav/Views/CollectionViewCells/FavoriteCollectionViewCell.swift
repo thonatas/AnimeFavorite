@@ -18,6 +18,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
         label.text = "Anime"
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         label.textAlignment = .center
+        label.textColor = .spaceEEEEEE
         label.numberOfLines = 1
         return label
     }()
@@ -33,8 +34,9 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        layer.borderWidth = 0.5
-        layer.borderColor = UIColor(red: 85.0/255.0, green: 85.0/255.0, blue: 85.0/255.0, alpha: 1).cgColor
+        contentView.backgroundColor = .blue06113C
+        layer.borderWidth = 1.0
+        layer.borderColor = UIColor.spaceEEEEEE.cgColor
         layer.cornerRadius = 8
         setupView()
     }
@@ -65,7 +67,7 @@ extension FavoriteCollectionViewCell: CodeView {
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(animeImageView.snp.bottom).offset(5)
-            make.leading.trailing.bottom.equalToSuperview()
+            make.leading.trailing.bottom.equalToSuperview().inset(5)
         }
         
         titleLabel.setContentHuggingPriority(.required, for: .horizontal)
