@@ -30,7 +30,8 @@ class AnimeListViewModel {
         let categories = Category.allCases
         guard index < categories.count else { return }
         let category = categories[index]
-        animeService.getList(by: category) { result in
+        animeService.getList(by: category) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let response):
                 self.animes = response.results.map { Anime(fromData: $0) }
@@ -42,7 +43,8 @@ class AnimeListViewModel {
     }
     
     func search(anime: String) {
-        animeService.search(anime: anime) { result in
+        animeService.search(anime: anime) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let response):
                 self.animes = response.results.map { Anime(fromData: $0) }

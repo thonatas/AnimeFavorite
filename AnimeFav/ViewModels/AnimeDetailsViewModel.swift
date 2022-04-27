@@ -42,7 +42,8 @@ class AnimeDetailsViewModel {
     func getAnimeDetails() {
         self.delegate?.didShowLoading(true)
         
-        animeManager.getDetails(by: anime.id) { result in
+        animeManager.getDetails(by: anime.id) { [weak self] result in
+            guard let self = self else { return }
             self.delegate?.didShowLoading(false)
             switch result {
             case .success(let response):

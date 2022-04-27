@@ -135,7 +135,7 @@ extension AnimeListViewController: UISearchBarDelegate {
 // MARK: - View Model Delegates
 extension AnimeListViewController: AnimeListViewModelDelegate {
     func didGetAnimeList() {
-        DispatchQueue.main.async {
+        UIView.animate(withDuration: 1.0) {
             self.tableView.reloadData()
         }
     }
