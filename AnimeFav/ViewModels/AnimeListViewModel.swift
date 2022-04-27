@@ -34,7 +34,7 @@ class AnimeListViewModel {
             guard let self = self else { return }
             switch result {
             case .success(let response):
-                self.animes = response.results.map { Anime(fromData: $0) }
+                self.animes = response.data.map { Anime(fromData: $0) }
                 self.delegate?.didGetAnimeList()
             case .failure(let error):
                 self.delegate?.didGetAnimeListWithError(error.localizedDescription)
@@ -47,7 +47,7 @@ class AnimeListViewModel {
             guard let self = self else { return }
             switch result {
             case .success(let response):
-                self.animes = response.results.map { Anime(fromData: $0) }
+                self.animes = response.data.map { Anime(fromData: $0) }
                 self.delegate?.didGetAnimeList()
             case .failure(let error):
                 self.delegate?.didGetAnimeListWithError(error.localizedDescription)

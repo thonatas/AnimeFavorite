@@ -16,13 +16,13 @@ enum AnimeAPI {
 
 extension AnimeAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "https://api.jikan.moe/v3")!
+        return URL(string: "https://api.jikan.moe/v4")!
     }
     
     var path: String {
         switch self {
         case .search, .getList:
-            return "/search/anime"
+            return "/anime"
         case .getDetails(let id):
             return "/anime/\(id)"
         }

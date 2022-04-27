@@ -32,11 +32,11 @@ class Anime: Object {
         id = animeData.id
         title = animeData.title ?? ""
         episodes = animeData.episodes ?? 0
-        score = animeData.score
+        score = animeData.score ?? 0.0
         synopsis = animeData.synopsis ?? ""
-        imageUrl = animeData.imageUrl ?? ""
+        imageUrl = animeData.images?.jpg?.url ?? ""
         type = animeData.type ?? ""
-        trailerUrl = animeData.trailerUrl ?? ""
+        trailerUrl = animeData.trailer?.url ?? ""
         rank = animeData.rank ?? 0
         airing = animeData.airing ?? false
         source = animeData.source ?? "-"

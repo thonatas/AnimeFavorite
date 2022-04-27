@@ -383,8 +383,8 @@ extension AnimeDetailsViewController: CodeView {
 // MARK: - View Model Delegates
 extension AnimeDetailsViewController: AnimeDetailsViewModelDelegate {
     func didGetAnimeDetails(_ animeDetails: AnimeResponse) {
-        self.trailerButton.isEnabled = animeDetails.trailerUrl != nil
-        self.animeTrailer = animeDetails.trailerUrl
+        self.trailerButton.isEnabled = animeDetails.trailer?.url != nil
+        self.animeTrailer = animeDetails.trailer?.url
         self.sinopsysTextView.text = animeDetails.synopsis ?? "Sem Sinopse"
         self.animeRankView.descriptionText = "#\(animeDetails.rank ?? 0)"
         self.animeSourceView.descriptionText = animeDetails.source ?? "-"

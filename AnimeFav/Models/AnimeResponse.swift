@@ -8,19 +8,19 @@
 import Foundation
 
 struct AnimesListResponse: Codable {
-    var results: [AnimeResponse]
+    var data: [AnimeResponse]
 }
 
 struct AnimeResponse {
     var id: Int
-    var imageUrl: String?
+    var images: AnimeImage?
     var title: String?
     var episodes: Int?
-    var score: Double
+    var score: Double?
     var type: String?
     var synopsis: String?
     var airing: Bool?
-    var trailerUrl: String?
+    var trailer: AnimeTrailer?
     var source: String?
     var rank: Int?
 }
@@ -28,17 +28,32 @@ struct AnimeResponse {
 extension AnimeResponse: Codable {
     enum CodingKeys: String, CodingKey {
         case id = "mal_id"
-        case imageUrl = "image_url"
+        case images
         case title
         case episodes
         case score
         case type
         case synopsis
         case airing
-        case trailerUrl = "trailer_url"
+        case trailer
         case source
         case rank
     }
 }
 
+struct AnimeTrailer: Codable {
+    var url: String?
+}
+
+struct AnimeImage: Codable {
+    var jpg: AnimeJpgImage?
+}
+
+struct AnimeJpgImage: Codable {
+    var url: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case url = "image_url"
+    }
+}
 
