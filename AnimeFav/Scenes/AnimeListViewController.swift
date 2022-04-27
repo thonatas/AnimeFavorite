@@ -15,7 +15,7 @@ class AnimeListViewController: UIViewController {
         tableView.backgroundColor = .primaryColor
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorColor = .secondaryColor
-        tableView.register(UINib(nibName: K.animeListCellNibName, bundle: nil), forCellReuseIdentifier: K.animeListReusableCell)
+        tableView.register(AnimeListTableViewCell.self, forCellReuseIdentifier: AnimeListTableViewCell.identifier)
         return tableView
     }()
     
@@ -108,11 +108,9 @@ extension AnimeListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: K.animeListReusableCell, for: indexPath) as? AnimeListTableViewCell,
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AnimeListTableViewCell.identifier, for: indexPath) as? AnimeListTableViewCell,
               let anime = viewModel?.animes[indexPath.row] else { return UITableViewCell() }
-        anime.getImageCache(uiImageView: cell.imageAnime)
-        cell.label.text = anime.title
-        cell.selectionStyle = .none
+        cell.setupCell(with: anime)
         return cell
     }
 }
