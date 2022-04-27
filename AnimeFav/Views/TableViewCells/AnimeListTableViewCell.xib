@@ -31,7 +31,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06X-iA-Tdl">
                                 <rect key="frame" x="120" y="65" width="376" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="spaceEEEEEE"/>
+                                <color key="textColor" name="quaternary"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -53,8 +53,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="spaceEEEEEE">
-            <color red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="quaternary">
+            <color red="0.023529411764705882" green="0.066666666666666666" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

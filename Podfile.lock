@@ -1,8 +1,5 @@
 PODS:
   - Alamofire (5.6.1)
-  - Bagel (1.4.0):
-    - CocoaAsyncSocket
-  - CocoaAsyncSocket (7.6.5)
   - Cosmos (23.0.0)
   - Kingfisher (6.1.0)
   - lottie-ios (2.5.3)
@@ -19,7 +16,6 @@ PODS:
   - youtube-ios-player-helper (1.0.2)
 
 DEPENDENCIES:
-  - Bagel (~> 1.4.0)
   - Cosmos (~> 23.0)
   - Kingfisher (~> 6.0)
   - lottie-ios (~> 2.5)
@@ -31,8 +27,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - Bagel
-    - CocoaAsyncSocket
     - Cosmos
     - Kingfisher
     - lottie-ios
@@ -44,8 +38,6 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
-  Bagel: c3fa6bcbd52db9ca976edbafd7638f0553ded101
-  CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   Kingfisher: f5d8d60a0ef3edd642fd781bae60918599901aff
   lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
@@ -55,6 +47,6 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   youtube-ios-player-helper: 40b96e52c22445f0fdc43731cefa32c67075ff81
 
-PODFILE CHECKSUM: 4bafc94facd93a6b8b81466d24f630fc0689c45e
+PODFILE CHECKSUM: 532380ac88a83366066598519cd18cd4a7b6991a
 
 COCOAPODS: 1.11.2

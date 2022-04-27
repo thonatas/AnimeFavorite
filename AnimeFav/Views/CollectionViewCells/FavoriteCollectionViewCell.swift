@@ -18,7 +18,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
         label.text = "Anime"
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         label.textAlignment = .center
-        label.textColor = .spaceEEEEEE
+        label.textColor = .quaternaryColor
         label.numberOfLines = 1
         return label
     }()
@@ -34,9 +34,9 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        contentView.backgroundColor = .blue06113C
+        contentView.backgroundColor = .primaryColor
         layer.borderWidth = 1.0
-        layer.borderColor = UIColor.spaceEEEEEE.cgColor
+        layer.borderColor = UIColor.quaternaryColor.cgColor
         layer.cornerRadius = 8
         setupView()
     }

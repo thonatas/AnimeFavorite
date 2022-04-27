@@ -16,20 +16,37 @@ enum AnimeTabItem: String, CaseIterable {
         case .favorites:
             let viewModel = FavoriteViewModel()
             let controller = FavoriteViewController(viewModel: viewModel)
-            return UINavigationController(rootViewController: controller)
+            return AnimeNavigationController(rootViewController: controller)
         case .animeList:
             let viewModel = AnimeListViewModel()
             let controller = AnimeListViewController(viewModel: viewModel)
-            return UINavigationController(rootViewController: controller)
+            return AnimeNavigationController(rootViewController: controller)
         }
     }
     
     var icon: UIImage? {
         switch self {
         case .favorites:
-            return UIImage(systemName: "heart")
+            return UIImage(systemName: "heart")?
+                            .withRenderingMode(.alwaysOriginal)
+                            .withTintColor(.tertiaryColor)
         case .animeList:
-            return UIImage(systemName: "list.bullet")
+            return UIImage(systemName: "list.bullet")?
+                            .withRenderingMode(.alwaysOriginal)
+                            .withTintColor(.tertiaryColor)
+        }
+    }
+    
+    var iconSelected: UIImage? {
+        switch self {
+        case .favorites:
+            return UIImage(systemName: "heart.fill")?
+                            .withRenderingMode(.alwaysOriginal)
+                            .withTintColor(.secondaryColor)
+        case .animeList:
+            return UIImage(systemName: "list.bullet")?
+                            .withRenderingMode(.alwaysOriginal)
+                            .withTintColor(.secondaryColor)
         }
     }
     

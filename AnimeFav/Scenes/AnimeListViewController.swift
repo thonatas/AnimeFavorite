@@ -12,9 +12,9 @@ class AnimeListViewController: UIViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.backgroundColor = .blue06113C
+        tableView.backgroundColor = .primaryColor
         tableView.showsVerticalScrollIndicator = false
-        tableView.separatorColor = .orangeFF8C32
+        tableView.separatorColor = .secondaryColor
         tableView.register(UINib(nibName: K.animeListCellNibName, bundle: nil), forCellReuseIdentifier: K.animeListReusableCell)
         return tableView
     }()
@@ -22,18 +22,18 @@ class AnimeListViewController: UIViewController {
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.delegate = self
-        searchBar.barTintColor = .blue06113C
-        searchBar.searchTextField.textColor = .grayDDDDDD
-        searchBar.searchTextField.backgroundColor = .orangeFF8C32.withAlphaComponent(0.2)
-        searchBar.searchTextField.leftView?.tintColor = .orangeFF8C32
-        searchBar.searchTextField.rightView?.tintColor = .orangeFF8C32
+        searchBar.barTintColor = .primaryColor
+        searchBar.searchTextField.textColor = .tertiaryColor
+        searchBar.searchTextField.backgroundColor = .secondaryColor.withAlphaComponent(0.2)
+        searchBar.searchTextField.leftView?.tintColor = .secondaryColor
+        searchBar.searchTextField.rightView?.tintColor = .secondaryColor
         return searchBar
     }()
     
     private lazy var segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["by Members", "by Score", "by Rating"])
         segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.backgroundColor = .orangeFF8C32
+        segmentedControl.backgroundColor = .secondaryColor
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         return segmentedControl
     }()
@@ -58,7 +58,7 @@ class AnimeListViewController: UIViewController {
     // MARK: - View Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .blue06113C
+        self.view.backgroundColor = .primaryColor
         self.title = "Top Anime List"
         self.viewModel?.delegate = self
         self.setupView()
@@ -112,6 +112,7 @@ extension AnimeListViewController: UITableViewDataSource {
               let anime = viewModel?.animes[indexPath.row] else { return UITableViewCell() }
         anime.getImageCache(uiImageView: cell.imageAnime)
         cell.label.text = anime.title
+        cell.selectionStyle = .none
         return cell
     }
 }

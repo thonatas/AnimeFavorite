@@ -19,7 +19,7 @@ class AnimeDetailsViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Favorites"
-        label.textColor = .spaceEEEEEE
+        label.textColor = .quaternaryColor
         label.font = UIFont.systemFont(ofSize: 27, weight: .semibold)
         label.textAlignment = .center
         return label
@@ -91,11 +91,11 @@ class AnimeDetailsViewController: UIViewController {
     private lazy var trailerButton: UIButton = {
         let button = UIButton()
         let playImage = UIImage(systemName: "play.rectangle")?.withRenderingMode(.alwaysOriginal)
-        button.setImage(playImage?.withTintColor(.orangeFF8C32), for: .normal)
-        button.setImage(playImage?.withTintColor(.grayDDDDDD), for: .disabled)
+        button.setImage(playImage?.withTintColor(.secondaryColor), for: .normal)
+        button.setImage(playImage?.withTintColor(.tertiaryColor), for: .disabled)
         button.setTitle(" Trailer", for: .normal)
-        button.setTitleColor(.orangeFF8C32, for: .normal)
-        button.setTitleColor(.grayDDDDDD, for: .disabled)
+        button.setTitleColor(.secondaryColor, for: .normal)
+        button.setTitleColor(.tertiaryColor, for: .disabled)
         button.addTarget(self, action: #selector(trailerButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -104,7 +104,7 @@ class AnimeDetailsViewController: UIViewController {
         let heartImage = UIImage(systemName: "heart")?.withRenderingMode(.alwaysOriginal)
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = heartImage?.withTintColor(.orangeFF8C32)
+        imageView.image = heartImage?.withTintColor(.secondaryColor)
         let tap = UITapGestureRecognizer(target: self, action: #selector(favoriteImageViewTapped))
         imageView.addGestureRecognizer(tap)
         imageView.isUserInteractionEnabled = true
@@ -114,7 +114,7 @@ class AnimeDetailsViewController: UIViewController {
     private let episodesTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Qual episódio parei?"
-        label.textColor = .spaceEEEEEE
+        label.textColor = .quaternaryColor
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.textAlignment = .center
         return label
@@ -123,7 +123,7 @@ class AnimeDetailsViewController: UIViewController {
     private let episodesDescriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "1"
-        label.textColor = .spaceEEEEEE
+        label.textColor = .quaternaryColor
         label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         label.textAlignment = .right
         return label
@@ -134,16 +134,17 @@ class AnimeDetailsViewController: UIViewController {
         let decrementImage = stepper.decrementImage(for: .normal)?.withRenderingMode(.alwaysOriginal)
         let incrementImage = stepper.incrementImage(for: .normal)?.withRenderingMode(.alwaysOriginal)
         stepper.stepValue = 1
-        stepper.setDecrementImage(decrementImage?.withTintColor(.spaceEEEEEE), for: .normal)
-        stepper.setIncrementImage(incrementImage?.withTintColor(.spaceEEEEEE), for: .normal)
+        stepper.setDecrementImage(decrementImage?.withTintColor(.quaternaryColor), for: .normal)
+        stepper.setIncrementImage(incrementImage?.withTintColor(.quaternaryColor), for: .normal)
         stepper.addTarget(self, action: #selector(episodesStepperValueChanged(_:)), for: .valueChanged)
         return stepper
     }()
     
     private let sinopsysTextView: UITextView = {
         let textView = UITextView()
-        textView.backgroundColor = .blue06113C
-        textView.textColor = .spaceEEEEEE
+        textView.backgroundColor = .primaryColor
+        textView.textColor = .quaternaryColor
+        textView.isEditable = false
         textView.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         return textView
     }()
@@ -151,9 +152,9 @@ class AnimeDetailsViewController: UIViewController {
     private lazy var fiveStarsCosmosView: CosmosView = {
         let cosmoView = CosmosView()
         cosmoView.settings.disablePanGestures = true
-        cosmoView.settings.filledColor = .grayDDDDDD
-        cosmoView.settings.emptyBorderColor = .grayDDDDDD
-        cosmoView.settings.filledBorderColor = .grayDDDDDD
+        cosmoView.settings.filledColor = .tertiaryColor
+        cosmoView.settings.emptyBorderColor = .tertiaryColor
+        cosmoView.settings.filledBorderColor = .tertiaryColor
         cosmoView.isUserInteractionEnabled = false
         let tap = UITapGestureRecognizer(target: self, action: #selector(updateRatingCosmos))
         cosmoView.addGestureRecognizer(tap)
@@ -191,7 +192,7 @@ class AnimeDetailsViewController: UIViewController {
     // MARK: - View Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .blue06113C
+        self.view.backgroundColor = .primaryColor
         self.viewModel?.delegate = self
         self.isFavorite = viewModel?.anime.isFavorite ?? false
         self.setupView()
@@ -238,11 +239,11 @@ extension AnimeDetailsViewController {
         let heartImage = UIImage(systemName: "heart")?.withRenderingMode(.alwaysOriginal)
         let heartFillImage = UIImage(systemName: "heart.fill")?.withRenderingMode(.alwaysOriginal)
         let favoriteImage = isFavorite ? heartFillImage : heartImage
-        favoriteImageView.image = favoriteImage?.withTintColor(.orangeFF8C32)
+        favoriteImageView.image = favoriteImage?.withTintColor(.secondaryColor)
         fiveStarsCosmosView.isUserInteractionEnabled = isFavorite
-        fiveStarsCosmosView.settings.filledColor = isFavorite ? .orangeFF8C32 : .grayDDDDDD
-        fiveStarsCosmosView.settings.emptyBorderColor = isFavorite ? .orangeFF8C32 : .grayDDDDDD
-        fiveStarsCosmosView.settings.filledBorderColor = isFavorite ? .orangeFF8C32 : .grayDDDDDD
+        fiveStarsCosmosView.settings.filledColor = isFavorite ? .secondaryColor : .tertiaryColor
+        fiveStarsCosmosView.settings.emptyBorderColor = isFavorite ? .secondaryColor : .tertiaryColor
+        fiveStarsCosmosView.settings.filledBorderColor = isFavorite ? .secondaryColor : .tertiaryColor
         viewModel?.setFavoriteAnime(isFavorite)
         episodesStepper.isUserInteractionEnabled = isFavorite
         if !isFavorite {
