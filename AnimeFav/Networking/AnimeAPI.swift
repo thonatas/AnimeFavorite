@@ -40,13 +40,15 @@ extension AnimeAPI: TargetType {
         switch self {
         case .search(let anime):
             let parameters = ["q" : anime,
-                              "limit" : "3"]
+                              "limit" : "5",
+                              "genres_exclude" : "12"]
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         case .getList(let category):
             let parameters = ["q" : "",
                               "order_by" : category.rawValue,
                               "sort" : "desc",
-                              "page" : "1"]
+                              "page" : "1",
+                              "genres_exclude" : "12"]
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         case .getDetails:
             return .requestPlain

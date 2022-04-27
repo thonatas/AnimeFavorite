@@ -47,7 +47,7 @@ class AnimeDetailsViewModel {
             self.delegate?.didShowLoading(false)
             switch result {
             case .success(let response):
-                self.delegate?.didGetAnimeDetails(response)
+                self.delegate?.didGetAnimeDetails(response.data)
             case .failure(let error):
                 self.delegate?.didGetAnimeDetailsWithError(error.localizedDescription)
             }

@@ -205,10 +205,8 @@ extension AnimeDetailsViewController {
     
     @objc
     private func trailerButtonTapped() {
-        //let viewModel = AnimeDetailsViewModel(anime: anime)
         let viewController = TrailerViewController()
         viewController.animeTrailer = animeTrailer
-        //viewController.modalPresentationStyle = .fullScreen
         self.present(viewController, animated: true)
     }
     
@@ -268,8 +266,8 @@ extension AnimeDetailsViewController: CodeView {
         animeImageView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(10)
-            make.width.equalToSuperview().multipliedBy(0.45)
-            make.height.equalTo(animeImageView.snp.width).multipliedBy(1.5)
+            make.width.equalToSuperview().multipliedBy(0.40)
+            make.height.equalTo(animeImageView.snp.width).multipliedBy(1.8)
         }
         
         animeTypeView.snp.makeConstraints { make in
@@ -371,7 +369,7 @@ extension AnimeDetailsViewController: CodeView {
         titleLabel.text = viewModel?.anime.title
         viewModel?.anime.getImageCache(uiImageView: animeImageView)
         animeTypeView.descriptionText = viewModel?.anime.type ?? "-"
-        animeScoreView.descriptionText = "\(viewModel?.anime.score ?? 0.0)"
+        animeScoreView.descriptionText = String(format: "%.2f", viewModel?.anime.score ?? 0.0)
         animeStatusView.descriptionText = viewModel?.anime.status
         animeEpisodesView.descriptionText = "\(viewModel?.anime.episodes ?? 0)"
         animeTrailer = viewModel?.anime.trailerUrl

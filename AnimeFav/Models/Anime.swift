@@ -32,7 +32,7 @@ class Anime: Object {
         id = animeData.id
         title = animeData.title ?? ""
         episodes = animeData.episodes ?? 0
-        score = animeData.score ?? 0.0
+        score = Double(animeData.score ?? 0.0)
         synopsis = animeData.synopsis ?? ""
         imageUrl = animeData.images?.jpg?.url ?? ""
         type = animeData.type ?? ""
