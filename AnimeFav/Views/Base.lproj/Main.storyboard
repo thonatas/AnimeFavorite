@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6m5-Yu-3Su">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6m5-Yu-3Su">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -13,7 +14,7 @@
         <!--Top Anime List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AnimeListViewController" customModule="AnimeFav" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AnimeListViewController" customModule="AnimeFav" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,9 +55,6 @@
                                                     <segment title="by Score"/>
                                                     <segment title="by Rating"/>
                                                 </segments>
-                                                <connections>
-                                                    <action selector="indexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="tl0-Gx-Azr"/>
-                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -76,7 +74,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="250" reuseIdentifier="AnimeListCell" id="0Kp-qb-3rK">
-                                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Kp-qb-3rK" id="xBb-NJ-1Cl">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -107,18 +105,8 @@
                         <imageReference key="image" image="list.bullet" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Top Anime List" id="B8z-WB-vD6">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="tgT-Qe-fUz">
-                            <connections>
-                                <action selector="reloadData:" destination="BYZ-38-t0r" id="IDD-q4-6Vz"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="tgT-Qe-fUz"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="searchBar" destination="U7Y-uN-5wP" id="wl8-mU-hE2"/>
-                        <outlet property="segmentedControl" destination="zCw-P9-dTm" id="5tQ-R5-oNt"/>
-                        <outlet property="tableView" destination="CA4-8C-plv" id="75m-GQ-ye3"/>
-                        <segue destination="OTh-OU-brJ" kind="presentation" identifier="ListToDetails" id="BD7-zR-zfG"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -127,13 +115,13 @@
         <!--Anime Details View Controller-->
         <scene sceneID="Rp9-8U-mT4">
             <objects>
-                <viewController storyboardIdentifier="details" id="OTh-OU-brJ" customClass="AnimeDetailsViewController" customModule="AnimeFav" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="details" id="OTh-OU-brJ" customClass="AnimeDetailsViewController" customModule="AnimeFav" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dke-jS-X1Z">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1146"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eC4-Iv-678">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1146"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="1112"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FHL-1g-fkd">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1030"/>
@@ -318,10 +306,6 @@
                                                                             <color key="titleColor" red="0.093012638389999999" green="0.46549606319999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                             <imageReference key="image" image="play.rectangle" catalog="system" symbolScale="large"/>
                                                                         </state>
-                                                                        <connections>
-                                                                            <action selector="buttonTrailerPressed:" destination="OTh-OU-brJ" eventType="touchUpInside" id="Acl-gB-N5s"/>
-                                                                            <segue destination="swL-xe-wyh" kind="presentation" identifier="goToTrailer" id="49a-go-Vg2"/>
-                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -358,9 +342,6 @@
                                                                                 <state key="normal" title="   Favorite" image="heart" catalog="system">
                                                                                     <color key="titleColor" red="0.093012638389999999" green="0.46549606319999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 </state>
-                                                                                <connections>
-                                                                                    <action selector="buttonFavoritePressed:" destination="OTh-OU-brJ" eventType="touchUpInside" id="40N-fX-PSz"/>
-                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -392,9 +373,6 @@
                                                                                             </label>
                                                                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="nvd-C1-sdL">
                                                                                                 <rect key="frame" x="37.5" y="0.0" width="94" height="32"/>
-                                                                                                <connections>
-                                                                                                    <action selector="stepperUserEpisodes:" destination="OTh-OU-brJ" eventType="valueChanged" id="GII-hk-V4J"/>
-                                                                                                </connections>
                                                                                             </stepper>
                                                                                         </subviews>
                                                                                     </stackView>
@@ -528,26 +506,6 @@
                         </constraints>
                     </view>
                     <size key="freeformSize" width="414" height="1200"/>
-                    <connections>
-                        <outlet property="buttonFavorite" destination="L9d-ah-JIY" id="1RZ-Hr-mux"/>
-                        <outlet property="buttonWatchTrailler" destination="zWB-Ev-l4S" id="tXA-9V-NTt"/>
-                        <outlet property="imageAnime" destination="HVY-8b-1wQ" id="CKB-EP-E2z"/>
-                        <outlet property="labelAnimeEpisodes" destination="fMS-9C-zDe" id="nb9-Pr-W96"/>
-                        <outlet property="labelAnimeRank" destination="qi4-Wf-4E4" id="5Dn-Cm-GV3"/>
-                        <outlet property="labelAnimeScore" destination="EUR-VT-AhN" id="v2R-g4-esE"/>
-                        <outlet property="labelAnimeSource" destination="z9P-XN-uMW" id="mwP-o0-Dfr"/>
-                        <outlet property="labelAnimeStatus" destination="1se-3j-Np4" id="Fbz-EH-apQ"/>
-                        <outlet property="labelAnimeTitle" destination="kjT-8H-mHS" id="wgI-4O-tYe"/>
-                        <outlet property="labelAnimeType" destination="lei-HW-v44" id="3QQ-eS-BQJ"/>
-                        <outlet property="labelSynopsis" destination="QKC-xt-Xiz" id="trj-aX-cXh"/>
-                        <outlet property="labelUserEpisodes" destination="Kyi-Gg-SuO" id="iZa-pH-UCB"/>
-                        <outlet property="rateFiveStar" destination="FoC-I0-YMs" id="TEN-y8-gL3"/>
-                        <outlet property="scrollView" destination="eC4-Iv-678" id="0sE-ye-zOQ"/>
-                        <outlet property="stepperEpisodes" destination="nvd-C1-sdL" id="1dt-6a-MMc"/>
-                        <outlet property="viewStarred" destination="HQ8-vO-EaY" id="Gnt-HL-K4C"/>
-                        <outlet property="viewUserEpi" destination="jAw-LW-4rU" id="7Lw-y1-lm6"/>
-                        <outlet property="viewUserFunctions" destination="Hve-WT-Ao1" id="Wcm-7q-eLG"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLe-jb-WEb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -556,13 +514,13 @@
         <!--Trailer View Controller-->
         <scene sceneID="7Di-Gr-8R3">
             <objects>
-                <viewController id="swL-xe-wyh" customClass="TrailerViewController" customModule="AnimeFav" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="swL-xe-wyh" customClass="TrailerViewController" customModule="AnimeFav" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WHX-z0-rjA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trailer" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="374" translatesAutoresizingMaskIntoConstraints="NO" id="KfN-6g-f29">
-                                <rect key="frame" x="20" y="0.0" width="374" height="100"/>
+                                <rect key="frame" x="20" y="44" width="374" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="k5n-sA-44g"/>
                                 </constraints>
@@ -571,7 +529,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWu-Ql-IFy" customClass="YTPlayerView">
-                                <rect key="frame" x="0.0" y="120" width="414" height="233"/>
+                                <rect key="frame" x="0.0" y="164" width="414" height="233"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="NWu-Ql-IFy" secondAttribute="height" multiplier="16:9" id="W7a-BO-o4o"/>
@@ -592,9 +550,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="i1Z-pf-5k0"/>
-                    <connections>
-                        <outlet property="playerView" destination="NWu-Ql-IFy" id="nIb-Cb-YeD"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mB-Wb-yYG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -610,10 +565,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
-                    <connections>
-                        <segue destination="8tZ-VV-L3j" kind="relationship" relationship="viewControllers" id="Q1l-Zh-wP3"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="ibW-Hj-r3b"/>
-                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkh-9m-430" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -622,7 +573,7 @@
         <!--Favorites-->
         <scene sceneID="F6Q-0b-izN">
             <objects>
-                <viewController id="8tZ-VV-L3j" customClass="FavoriteViewController" customModule="AnimeFav" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8tZ-VV-L3j" customClass="FavoriteViewController" customModule="AnimeFav" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rr3-Oj-M7x">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -637,7 +588,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BZV-ks-ZXZ">
-                                <rect key="frame" x="15" y="94" width="384" height="719"/>
+                                <rect key="frame" x="15" y="94" width="384" height="768"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Tl4-JD-DsX">
                                     <size key="itemSize" width="128" height="128"/>
@@ -711,10 +662,6 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favorites" image="heart" catalog="system" selectedImage="heart.fill" id="A3A-Cb-BmD"/>
-                    <connections>
-                        <outlet property="favoriteCollection" destination="BZV-ks-ZXZ" id="fFU-w0-ivE"/>
-                        <segue destination="OTh-OU-brJ" kind="presentation" identifier="FavoriteToDetails" id="X3v-jP-0kF"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WOt-LU-Hwf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -726,9 +673,6 @@
             <size key="intrinsicContentSize" width="170" height="30"/>
         </designable>
     </designables>
-    <inferredMetricsTieBreakers>
-        <segue reference="BD7-zR-zfG"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
