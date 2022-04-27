@@ -21,14 +21,14 @@ final class LaunchScreenViewController: UIViewController {
     // MARK: - Life Cycle View
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(red: 245/255, green: 195/255, blue: 133/255, alpha: 1)
+        self.view.backgroundColor = .white
         setupView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.showAnimation(true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.showAnimation(false)
             UIApplication.shared.keyWindow?.rootViewController = AnimeTabBarController()
             UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
@@ -45,7 +45,7 @@ extension LaunchScreenViewController: CodeView {
     func buildConstraints() {
         animationView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().offset(30)
             make.width.equalTo(300)
             make.height.equalTo(300)
         }
