@@ -30,18 +30,15 @@ final class LaunchScreenViewController: UIViewController {
         var delayTime = 3.0
         
         #if DEBUG
-        //delayTime = 0.1
+        delayTime = 0.1
         #endif
         
         self.showAnimation(true)
         DispatchQueue.main.asyncAfter(deadline: .now() + delayTime) {
             self.showAnimation(false)
-            if let mainWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
-                mainWindow.rootViewController = AnimeTabBarController()
-                mainWindow.rootViewController?.dismiss(animated: true)
-            }
-            //UIApplication.shared.keyWindow?.rootViewController = AnimeTabBarController()
-            //UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
+            let mainWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow })
+            mainWindow?.rootViewController = AnimeTabBarController()
+            mainWindow?.rootViewController?.dismiss(animated: true)
         }
     }
 }

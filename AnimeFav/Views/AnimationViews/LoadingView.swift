@@ -64,7 +64,7 @@ final public class LoadingView: UIView {
     }
     
     private func startAnimating() {
-        let currentWindow: UIWindow? = UIApplication.shared.keyWindow
+        let currentWindow: UIWindow? = UIApplication.shared.windows.first(where: { $0.isKeyWindow })
         self.frame = currentWindow!.bounds
         self.alpha = 0
         currentWindow?.addSubview(self)

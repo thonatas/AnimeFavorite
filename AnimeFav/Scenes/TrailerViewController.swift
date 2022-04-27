@@ -24,6 +24,7 @@ class TrailerViewController: UIViewController {
         return playerView
     }()
     
+    private let aspectRatio = CGFloat(9.0/16.0)
     var animeTrailer: String?
     
     override func viewDidLoad() {
@@ -73,14 +74,12 @@ extension TrailerViewController: CodeView {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
             make.leading.trailing.equalToSuperview().inset(20)
-            make.height.equalTo((view.frame.width)/9)
         }
         
         playerView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(20)
-            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
-            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(496)
+            make.leading.trailing.equalToSuperview()
+            make.center.equalToSuperview()
+            make.height.equalTo((self.view.frame.width) * aspectRatio)
         }
     }
 }
