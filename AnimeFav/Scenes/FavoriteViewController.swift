@@ -138,6 +138,7 @@ extension FavoriteViewController: FavoriteViewModelDelegate {
     }
 }
 
+// MARK: - Anime Repository Protocol
 extension FavoriteViewController: AnimeRepositoryProtocol {
     func didRefreshRepository() {
         self.viewModel?.getFavoriteAnimesList()

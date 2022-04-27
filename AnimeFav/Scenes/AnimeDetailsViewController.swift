@@ -278,19 +278,19 @@ extension AnimeDetailsViewController: CodeView {
         
         animeTypeView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
-            make.leading.equalTo(animeImageView.snp.trailing).offset(10)
+            make.leading.greaterThanOrEqualTo(animeImageView.snp.trailing).offset(10)
             make.width.equalTo(self.view.snp.width).multipliedBy(0.25)
         }
         
         animeSourceView.snp.makeConstraints { make in
             make.top.equalTo(animeTypeView.snp.bottom).offset(5)
-            make.leading.equalTo(animeImageView.snp.trailing).offset(10)
+            make.leading.greaterThanOrEqualTo(animeImageView.snp.trailing).offset(10)
             make.width.equalTo(self.animeTypeView.snp.width)
         }
         
         animeEpisodesView.snp.makeConstraints { make in
             make.top.equalTo(animeSourceView.snp.bottom).offset(5)
-            make.leading.equalTo(animeImageView.snp.trailing).offset(10)
+            make.leading.greaterThanOrEqualTo(animeImageView.snp.trailing).offset(10)
             make.width.equalTo(self.animeTypeView.snp.width)
         }
         
