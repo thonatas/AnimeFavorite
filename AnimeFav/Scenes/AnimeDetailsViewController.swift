@@ -146,6 +146,8 @@ class AnimeDetailsViewController: UIViewController {
         return cosmoView
     }()
     
+    private var loadingView = LoadingView()
+    
     // MARK: - Attributes
     private var animeTrailer: String?
     private var viewModel: AnimeDetailsViewModel?
@@ -178,6 +180,11 @@ class AnimeDetailsViewController: UIViewController {
         self.viewModel?.delegate = self
         self.isFavorite = viewModel?.anime.isFavorite ?? false
         self.setupView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.viewModel?.getAnimeDetails()
     }
 }
 
@@ -391,5 +398,9 @@ extension AnimeDetailsViewController: AnimeDetailsViewModelDelegate {
             alertControler.addAction(closeAction)
             self.present(alertControler, animated: true)
         }
+    }
+    
+    func didShowLoading(_ isShown: Bool) {
+        self.loadingView.showAnimation(isShown)
     }
 }

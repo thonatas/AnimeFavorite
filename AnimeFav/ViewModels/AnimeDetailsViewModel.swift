@@ -10,6 +10,7 @@ import Foundation
 protocol AnimeDetailsViewModelDelegate: AnyObject {
     func didGetAnimeDetails(_ animeDetails: AnimeResponse)
     func didGetAnimeDetailsWithError(_ error: String)
+    func didShowLoading(_ isShown: Bool)
 }
 
 class AnimeDetailsViewModel {
@@ -22,7 +23,6 @@ class AnimeDetailsViewModel {
     // MARK: - Initializers
     init(anime: Anime) {
         self.anime = animeRepo.getAnime(anime)
-        self.getAnimeDetails(anime)
     }
     
     // MARK: - Functions
@@ -39,8 +39,11 @@ class AnimeDetailsViewModel {
         animeRepo.updateUserEvaluation(anime, userEvaluation: "\(evaluation)")
     }
     
-    private func getAnimeDetails(_ anime: Anime) {
+    func getAnimeDetails() {
+        self.delegate?.didShowLoading(true)
+        
         animeManager.getDetails(by: anime.id) { result in
+            self.delegate?.didShowLoading(false)
             switch result {
             case .success(let response):
                 self.delegate?.didGetAnimeDetails(response)

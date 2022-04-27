@@ -5,6 +5,7 @@ PODS:
   - CocoaAsyncSocket (7.6.5)
   - Cosmos (23.0.0)
   - Kingfisher (6.1.0)
+  - lottie-ios (2.5.3)
   - Moya (15.0.0):
     - Moya/Core (= 15.0.0)
   - Moya/Core (15.0.0):
@@ -21,6 +22,7 @@ DEPENDENCIES:
   - Bagel (~> 1.4.0)
   - Cosmos (~> 23.0)
   - Kingfisher (~> 6.0)
+  - lottie-ios (~> 2.5)
   - Moya (~> 15.0)
   - RealmSwift
   - SnapKit (~> 5.6.0)
@@ -33,6 +35,7 @@ SPEC REPOS:
     - CocoaAsyncSocket
     - Cosmos
     - Kingfisher
+    - lottie-ios
     - Moya
     - Realm
     - RealmSwift
@@ -45,12 +48,13 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   Kingfisher: f5d8d60a0ef3edd642fd781bae60918599901aff
+  lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   Realm: 77fcb4e0b9f2963ea06f584749a0d7dc9cab95e1
   RealmSwift: 6abe6aa6cd8b70cc1a87afcb9232cabea74ff1ac
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   youtube-ios-player-helper: 40b96e52c22445f0fdc43731cefa32c67075ff81
 
-PODFILE CHECKSUM: fd458d2bea07bfd2d576da90ba2da1e7f964345d
+PODFILE CHECKSUM: 4bafc94facd93a6b8b81466d24f630fc0689c45e
 
 COCOAPODS: 1.11.2
