@@ -133,6 +133,12 @@ extension AnimeListViewController: UISearchBarDelegate {
             self.viewModel?.getList(index: segmentedControl.selectedSegmentIndex)
         }
     }
+    
+    private func scrollToTop() {
+        guard let dataSourceCount = viewModel?.animes.count, dataSourceCount > 0 else { return }
+        let topRow = IndexPath(row: 0, section: 0)
+        self.tableView.scrollToRow(at: topRow, at: .top, animated: true)
+    }
 }
 
 // MARK: - View Model Delegates
@@ -141,6 +147,7 @@ extension AnimeListViewController: AnimeListViewModelDelegate {
         UIView.animate(withDuration: 1.0) {
             self.tableView.reloadData()
             self.loadingView.showAnimation(false)
+            self.scrollToTop()
         }
     }
     
