@@ -25,6 +25,7 @@
 		185CC8E125C6450600F120F8 /* AnimeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185CC8E025C6450600F120F8 /* AnimeRepository.swift */; };
 		1867C5652819776000AF01E4 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C5642819776000AF01E4 /* LaunchScreenViewController.swift */; };
 		1867C567281979ED00AF01E4 /* launchScreenAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 1867C566281979ED00AF01E4 /* launchScreenAnimation.json */; };
+		1867C5712819B4BA00AF01E4 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C5702819B4BA00AF01E4 /* UIColor+Extension.swift */; };
 		189E51C925BE4BD30017E67F /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E51C825BE4BD30017E67F /* FavoriteCollectionViewCell.swift */; };
 		189E51CE25BE4C850017E67F /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E51CD25BE4C850017E67F /* FavoriteViewController.swift */; };
 		18AD072E281875CB00279F9A /* AnimeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD072D281875CB00279F9A /* AnimeTabBarController.swift */; };
@@ -83,6 +84,7 @@
 		185CC8E025C6450600F120F8 /* AnimeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeRepository.swift; sourceTree = "<group>"; };
 		1867C5642819776000AF01E4 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		1867C566281979ED00AF01E4 /* launchScreenAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = launchScreenAnimation.json; sourceTree = "<group>"; };
+		1867C5702819B4BA00AF01E4 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		189E51C825BE4BD30017E67F /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		189E51CD25BE4C850017E67F /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		18AD072D281875CB00279F9A /* AnimeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeTabBarController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			children = (
 				1801EDD52812F5A6005F0E59 /* Common */,
 				18C25D172817658200FF3B88 /* Enum */,
+				1867C56F2819B47F00AF01E4 /* Extension */,
 				1815F92425B8BF33007F0B22 /* Models */,
 				18DA3C4B2812F67100546362 /* Networking */,
 				18DA3C4C2812F67B00546362 /* Repository */,
@@ -265,6 +268,14 @@
 				1867C566281979ED00AF01E4 /* launchScreenAnimation.json */,
 			);
 			path = AnimationViews;
+			sourceTree = "<group>";
+		};
+		1867C56F2819B47F00AF01E4 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1867C5702819B4BA00AF01E4 /* UIColor+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		18C25D172817658200FF3B88 /* Enum */ = {
@@ -508,6 +519,7 @@
 				185CC8E125C6450600F120F8 /* AnimeRepository.swift in Sources */,
 				1815F93F25B8CF41007F0B22 /* Anime.swift in Sources */,
 				1815F8F225B8BF12007F0B22 /* AppDelegate.swift in Sources */,
+				1867C5712819B4BA00AF01E4 /* UIColor+Extension.swift in Sources */,
 				18C25D162817635400FF3B88 /* AnimeListViewModel.swift in Sources */,
 				1867C5652819776000AF01E4 /* LaunchScreenViewController.swift in Sources */,
 				18DA3C512813674700546362 /* AnimeInfoView.swift in Sources */,
