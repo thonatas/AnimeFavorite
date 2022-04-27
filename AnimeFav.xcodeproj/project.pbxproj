@@ -210,15 +210,11 @@
 		1815F92525B8BF39007F0B22 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1815F92D25B8C22D007F0B22 /* AnimeListTableViewCell.swift */,
-				1815F92E25B8C22D007F0B22 /* AnimeListTableViewCell.xib */,
-				189E51C825BE4BD30017E67F /* FavoriteCollectionViewCell.swift */,
+				1867C56B28198D3600AF01E4 /* AnimationViews */,
+				1867C56A28198D2500AF01E4 /* TabBar */,
+				1867C56928198D1600AF01E4 /* TableViewCells */,
+				1867C56828198D0000AF01E4 /* CollectionViewCells */,
 				18DA3C502813674700546362 /* AnimeInfoView.swift */,
-				18AD072D281875CB00279F9A /* AnimeTabBarController.swift */,
-				18AD072F2818761C00279F9A /* AnimeTabItem.swift */,
-				18AD07362818902B00279F9A /* LoadingView.swift */,
-				18AD07382818904E00279F9A /* loadingAnimation.json */,
-				1867C566281979ED00AF01E4 /* launchScreenAnimation.json */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +229,42 @@
 				1867C5642819776000AF01E4 /* LaunchScreenViewController.swift */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		1867C56828198D0000AF01E4 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				189E51C825BE4BD30017E67F /* FavoriteCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		1867C56928198D1600AF01E4 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				1815F92D25B8C22D007F0B22 /* AnimeListTableViewCell.swift */,
+				1815F92E25B8C22D007F0B22 /* AnimeListTableViewCell.xib */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		1867C56A28198D2500AF01E4 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				18AD072D281875CB00279F9A /* AnimeTabBarController.swift */,
+				18AD072F2818761C00279F9A /* AnimeTabItem.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		1867C56B28198D3600AF01E4 /* AnimationViews */ = {
+			isa = PBXGroup;
+			children = (
+				18AD07362818902B00279F9A /* LoadingView.swift */,
+				18AD07382818904E00279F9A /* loadingAnimation.json */,
+				1867C566281979ED00AF01E4 /* launchScreenAnimation.json */,
+			);
+			path = AnimationViews;
 			sourceTree = "<group>";
 		};
 		18C25D172817658200FF3B88 /* Enum */ = {
