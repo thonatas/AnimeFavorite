@@ -136,11 +136,7 @@ extension AnimeListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchAnime(searchBar.text)
     }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchAnime(searchBar.text)
-    }
-    
+
     private func searchAnime(_ anime: String?) {
         if let anime = anime, anime.count >= 3 {
             self.viewModel?.search(anime: anime)
@@ -181,4 +177,3 @@ extension AnimeListViewController: AnimeListViewModelDelegate {
         self.present(viewController, animated: true)
     }
 }
-
