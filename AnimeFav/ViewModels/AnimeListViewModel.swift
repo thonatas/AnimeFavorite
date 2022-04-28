@@ -22,7 +22,6 @@ class AnimeListViewModel {
     // MARK: - Initializers
     init(service: AnimeServiceProtocol = AnimeService()) {
         self.animeService = service
-        self.getList()
     }
     
     // MARK: - Functions
