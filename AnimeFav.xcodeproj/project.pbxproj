@@ -7,23 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		180EE47D25CEE6C4005E6D65 /* Trailer-screen.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 180EE47925CEE6C3005E6D65 /* Trailer-screen.PNG */; };
-		180EE47E25CEE6C4005E6D65 /* Favorites-screen.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 180EE47A25CEE6C4005E6D65 /* Favorites-screen.PNG */; };
-		180EE47F25CEE6C4005E6D65 /* Anime-list.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 180EE47B25CEE6C4005E6D65 /* Anime-list.PNG */; };
-		180EE48025CEE6C4005E6D65 /* Anime-details.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 180EE47C25CEE6C4005E6D65 /* Anime-details.PNG */; };
 		1815F8F225B8BF12007F0B22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815F8F125B8BF12007F0B22 /* AppDelegate.swift */; };
 		1815F8F425B8BF12007F0B22 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815F8F325B8BF12007F0B22 /* SceneDelegate.swift */; };
 		1815F8F625B8BF12007F0B22 /* AnimeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815F8F525B8BF12007F0B22 /* AnimeListViewController.swift */; };
-		1815F8F925B8BF12007F0B22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1815F8F725B8BF12007F0B22 /* Main.storyboard */; };
 		1815F8FB25B8BF13007F0B22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1815F8FA25B8BF13007F0B22 /* Assets.xcassets */; };
 		1815F8FE25B8BF13007F0B22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1815F8FC25B8BF13007F0B22 /* LaunchScreen.storyboard */; };
 		1815F92F25B8C22D007F0B22 /* AnimeListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815F92D25B8C22D007F0B22 /* AnimeListTableViewCell.swift */; };
-		1815F93025B8C22D007F0B22 /* AnimeListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1815F92E25B8C22D007F0B22 /* AnimeListTableViewCell.xib */; };
 		1815F93525B8C2FB007F0B22 /* AnimeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815F93425B8C2FB007F0B22 /* AnimeResponse.swift */; };
 		1815F93A25B8CF37007F0B22 /* AnimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815F93925B8CF37007F0B22 /* AnimeService.swift */; };
 		1815F93F25B8CF41007F0B22 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815F93E25B8CF41007F0B22 /* Anime.swift */; };
 		1815F94525B90A84007F0B22 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815F94425B90A84007F0B22 /* Constants.swift */; };
 		185CC8E125C6450600F120F8 /* AnimeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185CC8E025C6450600F120F8 /* AnimeRepository.swift */; };
+		1867C5652819776000AF01E4 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C5642819776000AF01E4 /* LaunchScreenViewController.swift */; };
+		1867C567281979ED00AF01E4 /* launchScreenAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 1867C566281979ED00AF01E4 /* launchScreenAnimation.json */; };
+		1867C5712819B4BA00AF01E4 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C5702819B4BA00AF01E4 /* UIColor+Extension.swift */; };
+		1867C5742819CE1A00AF01E4 /* AnimeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C5732819CE1A00AF01E4 /* AnimeNavigationController.swift */; };
+		1867C576281A077A00AF01E4 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C575281A077A00AF01E4 /* Theme.swift */; };
+		1867C57B281A07EB00AF01E4 /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C57A281A07EB00AF01E4 /* ThemeProtocol.swift */; };
+		1867C57E281A08CE00AF01E4 /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C57D281A08CE00AF01E4 /* LightTheme.swift */; };
+		1867C580281A092200AF01E4 /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C57F281A092200AF01E4 /* DarkTheme.swift */; };
+		1867C582281A0AB000AF01E4 /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C581281A0AB000AF01E4 /* UIWindow+Extension.swift */; };
+		1867C584281A0C0B00AF01E4 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C583281A0C0B00AF01E4 /* ThemeManager.swift */; };
+		1867C586281A0F3300AF01E4 /* Themeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C585281A0F3300AF01E4 /* Themeable.swift */; };
+		1867C588281A189C00AF01E4 /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C587281A189C00AF01E4 /* ThemesViewController.swift */; };
+		1867C58A281A197F00AF01E4 /* ThemesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C589281A197F00AF01E4 /* ThemesViewModel.swift */; };
 		189E51C925BE4BD30017E67F /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E51C825BE4BD30017E67F /* FavoriteCollectionViewCell.swift */; };
 		189E51CE25BE4C850017E67F /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E51CD25BE4C850017E67F /* FavoriteViewController.swift */; };
 		18AD072E281875CB00279F9A /* AnimeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD072D281875CB00279F9A /* AnimeTabBarController.swift */; };
@@ -39,6 +46,26 @@
 		18C25D1B28177AA100FF3B88 /* AnimeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C25D1A28177AA100FF3B88 /* AnimeAPI.swift */; };
 		18DA3C4F2812FA8400546362 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA3C4E2812FA8400546362 /* CodeView.swift */; };
 		18DA3C512813674700546362 /* AnimeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA3C502813674700546362 /* AnimeInfoView.swift */; };
+		18E1C6F6281B0F94000DF746 /* NarutoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1C6F5281B0F94000DF746 /* NarutoTheme.swift */; };
+		18E1C6F8281B11BF000DF746 /* OnePiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1C6F7281B11BF000DF746 /* OnePiece.swift */; };
+		18E1C6FA281B137E000DF746 /* AotTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1C6F9281B137E000DF746 /* AotTheme.swift */; };
+		18E1C6FC281B148A000DF746 /* DeathNoteTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1C6FB281B148A000DF746 /* DeathNoteTheme.swift */; };
+		18E1C706281B2230000DF746 /* Light_details.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C6FD281B2230000DF746 /* Light_details.png */; };
+		18E1C707281B2230000DF746 /* Light_favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C6FE281B2230000DF746 /* Light_favorites.png */; };
+		18E1C708281B2230000DF746 /* Dark_animeList.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C6FF281B2230000DF746 /* Dark_animeList.png */; };
+		18E1C709281B2230000DF746 /* Light_themes.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C700281B2230000DF746 /* Light_themes.png */; };
+		18E1C70A281B2230000DF746 /* Loading_view.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C701281B2230000DF746 /* Loading_view.png */; };
+		18E1C70B281B2230000DF746 /* Light_animeList.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C702281B2230000DF746 /* Light_animeList.png */; };
+		18E1C70C281B2230000DF746 /* Dark_favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C703281B2230000DF746 /* Dark_favorites.png */; };
+		18E1C70D281B2230000DF746 /* Dark_details.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C704281B2230000DF746 /* Dark_details.png */; };
+		18E1C70E281B2230000DF746 /* Dark_themes.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C705281B2230000DF746 /* Dark_themes.png */; };
+		18E1C716281B2245000DF746 /* Theme_naruto.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C70F281B2245000DF746 /* Theme_naruto.png */; };
+		18E1C717281B2245000DF746 /* Theme_deathNote.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C710281B2245000DF746 /* Theme_deathNote.png */; };
+		18E1C718281B2245000DF746 /* Theme_onePiece.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C711281B2245000DF746 /* Theme_onePiece.png */; };
+		18E1C719281B2245000DF746 /* Theme_aot.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C712281B2245000DF746 /* Theme_aot.png */; };
+		18E1C71A281B2245000DF746 /* Trailer_fullScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C713281B2245000DF746 /* Trailer_fullScreen.png */; };
+		18E1C71B281B2245000DF746 /* Trailer_portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C714281B2245000DF746 /* Trailer_portrait.png */; };
+		18E1C71C281B2245000DF746 /* SplashScreen_animation.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C715281B2245000DF746 /* SplashScreen_animation.png */; };
 		9CEE57F5E1C13C7FAD9DAD8E /* Pods_AnimeFav.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAD8CEA360D7F92D21D689C /* Pods_AnimeFav.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,27 +87,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		180EE47925CEE6C3005E6D65 /* Trailer-screen.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Trailer-screen.PNG"; sourceTree = "<group>"; };
-		180EE47A25CEE6C4005E6D65 /* Favorites-screen.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Favorites-screen.PNG"; sourceTree = "<group>"; };
-		180EE47B25CEE6C4005E6D65 /* Anime-list.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Anime-list.PNG"; sourceTree = "<group>"; };
-		180EE47C25CEE6C4005E6D65 /* Anime-details.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Anime-details.PNG"; sourceTree = "<group>"; };
 		1815F8EE25B8BF12007F0B22 /* AnimeFav.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeFav.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1815F8F125B8BF12007F0B22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1815F8F325B8BF12007F0B22 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1815F8F525B8BF12007F0B22 /* AnimeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListViewController.swift; sourceTree = "<group>"; };
-		1815F8F825B8BF12007F0B22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1815F8FA25B8BF13007F0B22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1815F8FD25B8BF13007F0B22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1815F8FF25B8BF13007F0B22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1815F90425B8BF13007F0B22 /* AnimeFavTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimeFavTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1815F90F25B8BF13007F0B22 /* AnimeFavUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimeFavUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1815F92D25B8C22D007F0B22 /* AnimeListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListTableViewCell.swift; sourceTree = "<group>"; };
-		1815F92E25B8C22D007F0B22 /* AnimeListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimeListTableViewCell.xib; sourceTree = "<group>"; };
 		1815F93425B8C2FB007F0B22 /* AnimeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeResponse.swift; sourceTree = "<group>"; };
 		1815F93925B8CF37007F0B22 /* AnimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeService.swift; sourceTree = "<group>"; };
 		1815F93E25B8CF41007F0B22 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
 		1815F94425B90A84007F0B22 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		185CC8E025C6450600F120F8 /* AnimeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeRepository.swift; sourceTree = "<group>"; };
+		1867C5642819776000AF01E4 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		1867C566281979ED00AF01E4 /* launchScreenAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = launchScreenAnimation.json; sourceTree = "<group>"; };
+		1867C5702819B4BA00AF01E4 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		1867C5732819CE1A00AF01E4 /* AnimeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeNavigationController.swift; sourceTree = "<group>"; };
+		1867C575281A077A00AF01E4 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		1867C57A281A07EB00AF01E4 /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
+		1867C57D281A08CE00AF01E4 /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
+		1867C57F281A092200AF01E4 /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
+		1867C581281A0AB000AF01E4 /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
+		1867C583281A0C0B00AF01E4 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		1867C585281A0F3300AF01E4 /* Themeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themeable.swift; sourceTree = "<group>"; };
+		1867C587281A189C00AF01E4 /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
+		1867C589281A197F00AF01E4 /* ThemesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewModel.swift; sourceTree = "<group>"; };
 		189E51C825BE4BD30017E67F /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		189E51CD25BE4C850017E67F /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		18AD072D281875CB00279F9A /* AnimeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeTabBarController.swift; sourceTree = "<group>"; };
@@ -96,6 +130,26 @@
 		18C25D1A28177AA100FF3B88 /* AnimeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeAPI.swift; sourceTree = "<group>"; };
 		18DA3C4E2812FA8400546362 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		18DA3C502813674700546362 /* AnimeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeInfoView.swift; sourceTree = "<group>"; };
+		18E1C6F5281B0F94000DF746 /* NarutoTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NarutoTheme.swift; sourceTree = "<group>"; };
+		18E1C6F7281B11BF000DF746 /* OnePiece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnePiece.swift; sourceTree = "<group>"; };
+		18E1C6F9281B137E000DF746 /* AotTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AotTheme.swift; sourceTree = "<group>"; };
+		18E1C6FB281B148A000DF746 /* DeathNoteTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathNoteTheme.swift; sourceTree = "<group>"; };
+		18E1C6FD281B2230000DF746 /* Light_details.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Light_details.png; sourceTree = "<group>"; };
+		18E1C6FE281B2230000DF746 /* Light_favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Light_favorites.png; sourceTree = "<group>"; };
+		18E1C6FF281B2230000DF746 /* Dark_animeList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dark_animeList.png; sourceTree = "<group>"; };
+		18E1C700281B2230000DF746 /* Light_themes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Light_themes.png; sourceTree = "<group>"; };
+		18E1C701281B2230000DF746 /* Loading_view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading_view.png; sourceTree = "<group>"; };
+		18E1C702281B2230000DF746 /* Light_animeList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Light_animeList.png; sourceTree = "<group>"; };
+		18E1C703281B2230000DF746 /* Dark_favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dark_favorites.png; sourceTree = "<group>"; };
+		18E1C704281B2230000DF746 /* Dark_details.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dark_details.png; sourceTree = "<group>"; };
+		18E1C705281B2230000DF746 /* Dark_themes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dark_themes.png; sourceTree = "<group>"; };
+		18E1C70F281B2245000DF746 /* Theme_naruto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Theme_naruto.png; sourceTree = "<group>"; };
+		18E1C710281B2245000DF746 /* Theme_deathNote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Theme_deathNote.png; sourceTree = "<group>"; };
+		18E1C711281B2245000DF746 /* Theme_onePiece.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Theme_onePiece.png; sourceTree = "<group>"; };
+		18E1C712281B2245000DF746 /* Theme_aot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Theme_aot.png; sourceTree = "<group>"; };
+		18E1C713281B2245000DF746 /* Trailer_fullScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Trailer_fullScreen.png; sourceTree = "<group>"; };
+		18E1C714281B2245000DF746 /* Trailer_portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Trailer_portrait.png; sourceTree = "<group>"; };
+		18E1C715281B2245000DF746 /* SplashScreen_animation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen_animation.png; sourceTree = "<group>"; };
 		88CE29EF86FCD18460A830C3 /* Pods-AnimeFav.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeFav.release.xcconfig"; path = "Target Support Files/Pods-AnimeFav/Pods-AnimeFav.release.xcconfig"; sourceTree = "<group>"; };
 		BAAD8CEA360D7F92D21D689C /* Pods_AnimeFav.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimeFav.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F61742E608FD04475DD9ED2A /* Pods-AnimeFav.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeFav.debug.xcconfig"; path = "Target Support Files/Pods-AnimeFav/Pods-AnimeFav.debug.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +192,10 @@
 		1801EDD52812F5A6005F0E59 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1867C56B28198D3600AF01E4 /* AnimationViews */,
+				180EE47525CEE5BC005E6D65 /* Screenshots */,
+				1867C56F2819B47F00AF01E4 /* Extensions */,
+				18DA3C4D2812FA5200546362 /* Protocols */,
 				1815F8F125B8BF12007F0B22 /* AppDelegate.swift */,
 				1815F8F325B8BF12007F0B22 /* SceneDelegate.swift */,
 				1815F94425B90A84007F0B22 /* Constants.swift */,
@@ -151,10 +209,22 @@
 		180EE47525CEE5BC005E6D65 /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
-				180EE47A25CEE6C4005E6D65 /* Favorites-screen.PNG */,
-				180EE47C25CEE6C4005E6D65 /* Anime-details.PNG */,
-				180EE47925CEE6C3005E6D65 /* Trailer-screen.PNG */,
-				180EE47B25CEE6C4005E6D65 /* Anime-list.PNG */,
+				18E1C715281B2245000DF746 /* SplashScreen_animation.png */,
+				18E1C712281B2245000DF746 /* Theme_aot.png */,
+				18E1C710281B2245000DF746 /* Theme_deathNote.png */,
+				18E1C70F281B2245000DF746 /* Theme_naruto.png */,
+				18E1C711281B2245000DF746 /* Theme_onePiece.png */,
+				18E1C713281B2245000DF746 /* Trailer_fullScreen.png */,
+				18E1C714281B2245000DF746 /* Trailer_portrait.png */,
+				18E1C6FF281B2230000DF746 /* Dark_animeList.png */,
+				18E1C704281B2230000DF746 /* Dark_details.png */,
+				18E1C703281B2230000DF746 /* Dark_favorites.png */,
+				18E1C705281B2230000DF746 /* Dark_themes.png */,
+				18E1C702281B2230000DF746 /* Light_animeList.png */,
+				18E1C6FD281B2230000DF746 /* Light_details.png */,
+				18E1C6FE281B2230000DF746 /* Light_favorites.png */,
+				18E1C700281B2230000DF746 /* Light_themes.png */,
+				18E1C701281B2230000DF746 /* Loading_view.png */,
 			);
 			path = Screenshots;
 			sourceTree = "<group>";
@@ -183,53 +253,96 @@
 			isa = PBXGroup;
 			children = (
 				1801EDD52812F5A6005F0E59 /* Common */,
-				18C25D172817658200FF3B88 /* Enum */,
-				1815F92425B8BF33007F0B22 /* Models */,
 				18DA3C4B2812F67100546362 /* Networking */,
 				18DA3C4C2812F67B00546362 /* Repository */,
-				18DA3C4D2812FA5200546362 /* Protocols */,
-				18DA3C4A2812F65F00546362 /* ViewModels */,
-				1815F92525B8BF39007F0B22 /* Views */,
-				1815F92625B8BF40007F0B22 /* Scenes */,
-				180EE47525CEE5BC005E6D65 /* Screenshots */,
+				18E1C71D281B34A8000DF746 /* Features */,
 			);
 			path = AnimeFav;
-			sourceTree = "<group>";
-		};
-		1815F92425B8BF33007F0B22 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				1815F93425B8C2FB007F0B22 /* AnimeResponse.swift */,
-				1815F93E25B8CF41007F0B22 /* Anime.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		1815F92525B8BF39007F0B22 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1815F8F725B8BF12007F0B22 /* Main.storyboard */,
-				1815F92D25B8C22D007F0B22 /* AnimeListTableViewCell.swift */,
-				1815F92E25B8C22D007F0B22 /* AnimeListTableViewCell.xib */,
-				189E51C825BE4BD30017E67F /* FavoriteCollectionViewCell.swift */,
 				18DA3C502813674700546362 /* AnimeInfoView.swift */,
-				18AD072D281875CB00279F9A /* AnimeTabBarController.swift */,
-				18AD072F2818761C00279F9A /* AnimeTabItem.swift */,
-				18AD07362818902B00279F9A /* LoadingView.swift */,
-				18AD07382818904E00279F9A /* loadingAnimation.json */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		1815F92625B8BF40007F0B22 /* Scenes */ = {
+		1867C56828198D0000AF01E4 /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				1815F8F525B8BF12007F0B22 /* AnimeListViewController.swift */,
-				18B16CBF25BC7B93001C8816 /* AnimeDetailsViewController.swift */,
-				189E51CD25BE4C850017E67F /* FavoriteViewController.swift */,
-				18C1615D25BF636500ACC018 /* TrailerViewController.swift */,
+				189E51C825BE4BD30017E67F /* FavoriteCollectionViewCell.swift */,
 			);
-			path = Scenes;
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		1867C56928198D1600AF01E4 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1815F92D25B8C22D007F0B22 /* AnimeListTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		1867C56B28198D3600AF01E4 /* AnimationViews */ = {
+			isa = PBXGroup;
+			children = (
+				18AD07362818902B00279F9A /* LoadingView.swift */,
+				18AD07382818904E00279F9A /* loadingAnimation.json */,
+				1867C566281979ED00AF01E4 /* launchScreenAnimation.json */,
+			);
+			path = AnimationViews;
+			sourceTree = "<group>";
+		};
+		1867C56F2819B47F00AF01E4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1867C5702819B4BA00AF01E4 /* UIColor+Extension.swift */,
+				1867C581281A0AB000AF01E4 /* UIWindow+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1867C577281A07BA00AF01E4 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				1867C57C281A08BC00AF01E4 /* Models */,
+				1867C579281A07D400AF01E4 /* Protocols */,
+				1867C578281A07C800AF01E4 /* Enum */,
+				18E1C726281B35BE000DF746 /* Scenes */,
+				1867C583281A0C0B00AF01E4 /* ThemeManager.swift */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
+		1867C578281A07C800AF01E4 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				1867C575281A077A00AF01E4 /* Theme.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		1867C579281A07D400AF01E4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1867C57A281A07EB00AF01E4 /* ThemeProtocol.swift */,
+				1867C585281A0F3300AF01E4 /* Themeable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		1867C57C281A08BC00AF01E4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1867C57D281A08CE00AF01E4 /* LightTheme.swift */,
+				1867C57F281A092200AF01E4 /* DarkTheme.swift */,
+				18E1C6F5281B0F94000DF746 /* NarutoTheme.swift */,
+				18E1C6F7281B11BF000DF746 /* OnePiece.swift */,
+				18E1C6F9281B137E000DF746 /* AotTheme.swift */,
+				18E1C6FB281B148A000DF746 /* DeathNoteTheme.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		18C25D172817658200FF3B88 /* Enum */ = {
@@ -240,19 +353,10 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
-		18DA3C4A2812F65F00546362 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				18C25D11281759BA00FF3B88 /* AnimeDetailsViewModel.swift */,
-				18C25D1328175F0000FF3B88 /* FavoriteViewModel.swift */,
-				18C25D152817635400FF3B88 /* AnimeListViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		18DA3C4B2812F67100546362 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				18E1C728281B368B000DF746 /* Models */,
 				1815F93925B8CF37007F0B22 /* AnimeService.swift */,
 				18C25D1A28177AA100FF3B88 /* AnimeAPI.swift */,
 			);
@@ -262,6 +366,7 @@
 		18DA3C4C2812F67B00546362 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				18E1C727281B367D000DF746 /* Models */,
 				185CC8E025C6450600F120F8 /* AnimeRepository.swift */,
 			);
 			path = Repository;
@@ -273,6 +378,110 @@
 				18DA3C4E2812FA8400546362 /* CodeView.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		18E1C71D281B34A8000DF746 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				18E1C725281B354D000DF746 /* Navigation */,
+				18E1C71E281B34AF000DF746 /* TabBar */,
+				18E1C71F281B34BC000DF746 /* Favorite */,
+				18E1C720281B34C4000DF746 /* AnimeList */,
+				18E1C721281B34CF000DF746 /* AnimeDetails */,
+				1867C577281A07BA00AF01E4 /* Themes */,
+				18E1C723281B34E4000DF746 /* LaunchScreen */,
+				18E1C722281B34D7000DF746 /* Trailer */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		18E1C71E281B34AF000DF746 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				18AD072D281875CB00279F9A /* AnimeTabBarController.swift */,
+				18AD072F2818761C00279F9A /* AnimeTabItem.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		18E1C71F281B34BC000DF746 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				1867C56828198D0000AF01E4 /* CollectionViewCells */,
+				18C25D1328175F0000FF3B88 /* FavoriteViewModel.swift */,
+				189E51CD25BE4C850017E67F /* FavoriteViewController.swift */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		18E1C720281B34C4000DF746 /* AnimeList */ = {
+			isa = PBXGroup;
+			children = (
+				18C25D172817658200FF3B88 /* Enum */,
+				1867C56928198D1600AF01E4 /* TableViewCell */,
+				18C25D152817635400FF3B88 /* AnimeListViewModel.swift */,
+				1815F8F525B8BF12007F0B22 /* AnimeListViewController.swift */,
+			);
+			path = AnimeList;
+			sourceTree = "<group>";
+		};
+		18E1C721281B34CF000DF746 /* AnimeDetails */ = {
+			isa = PBXGroup;
+			children = (
+				1815F92525B8BF39007F0B22 /* Views */,
+				18B16CBF25BC7B93001C8816 /* AnimeDetailsViewController.swift */,
+				18C25D11281759BA00FF3B88 /* AnimeDetailsViewModel.swift */,
+			);
+			path = AnimeDetails;
+			sourceTree = "<group>";
+		};
+		18E1C722281B34D7000DF746 /* Trailer */ = {
+			isa = PBXGroup;
+			children = (
+				18C1615D25BF636500ACC018 /* TrailerViewController.swift */,
+			);
+			path = Trailer;
+			sourceTree = "<group>";
+		};
+		18E1C723281B34E4000DF746 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1867C5642819776000AF01E4 /* LaunchScreenViewController.swift */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		18E1C725281B354D000DF746 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				1867C5732819CE1A00AF01E4 /* AnimeNavigationController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		18E1C726281B35BE000DF746 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				1867C587281A189C00AF01E4 /* ThemesViewController.swift */,
+				1867C589281A197F00AF01E4 /* ThemesViewModel.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		18E1C727281B367D000DF746 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1815F93E25B8CF41007F0B22 /* Anime.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		18E1C728281B368B000DF746 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1815F93425B8C2FB007F0B22 /* AnimeResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E5B156D6123F4E0DCFE285C7 /* Pods */ = {
@@ -389,15 +598,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1815F93025B8C22D007F0B22 /* AnimeListTableViewCell.xib in Resources */,
-				180EE47E25CEE6C4005E6D65 /* Favorites-screen.PNG in Resources */,
+				18E1C709281B2230000DF746 /* Light_themes.png in Resources */,
+				18E1C70B281B2230000DF746 /* Light_animeList.png in Resources */,
 				1815F8FE25B8BF13007F0B22 /* LaunchScreen.storyboard in Resources */,
-				180EE47F25CEE6C4005E6D65 /* Anime-list.PNG in Resources */,
+				18E1C706281B2230000DF746 /* Light_details.png in Resources */,
+				18E1C71B281B2245000DF746 /* Trailer_portrait.png in Resources */,
+				18E1C717281B2245000DF746 /* Theme_deathNote.png in Resources */,
 				1815F8FB25B8BF13007F0B22 /* Assets.xcassets in Resources */,
-				180EE47D25CEE6C4005E6D65 /* Trailer-screen.PNG in Resources */,
 				18AD07392818904E00279F9A /* loadingAnimation.json in Resources */,
-				180EE48025CEE6C4005E6D65 /* Anime-details.PNG in Resources */,
-				1815F8F925B8BF12007F0B22 /* Main.storyboard in Resources */,
+				18E1C716281B2245000DF746 /* Theme_naruto.png in Resources */,
+				18E1C70D281B2230000DF746 /* Dark_details.png in Resources */,
+				18E1C707281B2230000DF746 /* Light_favorites.png in Resources */,
+				18E1C71C281B2245000DF746 /* SplashScreen_animation.png in Resources */,
+				18E1C71A281B2245000DF746 /* Trailer_fullScreen.png in Resources */,
+				18E1C719281B2245000DF746 /* Theme_aot.png in Resources */,
+				18E1C708281B2230000DF746 /* Dark_animeList.png in Resources */,
+				18E1C70C281B2230000DF746 /* Dark_favorites.png in Resources */,
+				1867C567281979ED00AF01E4 /* launchScreenAnimation.json in Resources */,
+				18E1C70E281B2230000DF746 /* Dark_themes.png in Resources */,
+				18E1C70A281B2230000DF746 /* Loading_view.png in Resources */,
+				18E1C718281B2245000DF746 /* Theme_onePiece.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,28 +684,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1867C576281A077A00AF01E4 /* Theme.swift in Sources */,
 				189E51CE25BE4C850017E67F /* FavoriteViewController.swift in Sources */,
 				1815F92F25B8C22D007F0B22 /* AnimeListTableViewCell.swift in Sources */,
+				1867C57B281A07EB00AF01E4 /* ThemeProtocol.swift in Sources */,
+				18E1C6F6281B0F94000DF746 /* NarutoTheme.swift in Sources */,
 				18C25D192817659E00FF3B88 /* Category.swift in Sources */,
 				18C25D12281759BA00FF3B88 /* AnimeDetailsViewModel.swift in Sources */,
 				1815F8F625B8BF12007F0B22 /* AnimeListViewController.swift in Sources */,
+				18E1C6FA281B137E000DF746 /* AotTheme.swift in Sources */,
 				18C25D1B28177AA100FF3B88 /* AnimeAPI.swift in Sources */,
 				185CC8E125C6450600F120F8 /* AnimeRepository.swift in Sources */,
 				1815F93F25B8CF41007F0B22 /* Anime.swift in Sources */,
 				1815F8F225B8BF12007F0B22 /* AppDelegate.swift in Sources */,
+				1867C5712819B4BA00AF01E4 /* UIColor+Extension.swift in Sources */,
 				18C25D162817635400FF3B88 /* AnimeListViewModel.swift in Sources */,
+				1867C5652819776000AF01E4 /* LaunchScreenViewController.swift in Sources */,
 				18DA3C512813674700546362 /* AnimeInfoView.swift in Sources */,
+				1867C58A281A197F00AF01E4 /* ThemesViewModel.swift in Sources */,
 				18AD07302818761C00279F9A /* AnimeTabItem.swift in Sources */,
 				189E51C925BE4BD30017E67F /* FavoriteCollectionViewCell.swift in Sources */,
+				1867C586281A0F3300AF01E4 /* Themeable.swift in Sources */,
+				18E1C6F8281B11BF000DF746 /* OnePiece.swift in Sources */,
+				1867C588281A189C00AF01E4 /* ThemesViewController.swift in Sources */,
 				1815F93A25B8CF37007F0B22 /* AnimeService.swift in Sources */,
 				18C1615E25BF636500ACC018 /* TrailerViewController.swift in Sources */,
 				1815F93525B8C2FB007F0B22 /* AnimeResponse.swift in Sources */,
+				18E1C6FC281B148A000DF746 /* DeathNoteTheme.swift in Sources */,
 				18AD072E281875CB00279F9A /* AnimeTabBarController.swift in Sources */,
 				1815F8F425B8BF12007F0B22 /* SceneDelegate.swift in Sources */,
 				18C25D1428175F0000FF3B88 /* FavoriteViewModel.swift in Sources */,
 				1815F94525B90A84007F0B22 /* Constants.swift in Sources */,
+				1867C582281A0AB000AF01E4 /* UIWindow+Extension.swift in Sources */,
+				1867C57E281A08CE00AF01E4 /* LightTheme.swift in Sources */,
+				1867C580281A092200AF01E4 /* DarkTheme.swift in Sources */,
+				1867C584281A0C0B00AF01E4 /* ThemeManager.swift in Sources */,
 				18B16CC025BC7B93001C8816 /* AnimeDetailsViewController.swift in Sources */,
 				18DA3C4F2812FA8400546362 /* CodeView.swift in Sources */,
+				1867C5742819CE1A00AF01E4 /* AnimeNavigationController.swift in Sources */,
 				18AD07372818902B00279F9A /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -520,14 +756,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1815F8F725B8BF12007F0B22 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1815F8F825B8BF12007F0B22 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1815F8FC25B8BF13007F0B22 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -661,8 +889,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BJFSMC5J9X;
 				INFOPLIST_FILE = "$(SRCROOT)/AnimeFav/Common/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -682,8 +911,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BJFSMC5J9X;
 				INFOPLIST_FILE = "$(SRCROOT)/AnimeFav/Common/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

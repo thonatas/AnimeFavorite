@@ -16,13 +16,13 @@ enum AnimeAPI {
 
 extension AnimeAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "https://api.jikan.moe/v3")!
+        return URL(string: "https://api.jikan.moe/v4")!
     }
     
     var path: String {
         switch self {
         case .search, .getList:
-            return "/search/anime"
+            return "/anime"
         case .getDetails(let id):
             return "/anime/\(id)"
         }
@@ -40,13 +40,15 @@ extension AnimeAPI: TargetType {
         switch self {
         case .search(let anime):
             let parameters = ["q" : anime,
-                              "limit" : "3"]
+                              "limit" : "5",
+                              "genres_exclude" : "12"]
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         case .getList(let category):
             let parameters = ["q" : "",
                               "order_by" : category.rawValue,
                               "sort" : "desc",
-                              "page" : "1"]
+                              "page" : "1",
+                              "genres_exclude" : "12"]
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         case .getDetails:
             return .requestPlain
