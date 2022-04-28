@@ -7,10 +7,15 @@
 
 import Foundation
 
+protocol ThemesViewModelDelegate: AnyObject {
+    func didResetControllers()
+}
+
 class ThemesViewModel {
     // MARK: - Constants and Variables
     let themes: [Theme]
     let currentTheme: Theme
+    weak var delegate: ThemesViewModelDelegate?
     
     // MARK: - Initializers
     init() {
@@ -21,6 +26,7 @@ class ThemesViewModel {
     // MARK: - Functions
     func select(theme: Theme) {
         ThemeManager.applyTheme(theme: theme)
+        self.delegate?.didResetControllers()
     }
 }
 

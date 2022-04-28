@@ -22,6 +22,8 @@ class ThemesViewController: UIViewController, Themeable {
         return tableView
     }()
     
+    private var loadingView = LoadingView()
+    
     // MARK: - Constants and Variables
     private var viewModel: ThemesViewModel?
     
@@ -40,6 +42,7 @@ class ThemesViewController: UIViewController, Themeable {
         super.viewDidLoad()
         self.view.backgroundColor = mainColor
         self.title = "Temas"
+        self.viewModel?.delegate = self
         self.setupView()
     }
 }
@@ -81,6 +84,19 @@ extension ThemesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let theme = viewModel?.themes[indexPath.row] else { return }
         self.viewModel?.select(theme: theme)
+    }
+}
+
+// MARK: - Themes View Model Delegate
+extension ThemesViewController: ThemesViewModelDelegate {
+    func didResetControllers() {
+        self.loadingView.showAnimation(true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.loadingView.showAnimation(false)
+            let mainWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow })
+            mainWindow?.rootViewController = LaunchScreenViewController()
+            mainWindow?.rootViewController?.dismiss(animated: true)
+        }
     }
 }
 
