@@ -192,6 +192,10 @@
 		1801EDD52812F5A6005F0E59 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1867C56B28198D3600AF01E4 /* AnimationViews */,
+				180EE47525CEE5BC005E6D65 /* Screenshots */,
+				1867C56F2819B47F00AF01E4 /* Extensions */,
+				18DA3C4D2812FA5200546362 /* Protocols */,
 				1815F8F125B8BF12007F0B22 /* AppDelegate.swift */,
 				1815F8F325B8BF12007F0B22 /* SceneDelegate.swift */,
 				1815F94425B90A84007F0B22 /* Constants.swift */,
@@ -249,54 +253,19 @@
 			isa = PBXGroup;
 			children = (
 				1801EDD52812F5A6005F0E59 /* Common */,
-				18C25D172817658200FF3B88 /* Enum */,
-				1867C56F2819B47F00AF01E4 /* Extension */,
-				1815F92425B8BF33007F0B22 /* Models */,
 				18DA3C4B2812F67100546362 /* Networking */,
 				18DA3C4C2812F67B00546362 /* Repository */,
-				18DA3C4D2812FA5200546362 /* Protocols */,
-				18DA3C4A2812F65F00546362 /* ViewModels */,
-				1815F92525B8BF39007F0B22 /* Views */,
-				1815F92625B8BF40007F0B22 /* Scenes */,
-				180EE47525CEE5BC005E6D65 /* Screenshots */,
-				1867C577281A07BA00AF01E4 /* Themes */,
+				18E1C71D281B34A8000DF746 /* Features */,
 			);
 			path = AnimeFav;
-			sourceTree = "<group>";
-		};
-		1815F92425B8BF33007F0B22 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				1815F93425B8C2FB007F0B22 /* AnimeResponse.swift */,
-				1815F93E25B8CF41007F0B22 /* Anime.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		1815F92525B8BF39007F0B22 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1867C5722819CE0000AF01E4 /* Navigation */,
-				1867C56B28198D3600AF01E4 /* AnimationViews */,
-				1867C56A28198D2500AF01E4 /* TabBar */,
-				1867C56928198D1600AF01E4 /* TableViewCells */,
-				1867C56828198D0000AF01E4 /* CollectionViewCells */,
 				18DA3C502813674700546362 /* AnimeInfoView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		1815F92625B8BF40007F0B22 /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				1815F8F525B8BF12007F0B22 /* AnimeListViewController.swift */,
-				18B16CBF25BC7B93001C8816 /* AnimeDetailsViewController.swift */,
-				189E51CD25BE4C850017E67F /* FavoriteViewController.swift */,
-				18C1615D25BF636500ACC018 /* TrailerViewController.swift */,
-				1867C5642819776000AF01E4 /* LaunchScreenViewController.swift */,
-				1867C587281A189C00AF01E4 /* ThemesViewController.swift */,
-			);
-			path = Scenes;
 			sourceTree = "<group>";
 		};
 		1867C56828198D0000AF01E4 /* CollectionViewCells */ = {
@@ -307,21 +276,12 @@
 			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
-		1867C56928198D1600AF01E4 /* TableViewCells */ = {
+		1867C56928198D1600AF01E4 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				1815F92D25B8C22D007F0B22 /* AnimeListTableViewCell.swift */,
 			);
-			path = TableViewCells;
-			sourceTree = "<group>";
-		};
-		1867C56A28198D2500AF01E4 /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-				18AD072D281875CB00279F9A /* AnimeTabBarController.swift */,
-				18AD072F2818761C00279F9A /* AnimeTabItem.swift */,
-			);
-			path = TabBar;
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 		1867C56B28198D3600AF01E4 /* AnimationViews */ = {
@@ -334,21 +294,13 @@
 			path = AnimationViews;
 			sourceTree = "<group>";
 		};
-		1867C56F2819B47F00AF01E4 /* Extension */ = {
+		1867C56F2819B47F00AF01E4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				1867C5702819B4BA00AF01E4 /* UIColor+Extension.swift */,
 				1867C581281A0AB000AF01E4 /* UIWindow+Extension.swift */,
 			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		1867C5722819CE0000AF01E4 /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-				1867C5732819CE1A00AF01E4 /* AnimeNavigationController.swift */,
-			);
-			path = Navigation;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		1867C577281A07BA00AF01E4 /* Themes */ = {
@@ -357,6 +309,7 @@
 				1867C57C281A08BC00AF01E4 /* Models */,
 				1867C579281A07D400AF01E4 /* Protocols */,
 				1867C578281A07C800AF01E4 /* Enum */,
+				18E1C726281B35BE000DF746 /* Scenes */,
 				1867C583281A0C0B00AF01E4 /* ThemeManager.swift */,
 			);
 			path = Themes;
@@ -400,20 +353,10 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
-		18DA3C4A2812F65F00546362 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				18C25D11281759BA00FF3B88 /* AnimeDetailsViewModel.swift */,
-				18C25D1328175F0000FF3B88 /* FavoriteViewModel.swift */,
-				18C25D152817635400FF3B88 /* AnimeListViewModel.swift */,
-				1867C589281A197F00AF01E4 /* ThemesViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		18DA3C4B2812F67100546362 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				18E1C728281B368B000DF746 /* Models */,
 				1815F93925B8CF37007F0B22 /* AnimeService.swift */,
 				18C25D1A28177AA100FF3B88 /* AnimeAPI.swift */,
 			);
@@ -423,6 +366,7 @@
 		18DA3C4C2812F67B00546362 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				18E1C727281B367D000DF746 /* Models */,
 				185CC8E025C6450600F120F8 /* AnimeRepository.swift */,
 			);
 			path = Repository;
@@ -434,6 +378,110 @@
 				18DA3C4E2812FA8400546362 /* CodeView.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		18E1C71D281B34A8000DF746 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				18E1C725281B354D000DF746 /* Navigation */,
+				18E1C71E281B34AF000DF746 /* TabBar */,
+				18E1C71F281B34BC000DF746 /* Favorite */,
+				18E1C720281B34C4000DF746 /* AnimeList */,
+				18E1C721281B34CF000DF746 /* AnimeDetails */,
+				1867C577281A07BA00AF01E4 /* Themes */,
+				18E1C723281B34E4000DF746 /* LaunchScreen */,
+				18E1C722281B34D7000DF746 /* Trailer */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		18E1C71E281B34AF000DF746 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				18AD072D281875CB00279F9A /* AnimeTabBarController.swift */,
+				18AD072F2818761C00279F9A /* AnimeTabItem.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		18E1C71F281B34BC000DF746 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				1867C56828198D0000AF01E4 /* CollectionViewCells */,
+				18C25D1328175F0000FF3B88 /* FavoriteViewModel.swift */,
+				189E51CD25BE4C850017E67F /* FavoriteViewController.swift */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		18E1C720281B34C4000DF746 /* AnimeList */ = {
+			isa = PBXGroup;
+			children = (
+				18C25D172817658200FF3B88 /* Enum */,
+				1867C56928198D1600AF01E4 /* TableViewCell */,
+				18C25D152817635400FF3B88 /* AnimeListViewModel.swift */,
+				1815F8F525B8BF12007F0B22 /* AnimeListViewController.swift */,
+			);
+			path = AnimeList;
+			sourceTree = "<group>";
+		};
+		18E1C721281B34CF000DF746 /* AnimeDetails */ = {
+			isa = PBXGroup;
+			children = (
+				1815F92525B8BF39007F0B22 /* Views */,
+				18B16CBF25BC7B93001C8816 /* AnimeDetailsViewController.swift */,
+				18C25D11281759BA00FF3B88 /* AnimeDetailsViewModel.swift */,
+			);
+			path = AnimeDetails;
+			sourceTree = "<group>";
+		};
+		18E1C722281B34D7000DF746 /* Trailer */ = {
+			isa = PBXGroup;
+			children = (
+				18C1615D25BF636500ACC018 /* TrailerViewController.swift */,
+			);
+			path = Trailer;
+			sourceTree = "<group>";
+		};
+		18E1C723281B34E4000DF746 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1867C5642819776000AF01E4 /* LaunchScreenViewController.swift */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		18E1C725281B354D000DF746 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				1867C5732819CE1A00AF01E4 /* AnimeNavigationController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		18E1C726281B35BE000DF746 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				1867C587281A189C00AF01E4 /* ThemesViewController.swift */,
+				1867C589281A197F00AF01E4 /* ThemesViewModel.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		18E1C727281B367D000DF746 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1815F93E25B8CF41007F0B22 /* Anime.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		18E1C728281B368B000DF746 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1815F93425B8C2FB007F0B22 /* AnimeResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E5B156D6123F4E0DCFE285C7 /* Pods */ = {
