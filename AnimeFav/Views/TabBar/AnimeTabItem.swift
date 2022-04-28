@@ -34,15 +34,15 @@ enum AnimeTabItem: String, CaseIterable, Themeable {
         case .favorites:
             return UIImage(systemName: "heart")?
                             .withRenderingMode(.alwaysOriginal)
-                            .withTintColor(tertiaryColor)
+                            .withTintColor(disabledColor)
         case .animeList:
             return UIImage(systemName: "list.bullet.rectangle")?
                             .withRenderingMode(.alwaysOriginal)
-                            .withTintColor(tertiaryColor)
+                            .withTintColor(disabledColor)
         case .themes:
             return UIImage(systemName: "paintbrush")?
                             .withRenderingMode(.alwaysOriginal)
-                            .withTintColor(tertiaryColor)
+                            .withTintColor(disabledColor)
         }
     }
     

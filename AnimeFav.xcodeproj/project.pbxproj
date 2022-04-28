@@ -50,6 +50,10 @@
 		18C25D1B28177AA100FF3B88 /* AnimeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C25D1A28177AA100FF3B88 /* AnimeAPI.swift */; };
 		18DA3C4F2812FA8400546362 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA3C4E2812FA8400546362 /* CodeView.swift */; };
 		18DA3C512813674700546362 /* AnimeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA3C502813674700546362 /* AnimeInfoView.swift */; };
+		18E1C6F6281B0F94000DF746 /* NarutoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1C6F5281B0F94000DF746 /* NarutoTheme.swift */; };
+		18E1C6F8281B11BF000DF746 /* OnePiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1C6F7281B11BF000DF746 /* OnePiece.swift */; };
+		18E1C6FA281B137E000DF746 /* AotTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1C6F9281B137E000DF746 /* AotTheme.swift */; };
+		18E1C6FC281B148A000DF746 /* DeathNoteTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1C6FB281B148A000DF746 /* DeathNoteTheme.swift */; };
 		9CEE57F5E1C13C7FAD9DAD8E /* Pods_AnimeFav.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAD8CEA360D7F92D21D689C /* Pods_AnimeFav.framework */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +122,10 @@
 		18C25D1A28177AA100FF3B88 /* AnimeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeAPI.swift; sourceTree = "<group>"; };
 		18DA3C4E2812FA8400546362 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		18DA3C502813674700546362 /* AnimeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeInfoView.swift; sourceTree = "<group>"; };
+		18E1C6F5281B0F94000DF746 /* NarutoTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NarutoTheme.swift; sourceTree = "<group>"; };
+		18E1C6F7281B11BF000DF746 /* OnePiece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnePiece.swift; sourceTree = "<group>"; };
+		18E1C6F9281B137E000DF746 /* AotTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AotTheme.swift; sourceTree = "<group>"; };
+		18E1C6FB281B148A000DF746 /* DeathNoteTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathNoteTheme.swift; sourceTree = "<group>"; };
 		88CE29EF86FCD18460A830C3 /* Pods-AnimeFav.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeFav.release.xcconfig"; path = "Target Support Files/Pods-AnimeFav/Pods-AnimeFav.release.xcconfig"; sourceTree = "<group>"; };
 		BAAD8CEA360D7F92D21D689C /* Pods_AnimeFav.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimeFav.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F61742E608FD04475DD9ED2A /* Pods-AnimeFav.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeFav.debug.xcconfig"; path = "Target Support Files/Pods-AnimeFav/Pods-AnimeFav.debug.xcconfig"; sourceTree = "<group>"; };
@@ -340,6 +348,10 @@
 			children = (
 				1867C57D281A08CE00AF01E4 /* LightTheme.swift */,
 				1867C57F281A092200AF01E4 /* DarkTheme.swift */,
+				18E1C6F5281B0F94000DF746 /* NarutoTheme.swift */,
+				18E1C6F7281B11BF000DF746 /* OnePiece.swift */,
+				18E1C6F9281B137E000DF746 /* AotTheme.swift */,
+				18E1C6FB281B148A000DF746 /* DeathNoteTheme.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -580,9 +592,11 @@
 				189E51CE25BE4C850017E67F /* FavoriteViewController.swift in Sources */,
 				1815F92F25B8C22D007F0B22 /* AnimeListTableViewCell.swift in Sources */,
 				1867C57B281A07EB00AF01E4 /* ThemeProtocol.swift in Sources */,
+				18E1C6F6281B0F94000DF746 /* NarutoTheme.swift in Sources */,
 				18C25D192817659E00FF3B88 /* Category.swift in Sources */,
 				18C25D12281759BA00FF3B88 /* AnimeDetailsViewModel.swift in Sources */,
 				1815F8F625B8BF12007F0B22 /* AnimeListViewController.swift in Sources */,
+				18E1C6FA281B137E000DF746 /* AotTheme.swift in Sources */,
 				18C25D1B28177AA100FF3B88 /* AnimeAPI.swift in Sources */,
 				185CC8E125C6450600F120F8 /* AnimeRepository.swift in Sources */,
 				1815F93F25B8CF41007F0B22 /* Anime.swift in Sources */,
@@ -595,10 +609,12 @@
 				18AD07302818761C00279F9A /* AnimeTabItem.swift in Sources */,
 				189E51C925BE4BD30017E67F /* FavoriteCollectionViewCell.swift in Sources */,
 				1867C586281A0F3300AF01E4 /* Themeable.swift in Sources */,
+				18E1C6F8281B11BF000DF746 /* OnePiece.swift in Sources */,
 				1867C588281A189C00AF01E4 /* ThemesViewController.swift in Sources */,
 				1815F93A25B8CF37007F0B22 /* AnimeService.swift in Sources */,
 				18C1615E25BF636500ACC018 /* TrailerViewController.swift in Sources */,
 				1815F93525B8C2FB007F0B22 /* AnimeResponse.swift in Sources */,
+				18E1C6FC281B148A000DF746 /* DeathNoteTheme.swift in Sources */,
 				18AD072E281875CB00279F9A /* AnimeTabBarController.swift in Sources */,
 				1815F8F425B8BF12007F0B22 /* SceneDelegate.swift in Sources */,
 				18C25D1428175F0000FF3B88 /* FavoriteViewModel.swift in Sources */,

@@ -21,7 +21,7 @@ final class LaunchScreenViewController: UIViewController, Themeable {
     // MARK: - Life Cycle View
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = primaryColor
+        self.view.backgroundColor = mainColor
         setupView()
     }
     

@@ -18,7 +18,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell, Themeable {
         label.text = "Anime"
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         label.textAlignment = .center
-        label.textColor = quaternaryColor
+        label.textColor = textColor
         label.numberOfLines = 1
         return label
     }()
@@ -34,9 +34,9 @@ class FavoriteCollectionViewCell: UICollectionViewCell, Themeable {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        contentView.backgroundColor = primaryColor
+        contentView.backgroundColor = mainColor
         layer.borderWidth = 1.0
-        layer.borderColor = quaternaryColor.cgColor
+        layer.borderColor = textColor.cgColor
         layer.cornerRadius = 8
         setupView()
     }

@@ -8,9 +8,9 @@
 import UIKit
 
 protocol ThemeProtocol {
-    var primaryColor: UIColor { get }
+    var mainColor: UIColor { get }
     var secondaryColor: UIColor { get }
-    var tertiaryColor: UIColor { get }
-    var quaternaryColor: UIColor { get }
+    var disabledColor: UIColor { get }
+    var textColor: UIColor { get }
     var iconColor: UIColor { get }
 }

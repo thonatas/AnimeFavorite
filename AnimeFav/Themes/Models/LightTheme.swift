@@ -8,7 +8,7 @@
 import UIKit
 
 struct LightTheme: ThemeProtocol {
-    var primaryColor: UIColor {
+    var mainColor: UIColor {
         return UIColor(hex: "FBF8F1")
     }
     
@@ -16,11 +16,11 @@ struct LightTheme: ThemeProtocol {
         return UIColor(hex: "FF8C32")
     }
     
-    var tertiaryColor: UIColor {
+    var disabledColor: UIColor {
         return UIColor(hex: "06113C")
     }
     
-    var quaternaryColor: UIColor {
+    var textColor: UIColor {
         return UIColor(hex: "06113C")
     }
     

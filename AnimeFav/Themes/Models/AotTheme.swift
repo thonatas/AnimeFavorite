@@ -1,23 +1,23 @@
 //
-//  DarkTheme.swift
+//  AotTheme.swift
 //  AnimeFav
 //
-//  Created by Thonatas Borges on 4/27/22.
+//  Created by Thonatas Borges on 4/28/22.
 //
 
 import UIKit
 
-struct DarkTheme: ThemeProtocol {
+struct AotTheme: ThemeProtocol {
     var mainColor: UIColor {
-        return UIColor(hex: "06113C")
+        return UIColor(hex: "42694a")
     }
     
     var secondaryColor: UIColor {
-        return UIColor(hex: "FF8C32")
+        return UIColor(hex: "59a5ac")
     }
     
     var disabledColor: UIColor {
-        return UIColor(hex: "DDDDDD")
+        return UIColor(hex: "ff8e4c")
     }
     
     var textColor: UIColor {
@@ -25,7 +25,6 @@ struct DarkTheme: ThemeProtocol {
     }
     
     var iconColor: UIColor {
-        return UIColor(hex: "FF8C32")
+        return UIColor(hex: "ff8e4c")
     }
 }
-

@@ -13,7 +13,7 @@ class TrailerViewController: UIViewController, Themeable {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Trailer"
-        label.textColor = quaternaryColor
+        label.textColor = textColor
         label.font = UIFont.systemFont(ofSize: 27, weight: .semibold)
         label.textAlignment = .center
         return label
@@ -29,7 +29,7 @@ class TrailerViewController: UIViewController, Themeable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = primaryColor
+        self.view.backgroundColor = mainColor
         if let trailer = animeTrailer,
            let videoId = getVideoID(from: trailer) {
             playerView.load(withVideoId: videoId, playerVars: ["playsinline": "1"])

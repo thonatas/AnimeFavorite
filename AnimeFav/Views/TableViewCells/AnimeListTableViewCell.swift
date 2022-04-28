@@ -16,7 +16,7 @@ class AnimeListTableViewCell: UITableViewCell, Themeable {
         label.text = "Anime"
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         label.textAlignment = .left
-        label.textColor = quaternaryColor
+        label.textColor = textColor
         label.numberOfLines = 0
         return label
     }()
@@ -33,7 +33,7 @@ class AnimeListTableViewCell: UITableViewCell, Themeable {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
-        contentView.backgroundColor = primaryColor
+        contentView.backgroundColor = mainColor
         setupView()
     }
     

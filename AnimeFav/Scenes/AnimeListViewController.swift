@@ -12,7 +12,7 @@ class AnimeListViewController: UIViewController, Themeable {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.backgroundColor = primaryColor
+        tableView.backgroundColor = mainColor
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorColor = secondaryColor
         tableView.register(AnimeListTableViewCell.self, forCellReuseIdentifier: AnimeListTableViewCell.identifier)
@@ -22,8 +22,8 @@ class AnimeListViewController: UIViewController, Themeable {
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.delegate = self
-        searchBar.barTintColor = primaryColor
-        searchBar.searchTextField.textColor = tertiaryColor
+        searchBar.barTintColor = mainColor
+        searchBar.searchTextField.textColor = disabledColor
         searchBar.searchTextField.backgroundColor = secondaryColor.withAlphaComponent(0.2)
         searchBar.searchTextField.leftView?.tintColor = secondaryColor
         searchBar.searchTextField.rightView?.tintColor = secondaryColor
@@ -57,7 +57,7 @@ class AnimeListViewController: UIViewController, Themeable {
     // MARK: - View Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = primaryColor
+        self.view.backgroundColor = mainColor
         self.title = "Lista de Animes"
         self.viewModel?.delegate = self
         self.setupView()

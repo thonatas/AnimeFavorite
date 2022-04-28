@@ -16,7 +16,7 @@ class ThemesViewController: UIViewController, Themeable {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.backgroundColor = primaryColor
+        tableView.backgroundColor = mainColor
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorColor = secondaryColor
         return tableView
@@ -38,7 +38,7 @@ class ThemesViewController: UIViewController, Themeable {
     // MARK: - View Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = primaryColor
+        self.view.backgroundColor = mainColor
         self.title = "Temas"
         self.setupView()
     }
@@ -70,8 +70,8 @@ extension ThemesViewController: UITableViewDataSource {
         let theme = viewModel?.themes[indexPath.row]
         cell.selectionStyle = .gray
         cell.textLabel?.text = theme?.title
-        cell.textLabel?.textColor = viewModel?.currentTheme.appTheme.quaternaryColor
-        cell.backgroundColor = viewModel?.currentTheme.appTheme.primaryColor
+        cell.textLabel?.textColor = viewModel?.currentTheme.appTheme.textColor
+        cell.backgroundColor = viewModel?.currentTheme.appTheme.mainColor
         return cell
     }
 }

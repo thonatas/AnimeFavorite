@@ -7,25 +7,25 @@
 
 import UIKit
 
-protocol Themeable : ThemeProtocol {
+protocol Themeable: ThemeProtocol {
     //
 }
 
 extension Themeable {
-    var primaryColor: UIColor {
-        return ThemeManager.currentTheme().appTheme.primaryColor
+    var mainColor: UIColor {
+        return ThemeManager.currentTheme().appTheme.mainColor
     }
     
     var secondaryColor: UIColor {
         return ThemeManager.currentTheme().appTheme.secondaryColor
     }
     
-    var tertiaryColor: UIColor {
-        return ThemeManager.currentTheme().appTheme.tertiaryColor
+    var disabledColor: UIColor {
+        return ThemeManager.currentTheme().appTheme.disabledColor
     }
     
-    var quaternaryColor: UIColor {
-        return ThemeManager.currentTheme().appTheme.quaternaryColor
+    var textColor: UIColor {
+        return ThemeManager.currentTheme().appTheme.textColor
     }
     
     var iconColor: UIColor {

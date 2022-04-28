@@ -12,7 +12,7 @@ class FavoriteViewController: UIViewController, Themeable {
     private lazy var emptyFavoritesLabel: UILabel = {
         let label = UILabel()
         label.text = "Sem Favoritos adicionados :("
-        label.textColor = quaternaryColor
+        label.textColor = textColor
         label.font = UIFont.systemFont(ofSize: 22, weight: .thin)
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -24,7 +24,7 @@ class FavoriteViewController: UIViewController, Themeable {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = primaryColor
+        collectionView.backgroundColor = mainColor
         collectionView.register(FavoriteCollectionViewCell.self, forCellWithReuseIdentifier: FavoriteCollectionViewCell.identifier)
         return collectionView
     }()
@@ -45,7 +45,7 @@ class FavoriteViewController: UIViewController, Themeable {
     // MARK: - Life Cycle View
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = primaryColor
+        self.view.backgroundColor = mainColor
         self.title = "Favorites"
         self.viewModel?.delegate = self
         self.setupView()
