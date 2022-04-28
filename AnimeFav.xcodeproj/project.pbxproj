@@ -50,6 +50,22 @@
 		18E1C6F8281B11BF000DF746 /* OnePiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1C6F7281B11BF000DF746 /* OnePiece.swift */; };
 		18E1C6FA281B137E000DF746 /* AotTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1C6F9281B137E000DF746 /* AotTheme.swift */; };
 		18E1C6FC281B148A000DF746 /* DeathNoteTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1C6FB281B148A000DF746 /* DeathNoteTheme.swift */; };
+		18E1C706281B2230000DF746 /* Light_details.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C6FD281B2230000DF746 /* Light_details.png */; };
+		18E1C707281B2230000DF746 /* Light_favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C6FE281B2230000DF746 /* Light_favorites.png */; };
+		18E1C708281B2230000DF746 /* Dark_animeList.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C6FF281B2230000DF746 /* Dark_animeList.png */; };
+		18E1C709281B2230000DF746 /* Light_themes.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C700281B2230000DF746 /* Light_themes.png */; };
+		18E1C70A281B2230000DF746 /* Loading_view.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C701281B2230000DF746 /* Loading_view.png */; };
+		18E1C70B281B2230000DF746 /* Light_animeList.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C702281B2230000DF746 /* Light_animeList.png */; };
+		18E1C70C281B2230000DF746 /* Dark_favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C703281B2230000DF746 /* Dark_favorites.png */; };
+		18E1C70D281B2230000DF746 /* Dark_details.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C704281B2230000DF746 /* Dark_details.png */; };
+		18E1C70E281B2230000DF746 /* Dark_themes.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C705281B2230000DF746 /* Dark_themes.png */; };
+		18E1C716281B2245000DF746 /* Theme_naruto.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C70F281B2245000DF746 /* Theme_naruto.png */; };
+		18E1C717281B2245000DF746 /* Theme_deathNote.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C710281B2245000DF746 /* Theme_deathNote.png */; };
+		18E1C718281B2245000DF746 /* Theme_onePiece.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C711281B2245000DF746 /* Theme_onePiece.png */; };
+		18E1C719281B2245000DF746 /* Theme_aot.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C712281B2245000DF746 /* Theme_aot.png */; };
+		18E1C71A281B2245000DF746 /* Trailer_fullScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C713281B2245000DF746 /* Trailer_fullScreen.png */; };
+		18E1C71B281B2245000DF746 /* Trailer_portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C714281B2245000DF746 /* Trailer_portrait.png */; };
+		18E1C71C281B2245000DF746 /* SplashScreen_animation.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1C715281B2245000DF746 /* SplashScreen_animation.png */; };
 		9CEE57F5E1C13C7FAD9DAD8E /* Pods_AnimeFav.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAD8CEA360D7F92D21D689C /* Pods_AnimeFav.framework */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +134,22 @@
 		18E1C6F7281B11BF000DF746 /* OnePiece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnePiece.swift; sourceTree = "<group>"; };
 		18E1C6F9281B137E000DF746 /* AotTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AotTheme.swift; sourceTree = "<group>"; };
 		18E1C6FB281B148A000DF746 /* DeathNoteTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathNoteTheme.swift; sourceTree = "<group>"; };
+		18E1C6FD281B2230000DF746 /* Light_details.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Light_details.png; sourceTree = "<group>"; };
+		18E1C6FE281B2230000DF746 /* Light_favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Light_favorites.png; sourceTree = "<group>"; };
+		18E1C6FF281B2230000DF746 /* Dark_animeList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dark_animeList.png; sourceTree = "<group>"; };
+		18E1C700281B2230000DF746 /* Light_themes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Light_themes.png; sourceTree = "<group>"; };
+		18E1C701281B2230000DF746 /* Loading_view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading_view.png; sourceTree = "<group>"; };
+		18E1C702281B2230000DF746 /* Light_animeList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Light_animeList.png; sourceTree = "<group>"; };
+		18E1C703281B2230000DF746 /* Dark_favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dark_favorites.png; sourceTree = "<group>"; };
+		18E1C704281B2230000DF746 /* Dark_details.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dark_details.png; sourceTree = "<group>"; };
+		18E1C705281B2230000DF746 /* Dark_themes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dark_themes.png; sourceTree = "<group>"; };
+		18E1C70F281B2245000DF746 /* Theme_naruto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Theme_naruto.png; sourceTree = "<group>"; };
+		18E1C710281B2245000DF746 /* Theme_deathNote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Theme_deathNote.png; sourceTree = "<group>"; };
+		18E1C711281B2245000DF746 /* Theme_onePiece.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Theme_onePiece.png; sourceTree = "<group>"; };
+		18E1C712281B2245000DF746 /* Theme_aot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Theme_aot.png; sourceTree = "<group>"; };
+		18E1C713281B2245000DF746 /* Trailer_fullScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Trailer_fullScreen.png; sourceTree = "<group>"; };
+		18E1C714281B2245000DF746 /* Trailer_portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Trailer_portrait.png; sourceTree = "<group>"; };
+		18E1C715281B2245000DF746 /* SplashScreen_animation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen_animation.png; sourceTree = "<group>"; };
 		88CE29EF86FCD18460A830C3 /* Pods-AnimeFav.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeFav.release.xcconfig"; path = "Target Support Files/Pods-AnimeFav/Pods-AnimeFav.release.xcconfig"; sourceTree = "<group>"; };
 		BAAD8CEA360D7F92D21D689C /* Pods_AnimeFav.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimeFav.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F61742E608FD04475DD9ED2A /* Pods-AnimeFav.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeFav.debug.xcconfig"; path = "Target Support Files/Pods-AnimeFav/Pods-AnimeFav.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +205,22 @@
 		180EE47525CEE5BC005E6D65 /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
+				18E1C715281B2245000DF746 /* SplashScreen_animation.png */,
+				18E1C712281B2245000DF746 /* Theme_aot.png */,
+				18E1C710281B2245000DF746 /* Theme_deathNote.png */,
+				18E1C70F281B2245000DF746 /* Theme_naruto.png */,
+				18E1C711281B2245000DF746 /* Theme_onePiece.png */,
+				18E1C713281B2245000DF746 /* Trailer_fullScreen.png */,
+				18E1C714281B2245000DF746 /* Trailer_portrait.png */,
+				18E1C6FF281B2230000DF746 /* Dark_animeList.png */,
+				18E1C704281B2230000DF746 /* Dark_details.png */,
+				18E1C703281B2230000DF746 /* Dark_favorites.png */,
+				18E1C705281B2230000DF746 /* Dark_themes.png */,
+				18E1C702281B2230000DF746 /* Light_animeList.png */,
+				18E1C6FD281B2230000DF746 /* Light_details.png */,
+				18E1C6FE281B2230000DF746 /* Light_favorites.png */,
+				18E1C700281B2230000DF746 /* Light_themes.png */,
+				18E1C701281B2230000DF746 /* Loading_view.png */,
 			);
 			path = Screenshots;
 			sourceTree = "<group>";
@@ -502,10 +550,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E1C709281B2230000DF746 /* Light_themes.png in Resources */,
+				18E1C70B281B2230000DF746 /* Light_animeList.png in Resources */,
 				1815F8FE25B8BF13007F0B22 /* LaunchScreen.storyboard in Resources */,
+				18E1C706281B2230000DF746 /* Light_details.png in Resources */,
+				18E1C71B281B2245000DF746 /* Trailer_portrait.png in Resources */,
+				18E1C717281B2245000DF746 /* Theme_deathNote.png in Resources */,
 				1815F8FB25B8BF13007F0B22 /* Assets.xcassets in Resources */,
 				18AD07392818904E00279F9A /* loadingAnimation.json in Resources */,
+				18E1C716281B2245000DF746 /* Theme_naruto.png in Resources */,
+				18E1C70D281B2230000DF746 /* Dark_details.png in Resources */,
+				18E1C707281B2230000DF746 /* Light_favorites.png in Resources */,
+				18E1C71C281B2245000DF746 /* SplashScreen_animation.png in Resources */,
+				18E1C71A281B2245000DF746 /* Trailer_fullScreen.png in Resources */,
+				18E1C719281B2245000DF746 /* Theme_aot.png in Resources */,
+				18E1C708281B2230000DF746 /* Dark_animeList.png in Resources */,
+				18E1C70C281B2230000DF746 /* Dark_favorites.png in Resources */,
 				1867C567281979ED00AF01E4 /* launchScreenAnimation.json in Resources */,
+				18E1C70E281B2230000DF746 /* Dark_themes.png in Resources */,
+				18E1C70A281B2230000DF746 /* Loading_view.png in Resources */,
+				18E1C718281B2245000DF746 /* Theme_onePiece.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
