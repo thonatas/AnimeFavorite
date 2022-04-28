@@ -30,7 +30,7 @@ final class LaunchScreenViewController: UIViewController, Themeable {
         var delayTime = 3.0
         
         #if DEBUG
-        delayTime = 0.1
+        //delayTime = 0.1
         #endif
         
         self.showAnimation(true)

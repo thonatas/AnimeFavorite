@@ -15,7 +15,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell, Themeable {
     
     private let animeImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.layer.cornerRadius = 5.0
+        imageView.layer.cornerRadius = 8.0
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage(systemName: "arrow.2.circlepath.circle")

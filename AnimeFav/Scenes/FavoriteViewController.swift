@@ -112,16 +112,16 @@ extension FavoriteViewController: UICollectionViewDelegate {
 //MARK: - CollectionView Flow Layout Delegates
 extension FavoriteViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (self.view.frame.width/2) - 24
-        return CGSize(width: width, height: 250)
+        let width = (self.view.frame.width/3) - 32
+        return CGSize(width: width, height: width * 1.5)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 8.0
+        return 10.0
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 8.0
+        return 10.0
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
