@@ -42,8 +42,7 @@ class AnimeListViewController: UIViewController, Themeable {
     
     // MARK: - Constants and Variables
     private var viewModel: AnimeListViewModel?
-    var animeNetwork = AnimeService()
-    var animes: [Anime] = []
+    private var isFirstLoading: Bool = true
     
     // MARK: - Initializers
     init(viewModel: AnimeListViewModel) {
@@ -59,9 +58,18 @@ class AnimeListViewController: UIViewController, Themeable {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = primaryColor
-        self.title = "Top Anime List"
+        self.title = "Lista de Animes"
         self.viewModel?.delegate = self
         self.setupView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if isFirstLoading {
+            loadingView.showAnimation(true)
+            viewModel?.getList(index: segmentedControl.selectedSegmentIndex)
+            isFirstLoading.toggle()
+        }
     }
     
     // MARK: - Actions
