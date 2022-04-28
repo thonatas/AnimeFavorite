@@ -11,6 +11,7 @@ protocol AnimeListViewModelDelegate: AnyObject {
     func didGetAnimeList()
     func didGetAnimeListWithError(_ error: String)
     func didAnimeSelected(_ anime: Anime)
+    func showLoadingView(_ isShow: Bool)
 }
 
 class AnimeListViewModel {
@@ -29,8 +30,11 @@ class AnimeListViewModel {
         let categories = Category.allCases
         guard index < categories.count else { return }
         let category = categories[index]
+        self.delegate?.showLoadingView(true)
+        
         animeService.getList(by: category) { [weak self] result in
             guard let self = self else { return }
+            self.delegate?.showLoadingView(false)
             switch result {
             case .success(let response):
                 self.animes = response.data.map { Anime(fromData: $0) }
@@ -42,8 +46,11 @@ class AnimeListViewModel {
     }
     
     func search(anime: String) {
+        self.delegate?.showLoadingView(true)
+        
         animeService.search(anime: anime) { [weak self] result in
             guard let self = self else { return }
+            self.delegate?.showLoadingView(false)
             switch result {
             case .success(let response):
                 self.animes = response.data.map { Anime(fromData: $0) }

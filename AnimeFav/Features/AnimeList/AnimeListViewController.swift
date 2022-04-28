@@ -66,7 +66,6 @@ class AnimeListViewController: UIViewController, Themeable {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if isFirstLoading {
-            loadingView.showAnimation(true)
             viewModel?.getList(index: segmentedControl.selectedSegmentIndex)
             isFirstLoading.toggle()
         }
@@ -75,8 +74,8 @@ class AnimeListViewController: UIViewController, Themeable {
     // MARK: - Actions
     @objc
     private func segmentedControlValueChanged() {
-        self.loadingView.showAnimation(true)
         viewModel?.getList(index: segmentedControl.selectedSegmentIndex)
+        searchBar.endEditing(true)
     }
 }
 
@@ -136,8 +135,16 @@ extension AnimeListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchAnime(searchBar.text)
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            searchAnime(nil)
+        }
+    }
 
     private func searchAnime(_ anime: String?) {
+        self.view.endEditing(true)
+        
         if let anime = anime, anime.count >= 3 {
             self.viewModel?.search(anime: anime)
         } else {
@@ -154,10 +161,13 @@ extension AnimeListViewController: UISearchBarDelegate {
 
 // MARK: - View Model Delegates
 extension AnimeListViewController: AnimeListViewModelDelegate {
+    func showLoadingView(_ isShow: Bool) {
+        self.loadingView.showAnimation(isShow)
+    }
+    
     func didGetAnimeList() {
         UIView.animate(withDuration: 1.0) {
             self.tableView.reloadData()
-            self.loadingView.showAnimation(false)
             self.scrollToTop()
         }
     }
