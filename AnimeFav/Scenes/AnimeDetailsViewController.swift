@@ -239,11 +239,11 @@ extension AnimeDetailsViewController {
         let heartImage = UIImage(systemName: "heart")?.withRenderingMode(.alwaysOriginal)
         let heartFillImage = UIImage(systemName: "heart.fill")?.withRenderingMode(.alwaysOriginal)
         let favoriteImage = isFavorite ? heartFillImage : heartImage
-        favoriteImageView.image = favoriteImage?.withTintColor(secondaryColor)
+        favoriteImageView.image = favoriteImage?.withTintColor(iconColor)
         fiveStarsCosmosView.isUserInteractionEnabled = isFavorite
-        fiveStarsCosmosView.settings.filledColor = isFavorite ? secondaryColor : tertiaryColor
-        fiveStarsCosmosView.settings.emptyBorderColor = isFavorite ? secondaryColor : tertiaryColor
-        fiveStarsCosmosView.settings.filledBorderColor = isFavorite ? secondaryColor : tertiaryColor
+        fiveStarsCosmosView.settings.filledColor = isFavorite ? iconColor : tertiaryColor
+        fiveStarsCosmosView.settings.emptyBorderColor = isFavorite ? iconColor : tertiaryColor
+        fiveStarsCosmosView.settings.filledBorderColor = isFavorite ? iconColor : tertiaryColor
         viewModel?.setFavoriteAnime(isFavorite)
         episodesStepper.isUserInteractionEnabled = isFavorite
         if !isFavorite {

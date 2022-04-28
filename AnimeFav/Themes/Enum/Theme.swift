@@ -7,12 +7,17 @@
 
 import Foundation
 
-enum Theme: Int {
+enum Theme: Int, CaseIterable {
     case light
     case dark
 }
 
 extension Theme {
+    var title: String {
+        let text = String(describing: self)
+        return text.capitalized(with: nil)
+    }
+    
     var appTheme: ThemeProtocol {
         switch self {
             case .light: return LightTheme()

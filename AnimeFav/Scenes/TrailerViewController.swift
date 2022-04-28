@@ -15,7 +15,7 @@ class TrailerViewController: UIViewController, Themeable {
         label.text = "Trailer"
         label.textColor = quaternaryColor
         label.font = UIFont.systemFont(ofSize: 27, weight: .semibold)
-        label.textAlignment = .left
+        label.textAlignment = .center
         return label
     }()
     

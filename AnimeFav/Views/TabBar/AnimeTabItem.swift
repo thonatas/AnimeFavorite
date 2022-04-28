@@ -10,6 +10,7 @@ import UIKit
 enum AnimeTabItem: String, CaseIterable, Themeable {
     case favorites = "Favoritos"
     case animeList = "Lista"
+    case themes = "Temas"
     
     var viewController: UIViewController {
         switch self {
@@ -21,6 +22,10 @@ enum AnimeTabItem: String, CaseIterable, Themeable {
             let viewModel = AnimeListViewModel()
             let controller = AnimeListViewController(viewModel: viewModel)
             return AnimeNavigationController(rootViewController: controller)
+        case .themes:
+            let viewModel = ThemesViewModel()
+            let controller = ThemesViewController(viewModel: viewModel)
+            return AnimeNavigationController(rootViewController: controller)
         }
     }
     
@@ -31,7 +36,11 @@ enum AnimeTabItem: String, CaseIterable, Themeable {
                             .withRenderingMode(.alwaysOriginal)
                             .withTintColor(tertiaryColor)
         case .animeList:
-            return UIImage(systemName: "list.bullet")?
+            return UIImage(systemName: "list.bullet.rectangle")?
+                            .withRenderingMode(.alwaysOriginal)
+                            .withTintColor(tertiaryColor)
+        case .themes:
+            return UIImage(systemName: "paintbrush")?
                             .withRenderingMode(.alwaysOriginal)
                             .withTintColor(tertiaryColor)
         }
@@ -44,7 +53,11 @@ enum AnimeTabItem: String, CaseIterable, Themeable {
                             .withRenderingMode(.alwaysOriginal)
                             .withTintColor(secondaryColor)
         case .animeList:
-            return UIImage(systemName: "list.bullet")?
+            return UIImage(systemName: "list.bullet.rectangle.fill")?
+                            .withRenderingMode(.alwaysOriginal)
+                            .withTintColor(secondaryColor)
+        case .themes:
+            return UIImage(systemName: "paintbrush.fill")?
                             .withRenderingMode(.alwaysOriginal)
                             .withTintColor(secondaryColor)
         }

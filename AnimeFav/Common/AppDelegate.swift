@@ -11,7 +11,7 @@ import RealmSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        ThemeManager.applyTheme(theme: .light)
+        ThemeManager.setSavedTheme()
         return true
     }
 

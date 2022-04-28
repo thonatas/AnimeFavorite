@@ -18,7 +18,7 @@ class AnimeTabBarController: UITabBarController, Themeable {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupTabBar([.favorites, .animeList])
+        setupTabBar([.favorites, .animeList, .themes])
     }
 
     //MARK: - Methods
@@ -26,7 +26,7 @@ class AnimeTabBarController: UITabBarController, Themeable {
         var listControllers = [UIViewController]()
         items.forEach { (item) in
             let controller = item.viewController
-            controller.tabBarItem = UITabBarItem(title: item.displayTitle, image: item.icon, selectedImage: item.icon)
+            controller.tabBarItem = UITabBarItem(title: item.displayTitle, image: item.icon, selectedImage: item.iconSelected)
             listControllers.append(controller)
         }
         self.viewControllers = listControllers
