@@ -13,16 +13,6 @@ class FavoriteCollectionViewCell: UICollectionViewCell, Themeable {
     // MARK: - Constants and Variables
     static let identifier = "FavoriteCollectionViewCell"
     
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Anime"
-        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        label.textAlignment = .center
-        label.textColor = textColor
-        label.numberOfLines = 1
-        return label
-    }()
-    
     private let animeImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 5.0
@@ -49,28 +39,18 @@ class FavoriteCollectionViewCell: UICollectionViewCell, Themeable {
         let url = URL(string: anime.imageUrl)
         animeImageView.kf.indicatorType = .activity
         animeImageView.kf.setImage(with: url)
-        titleLabel.text = anime.title
     }
 }
 
 // MARK: - Layout
 extension FavoriteCollectionViewCell: CodeView {
     func buildViewHierarchy() {
-        self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(animeImageView)
     }
     
     func buildConstraints() {
         animeImageView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
+            make.top.leading.trailing.bottom.equalToSuperview()
         }
-        
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(animeImageView.snp.bottom).offset(5)
-            make.leading.trailing.bottom.equalToSuperview().inset(5)
-        }
-        
-        titleLabel.setContentHuggingPriority(.required, for: .horizontal)
-        titleLabel.setContentHuggingPriority(.required, for: .vertical)
     }
 }
