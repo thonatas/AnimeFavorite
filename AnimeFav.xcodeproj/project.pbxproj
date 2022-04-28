@@ -26,6 +26,13 @@
 		1867C567281979ED00AF01E4 /* launchScreenAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 1867C566281979ED00AF01E4 /* launchScreenAnimation.json */; };
 		1867C5712819B4BA00AF01E4 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C5702819B4BA00AF01E4 /* UIColor+Extension.swift */; };
 		1867C5742819CE1A00AF01E4 /* AnimeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C5732819CE1A00AF01E4 /* AnimeNavigationController.swift */; };
+		1867C576281A077A00AF01E4 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C575281A077A00AF01E4 /* Theme.swift */; };
+		1867C57B281A07EB00AF01E4 /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C57A281A07EB00AF01E4 /* ThemeProtocol.swift */; };
+		1867C57E281A08CE00AF01E4 /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C57D281A08CE00AF01E4 /* LightTheme.swift */; };
+		1867C580281A092200AF01E4 /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C57F281A092200AF01E4 /* DarkTheme.swift */; };
+		1867C582281A0AB000AF01E4 /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C581281A0AB000AF01E4 /* UIWindow+Extension.swift */; };
+		1867C584281A0C0B00AF01E4 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C583281A0C0B00AF01E4 /* ThemeManager.swift */; };
+		1867C586281A0F3300AF01E4 /* Themeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1867C585281A0F3300AF01E4 /* Themeable.swift */; };
 		189E51C925BE4BD30017E67F /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E51C825BE4BD30017E67F /* FavoriteCollectionViewCell.swift */; };
 		189E51CE25BE4C850017E67F /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E51CD25BE4C850017E67F /* FavoriteViewController.swift */; };
 		18AD072E281875CB00279F9A /* AnimeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD072D281875CB00279F9A /* AnimeTabBarController.swift */; };
@@ -85,6 +92,13 @@
 		1867C566281979ED00AF01E4 /* launchScreenAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = launchScreenAnimation.json; sourceTree = "<group>"; };
 		1867C5702819B4BA00AF01E4 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		1867C5732819CE1A00AF01E4 /* AnimeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimeNavigationController.swift; sourceTree = "<group>"; };
+		1867C575281A077A00AF01E4 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		1867C57A281A07EB00AF01E4 /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
+		1867C57D281A08CE00AF01E4 /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
+		1867C57F281A092200AF01E4 /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
+		1867C581281A0AB000AF01E4 /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
+		1867C583281A0C0B00AF01E4 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		1867C585281A0F3300AF01E4 /* Themeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themeable.swift; sourceTree = "<group>"; };
 		189E51C825BE4BD30017E67F /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		189E51CD25BE4C850017E67F /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		18AD072D281875CB00279F9A /* AnimeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeTabBarController.swift; sourceTree = "<group>"; };
@@ -197,6 +211,7 @@
 				1815F92525B8BF39007F0B22 /* Views */,
 				1815F92625B8BF40007F0B22 /* Scenes */,
 				180EE47525CEE5BC005E6D65 /* Screenshots */,
+				1867C577281A07BA00AF01E4 /* Themes */,
 			);
 			path = AnimeFav;
 			sourceTree = "<group>";
@@ -274,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				1867C5702819B4BA00AF01E4 /* UIColor+Extension.swift */,
+				1867C581281A0AB000AF01E4 /* UIWindow+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -284,6 +300,43 @@
 				1867C5732819CE1A00AF01E4 /* AnimeNavigationController.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		1867C577281A07BA00AF01E4 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				1867C57C281A08BC00AF01E4 /* Models */,
+				1867C579281A07D400AF01E4 /* Protocols */,
+				1867C578281A07C800AF01E4 /* Enum */,
+				1867C583281A0C0B00AF01E4 /* ThemeManager.swift */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
+		1867C578281A07C800AF01E4 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				1867C575281A077A00AF01E4 /* Theme.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		1867C579281A07D400AF01E4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1867C57A281A07EB00AF01E4 /* ThemeProtocol.swift */,
+				1867C585281A0F3300AF01E4 /* Themeable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		1867C57C281A08BC00AF01E4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1867C57D281A08CE00AF01E4 /* LightTheme.swift */,
+				1867C57F281A092200AF01E4 /* DarkTheme.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		18C25D172817658200FF3B88 /* Enum */ = {
@@ -517,8 +570,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1867C576281A077A00AF01E4 /* Theme.swift in Sources */,
 				189E51CE25BE4C850017E67F /* FavoriteViewController.swift in Sources */,
 				1815F92F25B8C22D007F0B22 /* AnimeListTableViewCell.swift in Sources */,
+				1867C57B281A07EB00AF01E4 /* ThemeProtocol.swift in Sources */,
 				18C25D192817659E00FF3B88 /* Category.swift in Sources */,
 				18C25D12281759BA00FF3B88 /* AnimeDetailsViewModel.swift in Sources */,
 				1815F8F625B8BF12007F0B22 /* AnimeListViewController.swift in Sources */,
@@ -532,6 +587,7 @@
 				18DA3C512813674700546362 /* AnimeInfoView.swift in Sources */,
 				18AD07302818761C00279F9A /* AnimeTabItem.swift in Sources */,
 				189E51C925BE4BD30017E67F /* FavoriteCollectionViewCell.swift in Sources */,
+				1867C586281A0F3300AF01E4 /* Themeable.swift in Sources */,
 				1815F93A25B8CF37007F0B22 /* AnimeService.swift in Sources */,
 				18C1615E25BF636500ACC018 /* TrailerViewController.swift in Sources */,
 				1815F93525B8C2FB007F0B22 /* AnimeResponse.swift in Sources */,
@@ -539,6 +595,10 @@
 				1815F8F425B8BF12007F0B22 /* SceneDelegate.swift in Sources */,
 				18C25D1428175F0000FF3B88 /* FavoriteViewModel.swift in Sources */,
 				1815F94525B90A84007F0B22 /* Constants.swift in Sources */,
+				1867C582281A0AB000AF01E4 /* UIWindow+Extension.swift in Sources */,
+				1867C57E281A08CE00AF01E4 /* LightTheme.swift in Sources */,
+				1867C580281A092200AF01E4 /* DarkTheme.swift in Sources */,
+				1867C584281A0C0B00AF01E4 /* ThemeManager.swift in Sources */,
 				18B16CC025BC7B93001C8816 /* AnimeDetailsViewController.swift in Sources */,
 				18DA3C4F2812FA8400546362 /* CodeView.swift in Sources */,
 				1867C5742819CE1A00AF01E4 /* AnimeNavigationController.swift in Sources */,

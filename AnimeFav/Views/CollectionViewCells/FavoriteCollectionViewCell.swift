@@ -9,16 +9,16 @@ import UIKit
 import Kingfisher
 import SnapKit
 
-class FavoriteCollectionViewCell: UICollectionViewCell {
+class FavoriteCollectionViewCell: UICollectionViewCell, Themeable {
     // MARK: - Constants and Variables
     static let identifier = "FavoriteCollectionViewCell"
     
-    private let titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Anime"
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         label.textAlignment = .center
-        label.textColor = .quaternaryColor
+        label.textColor = quaternaryColor
         label.numberOfLines = 1
         return label
     }()
@@ -34,9 +34,9 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        contentView.backgroundColor = .primaryColor
+        contentView.backgroundColor = primaryColor
         layer.borderWidth = 1.0
-        layer.borderColor = UIColor.quaternaryColor.cgColor
+        layer.borderColor = quaternaryColor.cgColor
         layer.cornerRadius = 8
         setupView()
     }

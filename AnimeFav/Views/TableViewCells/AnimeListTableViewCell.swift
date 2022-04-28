@@ -7,16 +7,16 @@
 
 import UIKit
 
-class AnimeListTableViewCell: UITableViewCell {
+class AnimeListTableViewCell: UITableViewCell, Themeable {
     // MARK: - Constants and Variables
     static let identifier = "AnimeListTableViewCell"
     
-    private let titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Anime"
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         label.textAlignment = .left
-        label.textColor = .quaternaryColor
+        label.textColor = quaternaryColor
         label.numberOfLines = 0
         return label
     }()
@@ -33,7 +33,7 @@ class AnimeListTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
-        contentView.backgroundColor = .primaryColor
+        contentView.backgroundColor = primaryColor
         setupView()
     }
     

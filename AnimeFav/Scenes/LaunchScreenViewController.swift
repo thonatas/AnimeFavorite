@@ -9,7 +9,7 @@ import UIKit
 import Lottie
 import SnapKit
 
-final class LaunchScreenViewController: UIViewController {
+final class LaunchScreenViewController: UIViewController, Themeable {
     // MARK: - Views
     private lazy var animationView: LOTAnimationView = {
         let uiview = LOTAnimationView(name: "launchScreenAnimation", bundle: Bundle(for: LoadingView.self))
@@ -21,7 +21,7 @@ final class LaunchScreenViewController: UIViewController {
     // MARK: - Life Cycle View
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .primaryColor
+        self.view.backgroundColor = primaryColor
         setupView()
     }
     

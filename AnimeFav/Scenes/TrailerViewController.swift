@@ -8,12 +8,12 @@
 import UIKit
 import youtube_ios_player_helper
 
-class TrailerViewController: UIViewController {
+class TrailerViewController: UIViewController, Themeable {
     // MARK: - Views
-    private let titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Trailer"
-        label.textColor = .quaternaryColor
+        label.textColor = quaternaryColor
         label.font = UIFont.systemFont(ofSize: 27, weight: .semibold)
         label.textAlignment = .left
         return label
@@ -29,7 +29,7 @@ class TrailerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .primaryColor
+        self.view.backgroundColor = primaryColor
         if let trailer = animeTrailer,
            let videoId = getVideoID(from: trailer) {
             playerView.load(withVideoId: videoId, playerVars: ["playsinline": "1"])

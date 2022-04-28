@@ -6,15 +6,15 @@ import Kingfisher
 import RealmSwift
 import SnapKit
 
-class AnimeListViewController: UIViewController {
+class AnimeListViewController: UIViewController, Themeable {
     // MARK: - Views
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.backgroundColor = .primaryColor
+        tableView.backgroundColor = primaryColor
         tableView.showsVerticalScrollIndicator = false
-        tableView.separatorColor = .secondaryColor
+        tableView.separatorColor = secondaryColor
         tableView.register(AnimeListTableViewCell.self, forCellReuseIdentifier: AnimeListTableViewCell.identifier)
         return tableView
     }()
@@ -22,18 +22,18 @@ class AnimeListViewController: UIViewController {
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.delegate = self
-        searchBar.barTintColor = .primaryColor
-        searchBar.searchTextField.textColor = .tertiaryColor
-        searchBar.searchTextField.backgroundColor = .secondaryColor.withAlphaComponent(0.2)
-        searchBar.searchTextField.leftView?.tintColor = .secondaryColor
-        searchBar.searchTextField.rightView?.tintColor = .secondaryColor
+        searchBar.barTintColor = primaryColor
+        searchBar.searchTextField.textColor = tertiaryColor
+        searchBar.searchTextField.backgroundColor = secondaryColor.withAlphaComponent(0.2)
+        searchBar.searchTextField.leftView?.tintColor = secondaryColor
+        searchBar.searchTextField.rightView?.tintColor = secondaryColor
         return searchBar
     }()
     
     private lazy var segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["by Members", "by Score", "by Rating"])
         segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.backgroundColor = .secondaryColor
+        segmentedControl.backgroundColor = secondaryColor
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         return segmentedControl
     }()
@@ -58,7 +58,7 @@ class AnimeListViewController: UIViewController {
     // MARK: - View Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .primaryColor
+        self.view.backgroundColor = primaryColor
         self.title = "Top Anime List"
         self.viewModel?.delegate = self
         self.setupView()

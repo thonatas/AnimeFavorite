@@ -7,11 +7,11 @@
 
 import UIKit
 
-class AnimeTabBarController: UITabBarController {
+class AnimeTabBarController: UITabBarController, Themeable {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .primaryColor
+        self.view.backgroundColor = primaryColor
         self.setTabBarAppearance()
         delegate = self
     }
@@ -36,7 +36,7 @@ class AnimeTabBarController: UITabBarController {
         if #available(iOS 13.0, *) {
             let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
             tabBarAppearance.configureWithDefaultBackground()
-            tabBarAppearance.backgroundColor = .primaryColor.withAlphaComponent(0.8)
+            tabBarAppearance.backgroundColor = primaryColor.withAlphaComponent(0.8)
             UITabBar.appearance().standardAppearance = tabBarAppearance
             overrideUserInterfaceStyle = .light
             if #available(iOS 15.0, *) {

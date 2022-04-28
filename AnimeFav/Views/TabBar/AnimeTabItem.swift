@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum AnimeTabItem: String, CaseIterable {
+enum AnimeTabItem: String, CaseIterable, Themeable {
     case favorites = "Favoritos"
     case animeList = "Lista"
     
@@ -29,11 +29,11 @@ enum AnimeTabItem: String, CaseIterable {
         case .favorites:
             return UIImage(systemName: "heart")?
                             .withRenderingMode(.alwaysOriginal)
-                            .withTintColor(.tertiaryColor)
+                            .withTintColor(tertiaryColor)
         case .animeList:
             return UIImage(systemName: "list.bullet")?
                             .withRenderingMode(.alwaysOriginal)
-                            .withTintColor(.tertiaryColor)
+                            .withTintColor(tertiaryColor)
         }
     }
     
@@ -42,11 +42,11 @@ enum AnimeTabItem: String, CaseIterable {
         case .favorites:
             return UIImage(systemName: "heart.fill")?
                             .withRenderingMode(.alwaysOriginal)
-                            .withTintColor(.secondaryColor)
+                            .withTintColor(secondaryColor)
         case .animeList:
             return UIImage(systemName: "list.bullet")?
                             .withRenderingMode(.alwaysOriginal)
-                            .withTintColor(.secondaryColor)
+                            .withTintColor(secondaryColor)
         }
     }
     

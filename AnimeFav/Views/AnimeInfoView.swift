@@ -8,21 +8,21 @@
 import Foundation
 import SnapKit
 
-class AnimeInfoView: UIView {
+class AnimeInfoView: UIView, Themeable {
     //MARK: - UI Components
-    private let titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .quaternaryColor
+        label.textColor = quaternaryColor
         label.font = UIFont.systemFont(ofSize: 15, weight: .light)
         label.textAlignment = .center
         return label
     }()
     
-    private let descriptionLabel: UILabel = {
+    private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .quaternaryColor
+        label.textColor = quaternaryColor
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         label.textAlignment = .center
         return label
