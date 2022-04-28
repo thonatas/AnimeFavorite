@@ -12,7 +12,7 @@ import Moya
 protocol AnimeServiceProtocol {
     func search(anime: String, _ completion: @escaping(Swift.Result<AnimesListResponse, Error>) -> Void)
     func getList(by category: Category, _ completion: @escaping(Swift.Result<AnimesListResponse, Error>) -> Void)
-    func getDetails(by id: Int, _ completion: @escaping(Swift.Result<AnimeResponse, Error>) -> Void)
+    func getDetails(by id: Int, _ completion: @escaping(Swift.Result<AnimeDataResponse, Error>) -> Void)
 }
 
 class AnimeService: AnimeServiceProtocol {
@@ -52,12 +52,12 @@ class AnimeService: AnimeServiceProtocol {
         }
     }
     
-    func getDetails(by id: Int, _ completion: @escaping(Swift.Result<AnimeResponse, Error>) -> Void) {
+    func getDetails(by id: Int, _ completion: @escaping(Swift.Result<AnimeDataResponse, Error>) -> Void) {
         provider.request(.getDetails(id: id)) { result in
             switch result {
             case .success(let moyaResponse):
                 do {
-                    let moyaResponse = try JSONDecoder().decode(AnimeResponse.self, from: moyaResponse.data)
+                    let moyaResponse = try JSONDecoder().decode(AnimeDataResponse.self, from: moyaResponse.data)
                     completion(.success(moyaResponse))
                 } catch {
                     completion(.failure(error))
