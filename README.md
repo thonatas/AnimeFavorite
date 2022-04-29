@@ -37,7 +37,7 @@ This project could be used by anyone! MIT License
 
 ## Screenshots
 ### Basic Themes
-| Basic Themes | Favorites  |  Animes List  |  Anime Details  |
-| ----------  | ----------  |  ---------  |  -------  |
-| _Light_ |  ![1](AnimeFav/Common/Screenshots/Light_favorites.png) | ![2](AnimeFav/Common/Screenshots/Light_animeList.png)  |  ![3](AnimeFav/Common/Screenshots/Light_details.png) |
-| _Dark_ |  ![4](AnimeFav/Common/Screenshots/Dark_favorites.png) |  ![5](AnimeFav/Common/Screenshots/Dark_animeList.png) |  ![6](AnimeFav/Common/Screenshots/Dark_details.png) |
+| Basic Themes | Favorites  |  Animes List  |  Anime Details  |  Themes  |
+| ----------  | ----------  |  ---------  |  -------  |  -------  |
+| _Light_ |  ![1](AnimeFav/Common/Screenshots/Light_favorites.png) | ![2](AnimeFav/Common/Screenshots/Light_animeList.png)  |  ![3](AnimeFav/Common/Screenshots/Light_details.png) |  ![7](AnimeFav/Common/Screenshots/Light_themes.png) |
+| _Dark_ |  ![4](AnimeFav/Common/Screenshots/Dark_favorites.png) |  ![5](AnimeFav/Common/Screenshots/Dark_animeList.png) |  ![6](AnimeFav/Common/Screenshots/Dark_details.png) |  ![8](AnimeFav/Common/Screenshots/Dark_themes.png) |
