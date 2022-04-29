@@ -2,7 +2,10 @@
 > iOS App Anime using [Jikan API](https://docs.api.jikan.moe)
 
 ## Key Features
-UIKit + MVVM + CocoaPods
+- [Swift](https://www.apple.com/br/swift/)
+- [UIKit](https://developer.apple.com/documentation/uikit/)
+- MVVM
+- [CocoaPods](https://cocoapods.org)
 
 ## Frameworks
 - Kingfisher - https://github.com/onevcat/Kingfisher
