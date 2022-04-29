@@ -16,16 +16,9 @@
 - Moya - https://github.com/Moya/Moya
 - Lottie - https://github.com/airbnb/lottie-ios
 
-## Screenshot
-
-| Primeiro cabeçalho  |  Segundo cabeçalho  |
-| ------------------- | ------------------- |
-|  Célula de conteúdo |  Célula de conteúdo |
-|  Célula de conteúdo |  Célula de conteúdo |
-
 ## Installation
 ### You must have already installed
-- Xcode 12.5+
+- [Xcode 12.5+](https://developer.apple.com/xcode/)
 ### Recommendations
 It is recommended that you have at least the macOS BigSur
 ### Steps
@@ -41,3 +34,10 @@ open .xcworkspace
 
 ## License
 This project could be used by anyone! MIT License
+
+## Screenshots
+### Basic Themes
+| Basic Themes | Favorites  |  Animes List  |  Anime Details  |
+| ----------  | ----------  |  ---------  |  -------  |
+| _Light_ |  ![1](AnimeFav/Common/Screenshots/Light_favorites.png) | ![2](AnimeFav/Common/Screenshots/Light_animeList.png)  |  ![3](AnimeFav/Common/Screenshots/Light_details.png) |
+| _Dark_ |  ![4](AnimeFav/Common/Screenshots/Dark_favorites.png) |  ![5](AnimeFav/Common/Screenshots/Dark_animeList.png) |  ![6](AnimeFav/Common/Screenshots/Dark_details.png) |
