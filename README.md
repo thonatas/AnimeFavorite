@@ -1,4 +1,10 @@
 # Anime Favorite
+![iOS](https://img.shields.io/badge/platform-iOS-black)
+![Swift](https://img.shields.io/badge/language-Swift-orange)
+![XCode](https://img.shields.io/badge/tool-Xcode-lightblue)
+![Realm](https://img.shields.io/badge/tool-Realm-blueviolet)
+![Moya](https://img.shields.io/badge/network%20layer-Moya-green)
+![Lottie](https://img.shields.io/badge/animation-Lottie-00ddb3)
 > iOS App Anime using [Jikan API](https://docs.api.jikan.moe)
 
 ## Key Features
