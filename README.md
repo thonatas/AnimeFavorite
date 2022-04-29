@@ -41,3 +41,13 @@ This project could be used by anyone! MIT License
 | ----------  | ----------  |  ---------  |  -------  |  -------  |
 | _Light_ |  ![1](AnimeFav/Common/Screenshots/Light_favorites.png) | ![2](AnimeFav/Common/Screenshots/Light_animeList.png)  |  ![3](AnimeFav/Common/Screenshots/Light_details.png) |  ![7](AnimeFav/Common/Screenshots/Light_themes.png) |
 | _Dark_ |  ![4](AnimeFav/Common/Screenshots/Dark_favorites.png) |  ![5](AnimeFav/Common/Screenshots/Dark_animeList.png) |  ![6](AnimeFav/Common/Screenshots/Dark_details.png) |  ![8](AnimeFav/Common/Screenshots/Dark_themes.png) |
+
+### Custom Themes
+| Custom Themes | Naruto  |  One Piece  |  AOT  |  Death Note  |
+| ----------  | ----------  |  ---------  |  -------  |  -------  |
+| _Anime Themes_ |  ![9](AnimeFav/Common/Screenshots/Theme_naruto.png) | ![10](AnimeFav/Common/Screenshots/Theme_onePiece.png)  |  ![11](AnimeFav/Common/Screenshots/Theme_aot.png) |  ![12](AnimeFav/Common/Screenshots/Theme_deathNote.png) |
+
+### Others
+| Others | Trailer Portrait  |  Trailer Full Screen  |  Loading  |  Launching Animation  |
+| ----------  | ----------  |  ---------  |  -------  |  -------  |
+| _Screens_ |  ![13](AnimeFav/Common/Screenshots/Trailer_portrait.png) | ![14](AnimeFav/Common/Screenshots/Trailer_fullScreen.png)  |  ![15](AnimeFav/Common/Screenshots/Loading_view.png) |  ![16](AnimeFav/Common/Screenshots/SplashScreen_animation.png) |
