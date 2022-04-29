@@ -12,6 +12,7 @@
 - [UIKit](https://developer.apple.com/documentation/uikit/)
 - MVVM
 - [CocoaPods](https://cocoapods.org)
+- View Code
 
 ## Frameworks
 - Kingfisher - https://github.com/onevcat/Kingfisher
@@ -37,6 +38,14 @@ git clone https://github.com/thonatas/AnimeFavorite.git
 open .xcworkspace
 ```
 3. Run simulator
+
+## Views
+| Views | Description  |
+| ----------  | ----------  | 
+| [Favorite](AnimeFav/Features/Favorite/FavoriteViewController.swift) | Present favorited animes by user, buildind with UICollectionView and UICollectionViewCell. |
+| [Animes List](AnimeFav/Features/AnimeList/AnimeListViewController.swift) | Present a list of anime ranked by member, score and rating. Also, it is possible to search for other animes that are not in the list. Building with UITableView and UITableViewCell |
+| [Anime Details](AnimeFav/Features/AnimeDetails/AnimeDetailsViewController.swift) | Shows selected anime details such as number of episodes, rating, synopsis, etc. You get to favorite the selected anime, in which case, the selected anime is saved locally. |
+| [Themes](AnimeFav/Features/Themes/Scenes/ThemesViewController.swift) | Displays the list of available themes. |
 
 ## License
 This project could be used by anyone! MIT License
